@@ -10,7 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 
-public class Query{
+public abstract class Query{
     // Valores para la conexión a la base de datos (su nombre, URL, Usuario y Contraseña)
     private static final String DB_NAME = "arqueologiaDB";
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/" + DB_NAME;
@@ -25,13 +25,14 @@ public class Query{
     private static ResultSet result = null;
 
     
- public Query() throws SQLException {
+ public static void initQuery() throws SQLException {
         // Una vez creado el formulario e inicializado sus componentes ↑↑↑
         // nos enlazamos con el DBMS para conectarnos a la base de datos solicitada
         // utilizando las credenciales correspondientes
+        
         try{
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PWD);
-        }catch (Exception e){
+        }catch (SQLException e){
             JOptionPane.showMessageDialog(null,"Hubo un error en la conexion con la base de datos", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -100,6 +101,9 @@ public class Query{
         );
         
         try{
+            
+            // Inserts en tabla Sitios
+            
             query.execute("INSERT INTO Sitios (s_cod, s_localidad) VALUES ('ST1', 'Orange');");
             query.execute("INSERT INTO Sitios (s_cod, s_localidad) VALUES ('ST2', 'White Plains');");
             query.execute("INSERT INTO Sitios (s_cod, s_localidad) VALUES ('ST3', 'Eugene');");
@@ -119,6 +123,8 @@ public class Query{
             query.execute("INSERT INTO Sitios (s_cod, s_localidad) VALUES ('ST17', 'San Jose');");
             query.execute("INSERT INTO Sitios (s_cod, s_localidad) VALUES ('ST18', 'Washington');");
             query.execute("INSERT INTO Sitios (s_cod, s_localidad) VALUES ('ST19', 'Prescott');");
+            
+            // Inserts en tabla Cuadriculas
             
             query.execute("INSERT INTO Cuadriculas (Cu_Cod, S_Cod_Dividido) VALUES ('CU1', 'ST4');");
             query.execute("INSERT INTO Cuadriculas (Cu_Cod, S_Cod_Dividido) VALUES ('CU2', 'ST1');");
@@ -171,6 +177,8 @@ public class Query{
             query.execute("INSERT INTO Cuadriculas (Cu_Cod, S_Cod_Dividido) VALUES ('CU49', 'ST17');");
             query.execute("INSERT INTO Cuadriculas (Cu_Cod, S_Cod_Dividido) VALUES ('CU50', 'ST18');");
             
+            // Inserts en tabla Cajas
+            
             query.execute("INSERT INTO Cajas (Ca_Cod, Ca_Fecha, Ca_Lugar) VALUES ('CA1', '24-07-2022', 'Zona6');");
             query.execute("INSERT INTO Cajas (Ca_Cod, Ca_Fecha, Ca_Lugar) VALUES ('CA2', '03-11-2022', 'Zona1');");
             query.execute("INSERT INTO Cajas (Ca_Cod, Ca_Fecha, Ca_Lugar) VALUES ('CA3', '11-08-2022', 'Zona7');");
@@ -198,6 +206,8 @@ public class Query{
             query.execute("INSERT INTO Cajas (Ca_Cod, Ca_Fecha, Ca_Lugar) VALUES ('CA26', '17-04-2023', 'Zona7');");
             query.execute("INSERT INTO Cajas (Ca_Cod, Ca_Fecha, Ca_Lugar) VALUES ('CA25', '01-04-2023', 'Zona7');");
             
+            // Inserts en tabla Personas
+            
             query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (34975409, 'Englebert', 'Giggs', 'egiggs0@unblog.fr', '1836085564');");
             query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (77844209, 'Jordan', 'Callear', 'jcallear1@ed.gov', '6503126502');");
             query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (40417189, 'Benji', 'Colchett', 'bcolchett2@myspace.com', '2136409452');");
@@ -208,7 +218,9 @@ public class Query{
             query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (84021424, 'Si', 'Tackell', 'stackell7@mit.edu', '3256870843');");
             query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (16823037, 'Ado', 'Goldstraw', 'agoldstraw8@a8.net', '1798329827');");
             query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (84005629, 'Evyn', 'De Blase', 'edeblase9@dedecms.com', '9943545249');");
-
+            
+            // Inserts en tabla Objetos
+            
             query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ1', 'Hacha de piedra pulida', 'Sondeo', 9.34, 9.72, 4.77, 6.02, 56, '22-09-2022', 'Conjunc/lid adhesiolysis', 'Cultura Natufiense', 'CU27', 'CA6', 15269037, 'L');");
             query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ2', 'Cuchillo de obsidiana', 'Sondeo', 1.52, 5.04, 1.37, 6.55, 27, '17-10-2022', 'C-vasc scan/isotop funct', 'Cultura Acheulense', 'CU23', 'CA11', 84021424, 'L');");
             query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ3', 'Punta de flecha de sílex', 'Análisis de superficie', 5.77, 7.08, 3.68, 4.5, 76, '24-08-2022', 'Inc soft tissue hand NEC', 'Cultura Clovis', 'CU35', 'CA11', 11790016, 'L');");
@@ -245,9 +257,179 @@ public class Query{
             query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ34', 'Vasija de cerámica', 'Sondeo', 5.61, 7.86, 9.41, 7.9, 11, '04-09-2022', 'Remov intrauterine pack', 'Cultura Maya', 'CU22', 'CA8', 11790016, 'C');");
             query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ35', 'Jarro de cerámica', 'Prospección geofísica', 2.58, 4.91, 6.68, 1.09, 61, '26-10-2022', 'Salivary duct probing', 'Cultura Jomon', 'CU44', 'CA22', 22718194, 'C');");
             query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ36', 'Figurilla de cerámica', 'Análisis de superficie', 8.5, 8.55, 4.48, 6.56, 32, '31-01-2023', 'Debrid opn fx-finger', 'Cultura Neolítica', 'CU8', 'CA1', 34975409, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ37', 'Estatuilla de cerámica', 'Prospección geofísica', 5.91, 3.68, 4.24, 1.37, 19, '12-11-2022', 'Lmb/lmbsac fus post/post', 'Cultura Natufiense', 'CU9', 'CA14', 40417189, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ38', 'Jarron de cerámica', 'Prospección geofísica', 3.93, 8.53, 9.77, 7.63, 32, '11-10-2022', 'Oth arthrotomy-shoulder', 'Cultura Acheulense', 'CU49', 'CA9', 77844209, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ39', 'Tazon de cerámica', 'Excavación', 1.38, 6.63, 8.98, 8.76, 77, '19-10-2022', 'Exc ectopic breast tissu', 'Cultura Clovis', 'CU29', 'CA20', 40417189, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ40', 'Cántaro de cerámica', 'Análisis de superficie', 8.34, 7.02, 1.17, 9.76, 52, '21-12-2022', 'Routine psychiat visit', 'Cultura Jomon', 'CU2', 'CA7', 40417189, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ41', 'Hacha de piedra pulida', 'Levantamiento arqueológico', 7.39, 2.95, 5.73, 6.24, 31, '08-06-2022', 'Atria septa def rep NEC', 'Cultura Natufiense', 'CU48', 'CA12', 77844209, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ42', 'Cuchillo de obsidiana', 'Levantamiento arqueológico', 3.91, 2.64, 2.14, 7.03, 23, '12-11-2022', 'Orchiopexy', 'Cultura Clovis', 'CU49', 'CA12', 7422764, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ43', 'Punta de flecha de sílex', 'Análisis de superficie', 4.32, 8.5, 8.81, 9.8, 59, '19-05-2022', 'Hand synovectomy', 'Cultura Natufiense', 'CU18', 'CA9', 77844209, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ44', 'Martillo de piedra', 'Prospección geofísica', 9.12, 2.01, 8.15, 7.12, 82, '18-07-2022', 'Vessel resect/replac NOS', 'Cultura Clovis', 'CU47', 'CA9', 22718194, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ45', 'Mortero de piedra para moler', 'Levantamiento arqueológico', 5.69, 8.6, 6.19, 8.64, 26, '05-03-2023', 'Evac ob hemat vulva/vag', 'Cultura Moche', 'CU14', 'CA24', 7422764, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ46', 'Azuela de piedra', 'Análisis de superficie', 2.01, 8.04, 5.58, 3.26, 23, '08-08-2022', 'Incision of uvula', 'Cultura Maya', 'CU31', 'CA6', 11790016, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ47', 'Cincel de piedra', 'Levantamiento arqueológico', 2.18, 7.59, 6.02, 6.9, 91, '26-05-2022', 'Ext ear diagnos proc NEC', 'Cultura Jomon', 'CU43', 'CA2', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ48', 'Muela de mano de piedra', 'Prospección geofísica', 9.1, 9.55, 4.02, 9.85, 23, '26-03-2023', 'Saliv glnd dx proc NEC', 'Cultura Clovis', 'CU8', 'CA23', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ49', 'Piedra de afilar', 'Análisis de superficie', 9.29, 3.28, 6.79, 9.42, 77, '02-04-2023', 'Cystotomy & adhesiolysis', 'Cultura Natufiense', 'CU15', 'CA20', 77844209, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ50', 'Hacha de mano de piedra', 'Levantamiento arqueológico', 8.54, 5.24, 9.1, 9.89, 18, '21-01-2023', 'Vaginal obliteration', 'Cultura Natufiense', 'CU27', 'CA18', 84021424, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ51', 'Olla de barro', 'Excavación', 8.92, 4.79, 5.95, 4.26, 33, '02-10-2022', 'Ureteroscopy', 'Cultura Jomon', 'CU1', 'CA12', 22718194, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ52', 'Plato de cerámica', 'Prospección geofísica', 3.03, 1.67, 8.57, 3.08, 27, '19-04-2023', 'Rad excis ext ear les', 'Cultura Maya', 'CU23', 'CA20', 84005629, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ53', 'Cuenco de cerámica', 'Análisis de superficie', 6.43, 8.29, 9.72, 6.87, 33, '18-12-2022', 'Arth/pros rem wo rep-hip', 'Cultura Moche', 'CU12', 'CA5', 84021424, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ54', 'Vasija de cerámica', 'Excavación', 5.85, 1.94, 6.93, 5.33, 67, '17-08-2022', 'Orbitotomy w bone flap', 'Cultura Clovis', 'CU25', 'CA14', 84021424, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ55', 'Jarro de cerámica', 'Análisis de superficie', 9.35, 1.59, 10.0, 8.68, 11, '02-07-2022', 'Remov urin drainage NEC', 'Cultura Maya', 'CU19', 'CA12', 84005629, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ56', 'Figurilla de cerámica', 'Análisis de superficie', 4.88, 8.07, 4.48, 1.15, 13, '12-09-2022', 'Cord bld stem cell trans', 'Cultura Neolítica', 'CU37', 'CA19', 34975409, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ57', 'Estatuilla de cerámica', 'Excavación', 1.81, 4.46, 9.55, 9.02, 53, '24-03-2023', 'Total knee replacement', 'Cultura Neolítica', 'CU30', 'CA11', 84005629, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ58', 'Jarron de cerámica', 'Levantamiento arqueológico', 3.0, 2.0, 6.49, 6.83, 68, '04-05-2022', 'Contrast x-ray of orbit', 'Cultura Natufiense', 'CU5', 'CA11', 84021424, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ59', 'Tazon de cerámica', 'Sondeo', 8.91, 2.37, 7.7, 1.81, 90, '30-12-2022', 'Insert tissue expander', 'Cultura Maya', 'CU24', 'CA1', 15269037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ60', 'Cántaro de cerámica', 'Análisis de superficie', 6.02, 1.56, 4.51, 4.18, 55, '08-10-2022', 'Remov intralum pharyn FB', 'Cultura Jomon', 'CU27', 'CA21', 84005629, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ61', 'Hacha de piedra pulida', 'Análisis de superficie', 1.86, 4.93, 5.84, 9.52, 88, '25-04-2023', 'Perc abltn lung les/tiss', 'Cultura Natufiense', 'CU1', 'CA19', 77844209, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ62', 'Cuchillo de obsidiana', 'Sondeo', 5.05, 3.94, 1.3, 3.89, 21, '10-03-2023', 'Skel xray-elbow/forearm', 'Cultura Moche', 'CU33', 'CA9', 16823037, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ63', 'Punta de flecha de sílex', 'Análisis de superficie', 1.34, 2.95, 6.79, 8.04, 15, '08-10-2022', 'Percutan hrt assist syst', 'Cultura Clovis', 'CU47', 'CA24', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ64', 'Martillo de piedra', 'Excavación', 4.34, 3.3, 6.84, 2.18, 41, '05-02-2023', 'Rev hip repl-fem comp', 'Cultura Jomon', 'CU36', 'CA11', 11790016, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ65', 'Mortero de piedra para moler', 'Excavación', 5.75, 2.67, 1.42, 9.31, 38, '21-10-2022', 'Clos uterine ligament bx', 'Cultura Natufiense', 'CU48', 'CA4', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ66', 'Azuela de piedra', 'Excavación', 1.73, 4.0, 1.78, 1.48, 76, '19-12-2022', 'Simple mastoidectomy', 'Cultura Clovis', 'CU3', 'CA9', 84005629, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ67', 'Cincel de piedra', 'Análisis de superficie', 1.07, 5.38, 7.65, 2.03, 46, '27-02-2023', 'Inf liquid brachy isotop', 'Cultura Moche', 'CU46', 'CA22', 34975409, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ68', 'Muela de mano de piedra', 'Sondeo', 6.0, 4.51, 9.24, 8.42, 59, '09-09-2022', 'Intravs msmt ves NEC/NOS', 'Cultura Jomon', 'CU19', 'CA9', 15269037, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ69', 'Piedra de afilar', 'Excavación', 3.13, 4.94, 1.05, 8.04, 3, '24-01-2023', 'Imp/rep mchan cochl pros', 'Cultura Acheulense', 'CU8', 'CA13', 34975409, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ70', 'Hacha de mano de piedra', 'Prospección geofísica', 4.63, 2.89, 4.68, 7.95, 1, '24-09-2022', 'Breast operation NEC', 'Cultura Natufiense', 'CU29', 'CA23', 22718194, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ71', 'Olla de barro', 'Sondeo', 10.0, 8.95, 3.49, 7.73, 58, '05-09-2022', 'Orthodon applianc applic', 'Cultura Natufiense', 'CU28', 'CA22', 7422764, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ72', 'Plato de cerámica', 'Sondeo', 5.17, 2.66, 1.9, 4.64, 76, '01-08-2022', 'Lap adhesiolys ova/tube', 'Cultura Clovis', 'CU49', 'CA4', 15269037, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ73', 'Cuenco de cerámica', 'Excavación', 8.57, 5.58, 2.66, 5.0, 67, '26-03-2023', 'Eyelid biopsy', 'Cultura Acheulense', 'CU41', 'CA19', 40417189, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ74', 'Vasija de cerámica', 'Sondeo', 4.61, 4.35, 6.68, 1.87, 35, '24-12-2022', 'Eyelid epilation NEC', 'Cultura Moche', 'CU31', 'CA13', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ75', 'Jarro de cerámica', 'Prospección geofísica', 1.81, 4.26, 1.17, 1.69, 83, '25-04-2023', 'Vesicostomy', 'Cultura Natufiense', 'CU41', 'CA3', 15269037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ76', 'Figurilla de cerámica', 'Análisis de superficie', 4.71, 7.68, 7.91, 4.55, 5, '28-12-2022', 'Lung repair NEC', 'Cultura Neolítica', 'CU45', 'CA15', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ77', 'Estatuilla de cerámica', 'Prospección geofísica', 9.38, 9.0, 3.73, 6.89, 24, '22-08-2022', 'Partial esophagectomy', 'Cultura Acheulense', 'CU41', 'CA4', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ78', 'Jarron de cerámica', 'Prospección geofísica', 7.18, 3.71, 6.84, 7.89, 55, '19-07-2022', 'Peritoneal suture', 'Cultura Natufiense', 'CU27', 'CA19', 84005629, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ79', 'Tazon de cerámica', 'Análisis de superficie', 8.74, 1.19, 4.62, 6.83, 58, '13-12-2022', 'Intravas msmt periph art', 'Cultura Moche', 'CU25', 'CA16', 40417189, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ80', 'Cántaro de cerámica', 'Prospección geofísica', 4.62, 3.78, 7.36, 9.01, 62, '06-08-2022', 'Catarac phacoemuls/aspir', 'Cultura Neolítica', 'CU30', 'CA1', 7422764, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ81', 'Hacha de piedra pulida', 'Excavación', 1.25, 4.81, 8.76, 6.29, 80, '23-08-2022', 'Uterus/adnexa repair NEC', 'Cultura Jomon', 'CU48', 'CA18', 15269037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ82', 'Cuchillo de obsidiana', 'Sondeo', 1.41, 7.81, 6.64, 6.49, 64, '30-08-2022', 'Periton pneumogram NEC', 'Cultura Moche', 'CU29', 'CA13', 77844209, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ83', 'Punta de flecha de sílex', 'Prospección geofísica', 2.67, 1.32, 4.55, 5.87, 4, '11-10-2022', 'Remove cervical cerclage', 'Cultura Acheulense', 'CU5', 'CA3', 40417189, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ84', 'Martillo de piedra', 'Análisis de superficie', 5.64, 6.2, 3.47, 9.31, 78, '11-06-2022', 'Closed thyroid gland bx', 'Cultura Moche', 'CU32', 'CA5', 34975409, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ85', 'Mortero de piedra para moler', 'Levantamiento arqueológico', 5.7, 6.8, 2.26, 6.88, 38, '29-03-2023', 'Remov therapeut dev NEC', 'Cultura Natufiense', 'CU28', 'CA2', 84021424, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ86', 'Azuela de piedra', 'Prospección geofísica', 8.28, 4.99, 2.96, 1.76, 26, '27-03-2023', 'Intravasc msmnt cor art', 'Cultura Moche', 'CU14', 'CA5', 7422764, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ87', 'Cincel de piedra', 'Prospección geofísica', 9.58, 8.76, 4.78, 6.04, 95, '27-05-2022', 'Toxicology-upper GI', 'Cultura Neolítica', 'CU32', 'CA11', 22718194, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ88', 'Muela de mano de piedra', 'Levantamiento arqueológico', 9.37, 3.54, 3.12, 4.87, 14, '07-02-2023', 'CAS w CT/CTA', 'Cultura Clovis', 'CU25', 'CA11', 11790016, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ89', 'Piedra de afilar', 'Análisis de superficie', 6.72, 1.74, 1.88, 7.19, 90, '19-10-2022', 'Thoracic spine x-ray NEC', 'Cultura Maya', 'CU31', 'CA8', 15269037, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ90', 'Hacha de mano de piedra', 'Sondeo', 6.07, 7.99, 2.07, 6.91, 32, '16-08-2022', 'Repair ob laceration NEC', 'Cultura Neolítica', 'CU44', 'CA6', 7422764, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ91', 'Olla de barro', 'Levantamiento arqueológico', 4.09, 7.39, 1.03, 4.98, 4, '02-08-2022', 'Perc mtrl vlv repr w imp', 'Cultura Maya', 'CU44', 'CA7', 40417189, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ92', 'Plato de cerámica', 'Prospección geofísica', 6.64, 2.08, 8.63, 9.47, 99, '30-06-2022', 'Opn pulmon valvuloplasty', 'Cultura Neolítica', 'CU12', 'CA6', 22718194, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ93', 'Cuenco de cerámica', 'Prospección geofísica', 7.58, 7.61, 9.33, 3.87, 64, '31-12-2022', 'Tonsillectomy/adenoidec', 'Cultura Acheulense', 'CU27', 'CA20', 16823037, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ94', 'Vasija de cerámica', 'Levantamiento arqueológico', 6.45, 8.77, 6.48, 4.36, 84, '03-02-2023', 'Esophagoscopy by incis', 'Cultura Neolítica', 'CU44', 'CA8', 40417189, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ95', 'Jarro de cerámica', 'Análisis de superficie', 8.37, 9.05, 9.53, 5.88, 63, '25-04-2023', 'Periurethral biopsy', 'Cultura Natufiense', 'CU2', 'CA23', 22718194, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ96', 'Figurilla de cerámica', 'Sondeo', 7.14, 7.54, 4.34, 9.48, 76, '13-08-2022', 'Excision of elbow NEC', 'Cultura Moche', 'CU26', 'CA9', 7422764, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ97', 'Estatuilla de cerámica', 'Excavación', 8.67, 9.09, 3.19, 8.07, 13, '12-04-2023', 'Subtotal mastectomy', 'Cultura Moche', 'CU21', 'CA8', 7422764, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ98', 'Jarron de cerámica', 'Levantamiento arqueológico', 1.79, 6.51, 4.25, 7.66, 93, '10-08-2022', 'Resection of nose', 'Cultura Clovis', 'CU37', 'CA4', 7422764, 'C');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ99', 'Tazon de cerámica', 'Análisis de superficie', 4.61, 4.52, 7.54, 7.08, 88, '22-06-2022', 'Superficial radiation', 'Cultura Acheulense', 'CU31', 'CA12', 40417189, 'L');");
+            query.execute("INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES ('OBJ100', 'Cántaro de cerámica', 'Análisis de superficie', 2.84, 9.31, 3.36, 7.26, 82, '15-09-2022', 'Venous cath NEC', 'Cultura Maya', 'CU33', 'CA20', 40417189, 'L');");
             
+            // Inserts en tabla Liticos
+            
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ1', 861);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ2', 214);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ3', 442);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ5', 184);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ8', 751);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ15', 391);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ18', 909);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ20', 832);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ21', 131);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ23', 466);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ24', 949);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ26', 554);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ28', 505);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ29', 228);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ30', 138);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ32', 136);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ33', 693);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ37', 354);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ41', 294);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ43', 369);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ44', 495);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ45', 165);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ47', 845);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ48', 905);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ52', 134);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ54', 576);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ55', 228);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ59', 217);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ63', 606);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ64', 770);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ65', 675);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ67', 908);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ69', 809);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ71', 608);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ74', 334);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ75', 785);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ76', 213);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ77', 442);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ78', 633);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ79', 734);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ81', 998);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ83', 265);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ85', 971);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ86', 187);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ91', 748);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ92', 496);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ93', 431);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ94', 259);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ95', 576);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ96', 153);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ97', 556);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ99', 163);");
+            query.execute("INSERT INTO Liticos (O_cod, L_fechacreacion) VALUES ('OBJ100', 414);");
+            
+            // Inserts en tabla Ceramicos
+            
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ4', 'blanco');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ6', 'azul');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ7', 'marrón');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ9', 'gris');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ10', 'blanco');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ11', 'púrpura');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ12', 'verde');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ13', 'rosa');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ14', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ16', 'rojo');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ17', 'púrpura');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ19', 'púrpura');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ22', 'amarillo');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ25', 'gris');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ27', 'marrón');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ31', 'gris');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ34', 'blanco');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ35', 'amarillo');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ36', 'azul');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ38', 'negro');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ39', 'gris');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ40', 'blanco');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ42', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ46', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ49', 'gris');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ50', 'verde');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ51', 'púrpura');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ53', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ56', 'púrpura');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ57', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ58', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ60', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ61', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ62', 'rojo');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ66', 'rosa');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ68', 'negro');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ70', 'negro');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ72', 'gris');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ73', 'rosa');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ80', 'negro');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ82', 'gris');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ84', 'verde');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ87', 'blanco');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ88', 'púrpura');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ89', 'naranja');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ90', 'rojo');");
+            query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ98', 'púrpura');");
             
             JOptionPane.showMessageDialog(null,"Se han realizado las operaciones correctamente", "Primera Inicializacion", JOptionPane.INFORMATION_MESSAGE);
+            
         }catch(SQLException e){}
         
         // Inicializamos/Actualizamos la lista de personas del formulario

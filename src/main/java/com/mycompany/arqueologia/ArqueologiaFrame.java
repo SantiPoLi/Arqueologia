@@ -23,6 +23,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     public ArqueologiaFrame() throws SQLException {
         initComponents();
         //label_error.setVisible(false);
+        Query.initQuery();
     }
 
     /**
