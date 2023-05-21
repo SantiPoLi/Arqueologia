@@ -35,62 +35,83 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelHeader = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jPanelGeneral = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jBtnAltas = new javax.swing.JButton();
+        jBtnBajas = new javax.swing.JButton();
+        jBtnConsultas = new javax.swing.JButton();
+        jLabelImgMenu = new javax.swing.JLabel();
+        jPanelHeader = new javax.swing.JPanel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(635, 355));
         setResizable(false);
         setSize(new java.awt.Dimension(635, 355));
 
-        jPanelHeader.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelGeneral.setBackground(new java.awt.Color(204, 204, 204));
+        jPanelGeneral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBtnAltas.setText("Altas");
+        jBtnAltas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAltasActionPerformed(evt);
+            }
+        });
+        jPanelGeneral.add(jBtnAltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 337, 58));
+
+        jBtnBajas.setText("Bajas");
+        jBtnBajas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnBajasActionPerformed(evt);
+            }
+        });
+        jPanelGeneral.add(jBtnBajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 337, 58));
+
+        jBtnConsultas.setText("Consultas");
+        jBtnConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnConsultasActionPerformed(evt);
+            }
+        });
+        jPanelGeneral.add(jBtnConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 337, 58));
+
+        jLabelImgMenu.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabelImgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.jpeg"))); // NOI18N
+        jPanelGeneral.add(jLabelImgMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 331, 380));
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);
         jPanelHeaderLayout.setHorizontalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 870, Short.MAX_VALUE)
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 76, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jPanelGeneral.setBackground(new java.awt.Color(204, 204, 204));
-
-        jButton1.setText("jButton1");
-
-        javax.swing.GroupLayout jPanelGeneralLayout = new javax.swing.GroupLayout(jPanelGeneral);
-        jPanelGeneral.setLayout(jPanelGeneralLayout);
-        jPanelGeneralLayout.setHorizontalGroup(
-            jPanelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelGeneralLayout.createSequentialGroup()
-                .addGap(274, 274, 274)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(503, Short.MAX_VALUE))
-        );
-        jPanelGeneralLayout.setVerticalGroup(
-            jPanelGeneralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelGeneralLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jButton1)
-                .addContainerGap(271, Short.MAX_VALUE))
-        );
+        jPanelGeneral.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelGeneral, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -138,7 +159,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtnAltas;
+    private javax.swing.JButton jBtnBajas;
+    private javax.swing.JButton jBtnConsultas;
+    private javax.swing.JLabel jLabelImgMenu;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelGeneral;
     private javax.swing.JPanel jPanelHeader;
     // End of variables declaration//GEN-END:variables
