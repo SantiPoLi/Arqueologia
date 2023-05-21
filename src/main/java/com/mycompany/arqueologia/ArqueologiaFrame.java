@@ -37,9 +37,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanelGeneral = new javax.swing.JPanel();
-        jBtnAltas = new javax.swing.JButton();
-        jBtnBajas = new javax.swing.JButton();
-        jBtnConsultas = new javax.swing.JButton();
         jLabelImgMenu = new javax.swing.JLabel();
         jPanelHeader = new javax.swing.JPanel();
 
@@ -61,30 +58,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         jPanelGeneral.setBackground(new java.awt.Color(204, 204, 204));
         jPanelGeneral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jBtnAltas.setText("Altas");
-        jBtnAltas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAltasActionPerformed(evt);
-            }
-        });
-        jPanelGeneral.add(jBtnAltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 337, 58));
-
-        jBtnBajas.setText("Bajas");
-        jBtnBajas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnBajasActionPerformed(evt);
-            }
-        });
-        jPanelGeneral.add(jBtnBajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 337, 58));
-
-        jBtnConsultas.setText("Consultas");
-        jBtnConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnConsultasActionPerformed(evt);
-            }
-        });
-        jPanelGeneral.add(jBtnConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 337, 58));
 
         jLabelImgMenu.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelImgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.jpeg"))); // NOI18N
@@ -159,9 +132,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnAltas;
-    private javax.swing.JButton jBtnBajas;
-    private javax.swing.JButton jBtnConsultas;
     private javax.swing.JLabel jLabelImgMenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelGeneral;
