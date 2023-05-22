@@ -21,9 +21,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private static final String ERROR_MSG_INSERT_INPUT = "No se admiten campos vacíos.";
     
     public ArqueologiaFrame() throws SQLException {
+        Query.initQuery();
         initComponents();
         //label_error.setVisible(false);
-        Query.initQuery();
+        //Query.initQuery();
     }
 
     /**
@@ -60,7 +61,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jPanelGeneral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelImgMenu.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabelImgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.jpeg"))); // NOI18N
         jPanelGeneral.add(jLabelImgMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 331, 380));
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);

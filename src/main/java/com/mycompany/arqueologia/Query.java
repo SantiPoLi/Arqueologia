@@ -96,7 +96,7 @@ public abstract class Query{
         
         query.execute("CREATE TABLE IF NOT EXISTS Ceramicos("
                 + "O_Cod VARCHAR(50) PRIMARY KEY,"
-                + "L_Color VARCHAR(50) NOT NULL,"
+                + "C_Color VARCHAR(50) NOT NULL,"
                 + "FOREIGN KEY (O_Cod) REFERENCES Objetos(O_Cod))"
         );
         
@@ -428,9 +428,16 @@ public abstract class Query{
             query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ90', 'rojo');");
             query.execute("INSERT INTO Ceramicos (O_cod, C_color) VALUES ('OBJ98', 'púrpura');");
             
+            // Insert del investigador Rodolphe Rominov y Delete del investigador Benji Colchett
+            //query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (11790016, 'Mary', 'Burkart', 'mburkart4@hhs.gov', '6303516894');");
+            query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (25544555, 'Rodolphe', 'Rominov', 'rrominovm@sciencedaily.com', '7135986253');");
+            query.execute("DELETE FROM Personas WHERE P_Nombre = 'Benji' AND P_Apellido = 'Colchett';");
+            
             JOptionPane.showMessageDialog(null,"Se han realizado las operaciones correctamente", "Primera Inicializacion", JOptionPane.INFORMATION_MESSAGE);
             
-        }catch(SQLException e){}
+        }catch(SQLException e){
+            System.out.println("Error"+e.getMessage());
+        }
         
         // Inicializamos/Actualizamos la lista de personas del formulario
         // para que muestre las personas que ya están cargadas en el sistema
