@@ -38,7 +38,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanelGeneral = new javax.swing.JPanel();
-        jLabelImgMenu = new javax.swing.JLabel();
         jPanelHeader = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -60,8 +59,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jPanelGeneral.setBackground(new java.awt.Color(204, 204, 204));
         jPanelGeneral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelImgMenu.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jPanelGeneral.add(jLabelImgMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 331, 380));
+        jPanelHeader.setBackground(new java.awt.Color(0, 102, 102));
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);
@@ -71,10 +69,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 80, Short.MAX_VALUE)
         );
 
-        jPanelGeneral.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 100));
+        jPanelGeneral.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,7 +130,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelImgMenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelGeneral;
     private javax.swing.JPanel jPanelHeader;
