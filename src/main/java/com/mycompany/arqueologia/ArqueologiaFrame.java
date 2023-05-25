@@ -1,6 +1,7 @@
 
 package com.mycompany.arqueologia;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -36,57 +37,162 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanelGeneral = new javax.swing.JPanel();
-        jPanelHeader = new javax.swing.JPanel();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        background = new javax.swing.JPanel();
+        Logo = new javax.swing.JLabel();
+        ImagenIzquierda = new javax.swing.JLabel();
+        Btn_Altas = new javax.swing.JPanel();
+        Txt_Btn_Altas = new javax.swing.JLabel();
+        Btn_Listas = new javax.swing.JPanel();
+        Txt_Btn_Listas = new javax.swing.JLabel();
+        Btn_Consultas = new javax.swing.JPanel();
+        Txt_Btn_Consultas = new javax.swing.JLabel();
+        Txt_MarcaDeAgua = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(635, 355));
         setResizable(false);
-        setSize(new java.awt.Dimension(635, 355));
+        setSize(new java.awt.Dimension(640, 500));
 
-        jPanelGeneral.setBackground(new java.awt.Color(204, 204, 204));
-        jPanelGeneral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setMinimumSize(new java.awt.Dimension(640, 500));
+        background.setPreferredSize(new java.awt.Dimension(640, 500));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelHeader.setBackground(new java.awt.Color(0, 102, 102));
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoNew.png"))); // NOI18N
+        background.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
 
-        javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
-        jPanelHeader.setLayout(jPanelHeaderLayout);
-        jPanelHeaderLayout.setHorizontalGroup(
-            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 870, Short.MAX_VALUE)
+        ImagenIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ImgAzul.png"))); // NOI18N
+        background.add(ImagenIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
+
+        Btn_Altas.setBackground(new java.awt.Color(27, 64, 142));
+        Btn_Altas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Altas.setToolTipText("");
+        Btn_Altas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Altas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Btn_AltasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Btn_AltasMouseExited(evt);
+            }
+        });
+
+        Txt_Btn_Altas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        Txt_Btn_Altas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Txt_Btn_Altas.setText("ALTAS");
+        Txt_Btn_Altas.setFocusable(false);
+
+        javax.swing.GroupLayout Btn_AltasLayout = new javax.swing.GroupLayout(Btn_Altas);
+        Btn_Altas.setLayout(Btn_AltasLayout);
+        Btn_AltasLayout.setHorizontalGroup(
+            Btn_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Txt_Btn_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
-        jPanelHeaderLayout.setVerticalGroup(
-            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+        Btn_AltasLayout.setVerticalGroup(
+            Btn_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Txt_Btn_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        jPanelGeneral.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 80));
+        background.add(Btn_Altas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 270, 50));
+
+        Btn_Listas.setBackground(new java.awt.Color(27, 64, 142));
+        Btn_Listas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Listas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Btn_ListasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Btn_ListasMouseExited(evt);
+            }
+        });
+
+        Txt_Btn_Listas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        Txt_Btn_Listas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Txt_Btn_Listas.setText("LISTAS PARA BAJAS Y EDICIONES");
+        Txt_Btn_Listas.setFocusable(false);
+
+        javax.swing.GroupLayout Btn_ListasLayout = new javax.swing.GroupLayout(Btn_Listas);
+        Btn_Listas.setLayout(Btn_ListasLayout);
+        Btn_ListasLayout.setHorizontalGroup(
+            Btn_ListasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Txt_Btn_Listas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        Btn_ListasLayout.setVerticalGroup(
+            Btn_ListasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Txt_Btn_Listas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        background.add(Btn_Listas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 270, 50));
+
+        Btn_Consultas.setBackground(new java.awt.Color(27, 64, 142));
+        Btn_Consultas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Consultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Btn_ConsultasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Btn_ConsultasMouseExited(evt);
+            }
+        });
+
+        Txt_Btn_Consultas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        Txt_Btn_Consultas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Txt_Btn_Consultas.setText("CONSULTAS ESPECÍFICAS");
+        Txt_Btn_Consultas.setFocusable(false);
+
+        javax.swing.GroupLayout Btn_ConsultasLayout = new javax.swing.GroupLayout(Btn_Consultas);
+        Btn_Consultas.setLayout(Btn_ConsultasLayout);
+        Btn_ConsultasLayout.setHorizontalGroup(
+            Btn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Txt_Btn_Consultas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        Btn_ConsultasLayout.setVerticalGroup(
+            Btn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Txt_Btn_Consultas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        background.add(Btn_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 270, 50));
+
+        Txt_MarcaDeAgua.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        Txt_MarcaDeAgua.setText("Made by: Calderoni, Figún & Politti");
+        background.add(Txt_MarcaDeAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelGeneral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelGeneral, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_AltasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseEntered
+        Btn_Altas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_Btn_AltasMouseEntered
+
+    private void Btn_AltasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseExited
+        Btn_Altas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_Btn_AltasMouseExited
+
+    private void Btn_ListasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseEntered
+        Btn_Altas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_Btn_ListasMouseEntered
+
+    private void Btn_ListasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseExited
+        Btn_Altas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_Btn_ListasMouseExited
+
+    private void Btn_ConsultasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ConsultasMouseEntered
+        Btn_Altas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_Btn_ConsultasMouseEntered
+
+    private void Btn_ConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ConsultasMouseExited
+        Btn_Altas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_Btn_ConsultasMouseExited
 
     /**
      * @param args the command line arguments
@@ -130,8 +236,15 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelGeneral;
-    private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JPanel Btn_Altas;
+    private javax.swing.JPanel Btn_Consultas;
+    private javax.swing.JPanel Btn_Listas;
+    private javax.swing.JLabel ImagenIzquierda;
+    private javax.swing.JLabel Logo;
+    private javax.swing.JLabel Txt_Btn_Altas;
+    private javax.swing.JLabel Txt_Btn_Consultas;
+    private javax.swing.JLabel Txt_Btn_Listas;
+    private javax.swing.JLabel Txt_MarcaDeAgua;
+    private javax.swing.JPanel background;
     // End of variables declaration//GEN-END:variables
 }
