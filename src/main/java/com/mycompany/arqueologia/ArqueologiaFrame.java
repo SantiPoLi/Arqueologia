@@ -90,7 +90,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JPan_Header.setBackground(new java.awt.Color(27, 64, 142));
+        JPan_Header.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JPan_Header.setPreferredSize(new java.awt.Dimension(640, 100));
+
+        Jlb_LogoBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoBlancoRedimensionado.png"))); // NOI18N
 
         javax.swing.GroupLayout JPan_HeaderLayout = new javax.swing.GroupLayout(JPan_Header);
         JPan_Header.setLayout(JPan_HeaderLayout);
@@ -109,6 +112,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         JPan_MenuPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_ImagenIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ImgAzul.png"))); // NOI18N
         JPan_MenuPrincipal.add(JLb_ImagenIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 420));
 
         JBtn_Altas.setBackground(new java.awt.Color(27, 64, 142));
