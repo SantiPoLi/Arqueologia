@@ -37,7 +37,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
+        MenuPrincipal = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
         ImagenIzquierda = new javax.swing.JLabel();
         Btn_Altas = new javax.swing.JPanel();
@@ -47,21 +47,23 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         Btn_Consultas = new javax.swing.JPanel();
         Txt_Btn_Consultas = new javax.swing.JLabel();
         Txt_MarcaDeAgua = new javax.swing.JLabel();
+        Header = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        Contenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(new java.awt.Dimension(640, 500));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setMinimumSize(new java.awt.Dimension(640, 500));
-        background.setPreferredSize(new java.awt.Dimension(640, 500));
-        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        MenuPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoNew.png"))); // NOI18N
-        background.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
+        MenuPrincipal.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
 
         ImagenIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ImgAzul.png"))); // NOI18N
-        background.add(ImagenIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
+        MenuPrincipal.add(ImagenIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
 
         Btn_Altas.setBackground(new java.awt.Color(27, 64, 142));
         Btn_Altas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -92,7 +94,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             .addComponent(Txt_Btn_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        background.add(Btn_Altas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 270, 50));
+        MenuPrincipal.add(Btn_Altas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 270, 50));
 
         Btn_Listas.setBackground(new java.awt.Color(27, 64, 142));
         Btn_Listas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -121,7 +123,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             .addComponent(Txt_Btn_Listas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        background.add(Btn_Listas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 270, 50));
+        MenuPrincipal.add(Btn_Listas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 270, 50));
 
         Btn_Consultas.setBackground(new java.awt.Color(27, 64, 142));
         Btn_Consultas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -150,49 +152,52 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             .addComponent(Txt_Btn_Consultas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        background.add(Btn_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 270, 50));
+        MenuPrincipal.add(Btn_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 270, 50));
 
         Txt_MarcaDeAgua.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         Txt_MarcaDeAgua.setText("Made by: Calderoni, Figún & Politti");
-        background.add(Txt_MarcaDeAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, 20));
+        MenuPrincipal.add(Txt_MarcaDeAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(MenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+
+        Header.setBackground(new java.awt.Color(27, 64, 142));
+        Header.setPreferredSize(new java.awt.Dimension(640, 100));
+        Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoBlancoRedimensionado.png"))); // NOI18N
+        Header.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 100));
+
+        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Contenedor.setLayout(new java.awt.CardLayout());
+        getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Btn_AltasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseEntered
-        Btn_Altas.setBackground(new Color(51,189,238));
-    }//GEN-LAST:event_Btn_AltasMouseEntered
-
-    private void Btn_AltasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseExited
+    private void Btn_ConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ConsultasMouseExited
         Btn_Altas.setBackground(new Color(27,64,142));
-    }//GEN-LAST:event_Btn_AltasMouseExited
-
-    private void Btn_ListasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseEntered
-        Btn_Altas.setBackground(new Color(51,189,238));
-    }//GEN-LAST:event_Btn_ListasMouseEntered
-
-    private void Btn_ListasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseExited
-        Btn_Altas.setBackground(new Color(27,64,142));
-    }//GEN-LAST:event_Btn_ListasMouseExited
+    }//GEN-LAST:event_Btn_ConsultasMouseExited
 
     private void Btn_ConsultasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ConsultasMouseEntered
         Btn_Altas.setBackground(new Color(51,189,238));
     }//GEN-LAST:event_Btn_ConsultasMouseEntered
 
-    private void Btn_ConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ConsultasMouseExited
+    private void Btn_ListasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseExited
         Btn_Altas.setBackground(new Color(27,64,142));
-    }//GEN-LAST:event_Btn_ConsultasMouseExited
+    }//GEN-LAST:event_Btn_ListasMouseExited
+
+    private void Btn_ListasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseEntered
+        Btn_Altas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_Btn_ListasMouseEntered
+
+    private void Btn_AltasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseExited
+        Btn_Altas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_Btn_AltasMouseExited
+
+    private void Btn_AltasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseEntered
+        Btn_Altas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_Btn_AltasMouseEntered
 
     /**
      * @param args the command line arguments
@@ -239,12 +244,15 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel Btn_Altas;
     private javax.swing.JPanel Btn_Consultas;
     private javax.swing.JPanel Btn_Listas;
+    private javax.swing.JPanel Contenedor;
+    private javax.swing.JPanel Header;
     private javax.swing.JLabel ImagenIzquierda;
     private javax.swing.JLabel Logo;
+    private javax.swing.JPanel MenuPrincipal;
     private javax.swing.JLabel Txt_Btn_Altas;
     private javax.swing.JLabel Txt_Btn_Consultas;
     private javax.swing.JLabel Txt_Btn_Listas;
     private javax.swing.JLabel Txt_MarcaDeAgua;
-    private javax.swing.JPanel background;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
