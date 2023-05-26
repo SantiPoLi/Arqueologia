@@ -13,6 +13,7 @@ import java.util.Properties;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ArqueologiaFrame extends javax.swing.JFrame {
@@ -37,167 +38,633 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MenuPrincipal = new javax.swing.JPanel();
-        Logo = new javax.swing.JLabel();
-        ImagenIzquierda = new javax.swing.JLabel();
-        Btn_Altas = new javax.swing.JPanel();
-        Txt_Btn_Altas = new javax.swing.JLabel();
-        Btn_Listas = new javax.swing.JPanel();
-        Txt_Btn_Listas = new javax.swing.JLabel();
-        Btn_Consultas = new javax.swing.JPanel();
-        Txt_Btn_Consultas = new javax.swing.JLabel();
-        Txt_MarcaDeAgua = new javax.swing.JLabel();
-        Header = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Contenedor = new javax.swing.JPanel();
+        JPan_Header = new javax.swing.JPanel();
+        Jlb_LogoBlanco = new javax.swing.JLabel();
+        JPan_Contenedor = new javax.swing.JPanel();
+        JPan_MenuPrincipal = new javax.swing.JPanel();
+        JLb_ImagenIzquierda = new javax.swing.JLabel();
+        JBtn_Altas = new javax.swing.JPanel();
+        JLb_BtnAltas = new javax.swing.JLabel();
+        JBtn_Listas = new javax.swing.JPanel();
+        JLb_BtnListas = new javax.swing.JLabel();
+        JBtn_Consultas = new javax.swing.JPanel();
+        JLb_BtnConsultas = new javax.swing.JLabel();
+        JLb_MarcaDeAgua = new javax.swing.JLabel();
+        JPan_Altas = new javax.swing.JPanel();
+        JBtn_AltaObjeto = new javax.swing.JPanel();
+        JLb_AltaObjeto = new javax.swing.JLabel();
+        JBtn_AltaPersona = new javax.swing.JPanel();
+        JLb_AltaPersona = new javax.swing.JLabel();
+        JBtn_AltaSitio = new javax.swing.JPanel();
+        JLb_AltaSitio = new javax.swing.JLabel();
+        JBtn_AltaCuadricula = new javax.swing.JPanel();
+        JLb_AltaCuadricula = new javax.swing.JLabel();
+        JBtn_AltaCaja = new javax.swing.JPanel();
+        JLb_AltaCaja = new javax.swing.JLabel();
+        JPan_Listas = new javax.swing.JPanel();
+        JTbpan_General = new javax.swing.JTabbedPane();
+        JSP_ObjetosGeneral = new javax.swing.JScrollPane();
+        JTable_ObjetosGeneral = new javax.swing.JTable();
+        JSP_PersonasGeneral = new javax.swing.JScrollPane();
+        JTable_PersonasGeneral = new javax.swing.JTable();
+        JSP_SitiosGeneral = new javax.swing.JScrollPane();
+        JTable_SitiosGeneral = new javax.swing.JTable();
+        JSP_CuadriculasGeneral = new javax.swing.JScrollPane();
+        JTable_CuadriculasGeneral = new javax.swing.JTable();
+        JSP_CajasGeneral = new javax.swing.JScrollPane();
+        JTable_CajasGeneral = new javax.swing.JTable();
+        JPan_Consultas = new javax.swing.JPanel();
+        JCB_Consultas = new javax.swing.JComboBox<>();
+        JBtn_BuscarConsulta = new javax.swing.JPanel();
+        JLb_BuscarConsulta = new javax.swing.JLabel();
+        JPan_MostrarPersonasYCajas = new javax.swing.JPanel();
+        JTbpan_PersonasYCajas = new javax.swing.JTabbedPane();
+        JSP_Cajas = new javax.swing.JScrollPane();
+        JTable_Cajas = new javax.swing.JTable();
+        JSP_Personas = new javax.swing.JScrollPane();
+        JTable_Personas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(new java.awt.Dimension(640, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        MenuPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_Header.setBackground(new java.awt.Color(27, 64, 142));
+        JPan_Header.setPreferredSize(new java.awt.Dimension(640, 100));
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoNew.png"))); // NOI18N
-        MenuPrincipal.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
+        javax.swing.GroupLayout JPan_HeaderLayout = new javax.swing.GroupLayout(JPan_Header);
+        JPan_Header.setLayout(JPan_HeaderLayout);
+        JPan_HeaderLayout.setHorizontalGroup(
+            JPan_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Jlb_LogoBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        JPan_HeaderLayout.setVerticalGroup(
+            JPan_HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Jlb_LogoBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-        ImagenIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ImgAzul.png"))); // NOI18N
-        MenuPrincipal.add(ImagenIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
+        getContentPane().add(JPan_Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        Btn_Altas.setBackground(new java.awt.Color(27, 64, 142));
-        Btn_Altas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Altas.setToolTipText("");
-        Btn_Altas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Btn_Altas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JPan_Contenedor.setLayout(new java.awt.CardLayout());
+
+        JPan_MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        JPan_MenuPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_MenuPrincipal.add(JLb_ImagenIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 420));
+
+        JBtn_Altas.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_Altas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_Altas.setToolTipText("");
+        JBtn_Altas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBtn_Altas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AltasMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Btn_AltasMouseEntered(evt);
+                JBtn_AltasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Btn_AltasMouseExited(evt);
+                JBtn_AltasMouseExited(evt);
             }
         });
 
-        Txt_Btn_Altas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        Txt_Btn_Altas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Txt_Btn_Altas.setText("ALTAS");
-        Txt_Btn_Altas.setFocusable(false);
+        JLb_BtnAltas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_BtnAltas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnAltas.setText("ALTAS");
+        JLb_BtnAltas.setFocusable(false);
 
-        javax.swing.GroupLayout Btn_AltasLayout = new javax.swing.GroupLayout(Btn_Altas);
-        Btn_Altas.setLayout(Btn_AltasLayout);
-        Btn_AltasLayout.setHorizontalGroup(
-            Btn_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Txt_Btn_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        javax.swing.GroupLayout JBtn_AltasLayout = new javax.swing.GroupLayout(JBtn_Altas);
+        JBtn_Altas.setLayout(JBtn_AltasLayout);
+        JBtn_AltasLayout.setHorizontalGroup(
+            JBtn_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnAltas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
-        Btn_AltasLayout.setVerticalGroup(
-            Btn_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Txt_Btn_Altas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        JBtn_AltasLayout.setVerticalGroup(
+            JBtn_AltasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnAltas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        MenuPrincipal.add(Btn_Altas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 270, 50));
+        JPan_MenuPrincipal.add(JBtn_Altas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 270, 50));
 
-        Btn_Listas.setBackground(new java.awt.Color(27, 64, 142));
-        Btn_Listas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Listas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JBtn_Listas.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_Listas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_Listas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_ListasMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Btn_ListasMouseEntered(evt);
+                JBtn_ListasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Btn_ListasMouseExited(evt);
+                JBtn_ListasMouseExited(evt);
             }
         });
 
-        Txt_Btn_Listas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        Txt_Btn_Listas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Txt_Btn_Listas.setText("LISTAS PARA BAJAS Y EDICIONES");
-        Txt_Btn_Listas.setFocusable(false);
+        JLb_BtnListas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_BtnListas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnListas.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_BtnListas.setFocusable(false);
 
-        javax.swing.GroupLayout Btn_ListasLayout = new javax.swing.GroupLayout(Btn_Listas);
-        Btn_Listas.setLayout(Btn_ListasLayout);
-        Btn_ListasLayout.setHorizontalGroup(
-            Btn_ListasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Txt_Btn_Listas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        javax.swing.GroupLayout JBtn_ListasLayout = new javax.swing.GroupLayout(JBtn_Listas);
+        JBtn_Listas.setLayout(JBtn_ListasLayout);
+        JBtn_ListasLayout.setHorizontalGroup(
+            JBtn_ListasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnListas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
-        Btn_ListasLayout.setVerticalGroup(
-            Btn_ListasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Txt_Btn_Listas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        JBtn_ListasLayout.setVerticalGroup(
+            JBtn_ListasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnListas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        MenuPrincipal.add(Btn_Listas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 270, 50));
+        JPan_MenuPrincipal.add(JBtn_Listas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 270, 50));
 
-        Btn_Consultas.setBackground(new java.awt.Color(27, 64, 142));
-        Btn_Consultas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Consultas.addMouseListener(new java.awt.event.MouseAdapter() {
+        JBtn_Consultas.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_Consultas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_Consultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_ConsultasMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Btn_ConsultasMouseEntered(evt);
+                JBtn_ConsultasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Btn_ConsultasMouseExited(evt);
+                JBtn_ConsultasMouseExited(evt);
             }
         });
 
-        Txt_Btn_Consultas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        Txt_Btn_Consultas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Txt_Btn_Consultas.setText("CONSULTAS ESPECÍFICAS");
-        Txt_Btn_Consultas.setFocusable(false);
+        JLb_BtnConsultas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_BtnConsultas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BtnConsultas.setText("CONSULTAS ESPECÍFICAS");
+        JLb_BtnConsultas.setFocusable(false);
 
-        javax.swing.GroupLayout Btn_ConsultasLayout = new javax.swing.GroupLayout(Btn_Consultas);
-        Btn_Consultas.setLayout(Btn_ConsultasLayout);
-        Btn_ConsultasLayout.setHorizontalGroup(
-            Btn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Txt_Btn_Consultas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        javax.swing.GroupLayout JBtn_ConsultasLayout = new javax.swing.GroupLayout(JBtn_Consultas);
+        JBtn_Consultas.setLayout(JBtn_ConsultasLayout);
+        JBtn_ConsultasLayout.setHorizontalGroup(
+            JBtn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
         );
-        Btn_ConsultasLayout.setVerticalGroup(
-            Btn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Txt_Btn_Consultas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        JBtn_ConsultasLayout.setVerticalGroup(
+            JBtn_ConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BtnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        MenuPrincipal.add(Btn_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 270, 50));
+        JPan_MenuPrincipal.add(JBtn_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 270, 50));
 
-        Txt_MarcaDeAgua.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        Txt_MarcaDeAgua.setText("Made by: Calderoni, Figún & Politti");
-        MenuPrincipal.add(Txt_MarcaDeAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, -1, 20));
+        JLb_MarcaDeAgua.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JLb_MarcaDeAgua.setText("Made by: Calderoni, Figún & Politti");
+        JPan_MenuPrincipal.add(JLb_MarcaDeAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, 20));
 
-        getContentPane().add(MenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        JPan_Contenedor.add(JPan_MenuPrincipal, "card8");
 
-        Header.setBackground(new java.awt.Color(27, 64, 142));
-        Header.setPreferredSize(new java.awt.Dimension(640, 100));
-        Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_Altas.setBackground(new java.awt.Color(255, 255, 255));
+        JPan_Altas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoBlancoRedimensionado.png"))); // NOI18N
-        Header.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 100));
+        JBtn_AltaObjeto.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_AltaObjeto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_AltaObjeto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_AltaObjetoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_AltaObjetoMouseExited(evt);
+            }
+        });
 
-        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        JLb_AltaObjeto.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_AltaObjeto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObjeto.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaObjeto.setFocusable(false);
 
-        Contenedor.setLayout(new java.awt.CardLayout());
-        getContentPane().add(Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout JBtn_AltaObjetoLayout = new javax.swing.GroupLayout(JBtn_AltaObjeto);
+        JBtn_AltaObjeto.setLayout(JBtn_AltaObjetoLayout);
+        JBtn_AltaObjetoLayout.setHorizontalGroup(
+            JBtn_AltaObjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaObjeto, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_AltaObjetoLayout.setVerticalGroup(
+            JBtn_AltaObjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaObjeto, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_Altas.add(JBtn_AltaObjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 270, 50));
+
+        JBtn_AltaPersona.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_AltaPersona.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_AltaPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_AltaPersonaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_AltaPersonaMouseExited(evt);
+            }
+        });
+
+        JLb_AltaPersona.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_AltaPersona.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaPersona.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaPersona.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_AltaPersonaLayout = new javax.swing.GroupLayout(JBtn_AltaPersona);
+        JBtn_AltaPersona.setLayout(JBtn_AltaPersonaLayout);
+        JBtn_AltaPersonaLayout.setHorizontalGroup(
+            JBtn_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_AltaPersonaLayout.setVerticalGroup(
+            JBtn_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_Altas.add(JBtn_AltaPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 270, 50));
+
+        JBtn_AltaSitio.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_AltaSitio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_AltaSitio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_AltaSitioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_AltaSitioMouseExited(evt);
+            }
+        });
+
+        JLb_AltaSitio.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_AltaSitio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaSitio.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaSitio.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_AltaSitioLayout = new javax.swing.GroupLayout(JBtn_AltaSitio);
+        JBtn_AltaSitio.setLayout(JBtn_AltaSitioLayout);
+        JBtn_AltaSitioLayout.setHorizontalGroup(
+            JBtn_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaSitio, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_AltaSitioLayout.setVerticalGroup(
+            JBtn_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaSitio, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_Altas.add(JBtn_AltaSitio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 270, 50));
+
+        JBtn_AltaCuadricula.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_AltaCuadricula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_AltaCuadricula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_AltaCuadriculaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_AltaCuadriculaMouseExited(evt);
+            }
+        });
+
+        JLb_AltaCuadricula.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_AltaCuadricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaCuadricula.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaCuadricula.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_AltaCuadriculaLayout = new javax.swing.GroupLayout(JBtn_AltaCuadricula);
+        JBtn_AltaCuadricula.setLayout(JBtn_AltaCuadriculaLayout);
+        JBtn_AltaCuadriculaLayout.setHorizontalGroup(
+            JBtn_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaCuadricula, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_AltaCuadriculaLayout.setVerticalGroup(
+            JBtn_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaCuadricula, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_Altas.add(JBtn_AltaCuadricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 270, 50));
+
+        JBtn_AltaCaja.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_AltaCaja.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_AltaCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_AltaCajaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_AltaCajaMouseExited(evt);
+            }
+        });
+
+        JLb_AltaCaja.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_AltaCaja.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaCaja.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaCaja.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_AltaCajaLayout = new javax.swing.GroupLayout(JBtn_AltaCaja);
+        JBtn_AltaCaja.setLayout(JBtn_AltaCajaLayout);
+        JBtn_AltaCajaLayout.setHorizontalGroup(
+            JBtn_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaCaja, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_AltaCajaLayout.setVerticalGroup(
+            JBtn_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_AltaCaja, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_Altas.add(JBtn_AltaCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 270, 50));
+
+        JPan_Contenedor.add(JPan_Altas, "card3");
+
+        JPan_Listas.setBackground(new java.awt.Color(255, 255, 255));
+        JPan_Listas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JTable_ObjetosGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_ObjetosGeneral.setViewportView(JTable_ObjetosGeneral);
+
+        JTbpan_General.addTab("Objetos", JSP_ObjetosGeneral);
+
+        JTable_PersonasGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_PersonasGeneral.setViewportView(JTable_PersonasGeneral);
+
+        JTbpan_General.addTab("Personas", JSP_PersonasGeneral);
+
+        JTable_SitiosGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_SitiosGeneral.setViewportView(JTable_SitiosGeneral);
+
+        JTbpan_General.addTab("Sitios", JSP_SitiosGeneral);
+
+        JTable_CuadriculasGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_CuadriculasGeneral.setViewportView(JTable_CuadriculasGeneral);
+
+        JTbpan_General.addTab("Cuadriculas", JSP_CuadriculasGeneral);
+
+        JTable_CajasGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_CajasGeneral.setViewportView(JTable_CajasGeneral);
+
+        JTbpan_General.addTab("Cajas", JSP_CajasGeneral);
+
+        JPan_Listas.add(JTbpan_General, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 530, 330));
+
+        JPan_Contenedor.add(JPan_Listas, "card4");
+
+        JPan_Consultas.setBackground(new java.awt.Color(255, 255, 255));
+        JPan_Consultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JCB_Consultas.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        JCB_Consultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar personas y cajas", "Obtener objetos dentro de una caja", "Mostrar objetos encontrados en un período de tiempo", "Mostrar cantidad de objetos encontrados por su tipo", "Resumen de cantidades cargadas en el sistema", "Mostrar cantidad de hallazgos de cada arqueólogo", "Listar código y lugar de las cajas vacías", "Obtener el máximo, mínimo y promedio del peso de los objetos", "Obtener el peso de cada caja" }));
+        JCB_Consultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_ConsultasActionPerformed(evt);
+            }
+        });
+        JPan_Consultas.add(JCB_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 440, 30));
+
+        JBtn_BuscarConsulta.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_BuscarConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_BuscarConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_BuscarConsultaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_BuscarConsultaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_BuscarConsultaMouseExited(evt);
+            }
+        });
+
+        JLb_BuscarConsulta.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_BuscarConsulta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_BuscarConsulta.setText("BUSCAR CONSULTA");
+        JLb_BuscarConsulta.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_BuscarConsultaLayout = new javax.swing.GroupLayout(JBtn_BuscarConsulta);
+        JBtn_BuscarConsulta.setLayout(JBtn_BuscarConsultaLayout);
+        JBtn_BuscarConsultaLayout.setHorizontalGroup(
+            JBtn_BuscarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BuscarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_BuscarConsultaLayout.setVerticalGroup(
+            JBtn_BuscarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_BuscarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_Consultas.add(JBtn_BuscarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 270, 50));
+
+        JPan_Contenedor.add(JPan_Consultas, "card5");
+
+        JPan_MostrarPersonasYCajas.setBackground(new java.awt.Color(255, 255, 255));
+        JPan_MostrarPersonasYCajas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JTable_Cajas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_Cajas.setViewportView(JTable_Cajas);
+
+        JTbpan_PersonasYCajas.addTab("Cajas", JSP_Cajas);
+
+        JTable_Personas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_Personas.setViewportView(JTable_Personas);
+
+        JTbpan_PersonasYCajas.addTab("Personas", JSP_Personas);
+
+        JPan_MostrarPersonasYCajas.add(JTbpan_PersonasYCajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 580, 350));
+
+        JPan_Contenedor.add(JPan_MostrarPersonasYCajas, "card6");
+
+        getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Btn_ConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ConsultasMouseExited
-        Btn_Altas.setBackground(new Color(27,64,142));
-    }//GEN-LAST:event_Btn_ConsultasMouseExited
+    private void JBtn_ConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ConsultasMouseExited
+        JBtn_Consultas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_JBtn_ConsultasMouseExited
 
-    private void Btn_ConsultasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ConsultasMouseEntered
-        Btn_Altas.setBackground(new Color(51,189,238));
-    }//GEN-LAST:event_Btn_ConsultasMouseEntered
+    private void JBtn_ConsultasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ConsultasMouseEntered
+        JBtn_Consultas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_JBtn_ConsultasMouseEntered
 
-    private void Btn_ListasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseExited
-        Btn_Altas.setBackground(new Color(27,64,142));
-    }//GEN-LAST:event_Btn_ListasMouseExited
+    private void JBtn_ListasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ListasMouseExited
+        JBtn_Listas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_JBtn_ListasMouseExited
 
-    private void Btn_ListasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_ListasMouseEntered
-        Btn_Altas.setBackground(new Color(51,189,238));
-    }//GEN-LAST:event_Btn_ListasMouseEntered
+    private void JBtn_ListasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ListasMouseEntered
+        JBtn_Listas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_JBtn_ListasMouseEntered
 
-    private void Btn_AltasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseExited
-        Btn_Altas.setBackground(new Color(27,64,142));
-    }//GEN-LAST:event_Btn_AltasMouseExited
+    private void JBtn_AltasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltasMouseExited
+        JBtn_Altas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_JBtn_AltasMouseExited
 
-    private void Btn_AltasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_AltasMouseEntered
-        Btn_Altas.setBackground(new Color(51,189,238));
-    }//GEN-LAST:event_Btn_AltasMouseEntered
+    private void JBtn_AltasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltasMouseEntered
+        JBtn_Altas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_JBtn_AltasMouseEntered
+
+    private void JBtn_AltasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltasMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_Altas);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AltasMouseClicked
+
+    private void JBtn_AltaObjetoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaObjetoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaObjetoMouseEntered
+
+    private void JBtn_AltaObjetoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaObjetoMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaObjetoMouseExited
+
+    private void JBtn_AltaPersonaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaPersonaMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaPersonaMouseEntered
+
+    private void JBtn_AltaPersonaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaPersonaMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaPersonaMouseExited
+
+    private void JBtn_AltaSitioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaSitioMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaSitioMouseEntered
+
+    private void JBtn_AltaSitioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaSitioMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaSitioMouseExited
+
+    private void JBtn_AltaCuadriculaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaCuadriculaMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaCuadriculaMouseEntered
+
+    private void JBtn_AltaCuadriculaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaCuadriculaMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaCuadriculaMouseExited
+
+    private void JBtn_AltaCajaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaCajaMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaCajaMouseEntered
+
+    private void JBtn_AltaCajaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaCajaMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_AltaCajaMouseExited
+
+    private void JBtn_ListasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ListasMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_Listas);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_ListasMouseClicked
+
+    private void JBtn_ConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ConsultasMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_Consultas);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_ConsultasMouseClicked
+
+    private void JBtn_BuscarConsultaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_BuscarConsultaMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_BuscarConsultaMouseEntered
+
+    private void JBtn_BuscarConsultaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_BuscarConsultaMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBtn_BuscarConsultaMouseExited
+
+    private void JCB_ConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_ConsultasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCB_ConsultasActionPerformed
+
+    private void JBtn_BuscarConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_BuscarConsultaMouseClicked
+        String itemSeleccionado = new String();
+        itemSeleccionado = (String) JCB_Consultas.getSelectedItem();
+        
+        switch (itemSeleccionado){
+            case ("Mostrar personas y cajas"):
+                JPan_Contenedor.removeAll();
+                JPan_Contenedor.add(JPan_MostrarPersonasYCajas);
+                JPan_Contenedor.repaint();
+                JPan_Contenedor.revalidate();
+                break;
+            case ("Obtener objetos dentro de una caja"):
+                break;
+            case ("Mostrar objetos encontrados en un período de tiempo"):
+                break;
+            case ("Mostrar cantidad de objetos encontrados por su tipo"):
+                break;
+            case ("Resumen de cantidades cargadas en el sistema"):
+                break;
+            case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
+                break;
+            case ("Listar código y lugar de las cajas vacías"):
+                break;
+            case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
+                break;
+            case ("Obtener el peso de cada caja"):
+                break;
+            default:
+                JOptionPane.showMessageDialog(null,"Debe seleccionar una consulta", "Error, ninguna consulta seleccionada", JOptionPane.INFORMATION_MESSAGE);
+                break;
+        }
+
+    }//GEN-LAST:event_JBtn_BuscarConsultaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -241,18 +708,56 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Btn_Altas;
-    private javax.swing.JPanel Btn_Consultas;
-    private javax.swing.JPanel Btn_Listas;
-    private javax.swing.JPanel Contenedor;
-    private javax.swing.JPanel Header;
-    private javax.swing.JLabel ImagenIzquierda;
-    private javax.swing.JLabel Logo;
-    private javax.swing.JPanel MenuPrincipal;
-    private javax.swing.JLabel Txt_Btn_Altas;
-    private javax.swing.JLabel Txt_Btn_Consultas;
-    private javax.swing.JLabel Txt_Btn_Listas;
-    private javax.swing.JLabel Txt_MarcaDeAgua;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel JBtn_AltaCaja;
+    private javax.swing.JPanel JBtn_AltaCuadricula;
+    private javax.swing.JPanel JBtn_AltaObjeto;
+    private javax.swing.JPanel JBtn_AltaPersona;
+    private javax.swing.JPanel JBtn_AltaSitio;
+    private javax.swing.JPanel JBtn_Altas;
+    private javax.swing.JPanel JBtn_BuscarConsulta;
+    private javax.swing.JPanel JBtn_Consultas;
+    private javax.swing.JPanel JBtn_Listas;
+    private javax.swing.JPanel JBtn_Listas5;
+    private javax.swing.JPanel JBtn_Listas6;
+    private javax.swing.JPanel JBtn_Listas7;
+    private javax.swing.JComboBox<String> JCB_Consultas;
+    private javax.swing.JLabel JLb_AltaCaja;
+    private javax.swing.JLabel JLb_AltaCuadricula;
+    private javax.swing.JLabel JLb_AltaObjeto;
+    private javax.swing.JLabel JLb_AltaPersona;
+    private javax.swing.JLabel JLb_AltaSitio;
+    private javax.swing.JLabel JLb_BtnAltas;
+    private javax.swing.JLabel JLb_BtnConsultas;
+    private javax.swing.JLabel JLb_BtnListas;
+    private javax.swing.JLabel JLb_BtnListas5;
+    private javax.swing.JLabel JLb_BtnListas6;
+    private javax.swing.JLabel JLb_BtnListas7;
+    private javax.swing.JLabel JLb_BuscarConsulta;
+    private javax.swing.JLabel JLb_ImagenIzquierda;
+    private javax.swing.JLabel JLb_MarcaDeAgua;
+    private javax.swing.JPanel JPan_Altas;
+    private javax.swing.JPanel JPan_Consultas;
+    private javax.swing.JPanel JPan_Contenedor;
+    private javax.swing.JPanel JPan_Header;
+    private javax.swing.JPanel JPan_Listas;
+    private javax.swing.JPanel JPan_MenuPrincipal;
+    private javax.swing.JPanel JPan_MostrarPersonasYCajas;
+    private javax.swing.JScrollPane JSP_Cajas;
+    private javax.swing.JScrollPane JSP_CajasGeneral;
+    private javax.swing.JScrollPane JSP_CuadriculasGeneral;
+    private javax.swing.JScrollPane JSP_ObjetosGeneral;
+    private javax.swing.JScrollPane JSP_Personas;
+    private javax.swing.JScrollPane JSP_PersonasGeneral;
+    private javax.swing.JScrollPane JSP_SitiosGeneral;
+    private javax.swing.JTable JTable_Cajas;
+    private javax.swing.JTable JTable_CajasGeneral;
+    private javax.swing.JTable JTable_CuadriculasGeneral;
+    private javax.swing.JTable JTable_ObjetosGeneral;
+    private javax.swing.JTable JTable_Personas;
+    private javax.swing.JTable JTable_PersonasGeneral;
+    private javax.swing.JTable JTable_SitiosGeneral;
+    private javax.swing.JTabbedPane JTbpan_General;
+    private javax.swing.JTabbedPane JTbpan_PersonasYCajas;
+    private javax.swing.JLabel Jlb_LogoBlanco;
     // End of variables declaration//GEN-END:variables
 }
