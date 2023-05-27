@@ -539,7 +539,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_AltaObjeto.add(JTF_AOrig, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 170, -1));
 
         try{
-            JCB_ACuadAsocObj.setModel(new javax.swing.DefaultComboBoxModel<>(Query.enumCuadriculas()));
+            JCB_ACuadAsocObj.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;","cu_cod")));
         }catch(SQLException e){
             System.out.println(""+e.getMessage());
         }
@@ -553,7 +553,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jLabel11.setText("Fecha del Registro");
         JPan_AltaObjeto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 180, -1));
 
-        JCB_ACajaContObj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        try{
+            JCB_ACajaContObj.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT ca_cod FROM Cajas ORDER BY ca_cod;", "ca_cod")));
+        } catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
         JCB_ACajaContObj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_ACajaContObjActionPerformed(evt);
@@ -583,7 +587,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jLabel13.setText("DNI del Investigador");
         JPan_AltaObjeto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 170, -1));
 
-        JCB_ATipoObj.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        try{
+            JCB_ATipoObj.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT DISTINCT o_es FROM objetos;", "o_es")));
+        }catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
         JCB_ATipoObj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_ATipoObjActionPerformed(evt);

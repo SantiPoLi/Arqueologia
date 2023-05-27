@@ -452,23 +452,16 @@ public abstract class Query{
         }
     }
 
-    public static String[] enumCuadriculas() throws SQLException{
-        /*query = conn.createStatement();
-        result = query.executeQuery("SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;");
-        Array arr = result.getArray("cu_cod");      
-        String[] strings = (String[]) arr.getArray();
-        JOptionPane.showMessageDialog(null,"Desastre", "Desastre", JOptionPane.INFORMATION_MESSAGE);
-        for(String valor:strings){
-            System.out.println(valor);
-        }
-        return strings;*/
+    public static String[] resultToArray(String consulta,String tabla) throws SQLException{
         query = conn.createStatement();
-        result = query.executeQuery("SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;");
+        //"SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;"
+        result = query.executeQuery(consulta);
 
         ArrayList<String> valores = new ArrayList<>();
 
         while (result.next()) {
-            String valor = result.getString("cu_cod");
+            //"cu_cod"
+            String valor = result.getString(tabla);
             valores.add(valor);
         }
 

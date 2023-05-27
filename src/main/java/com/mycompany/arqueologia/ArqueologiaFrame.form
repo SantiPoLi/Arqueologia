@@ -800,7 +800,7 @@
             <Component class="javax.swing.JComboBox" name="JCB_ACuadAsocObj">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(Query.enumCuadriculas())" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(Query.resultToArray(&quot;SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;&quot;,&quot;cu_cod&quot;))" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -829,19 +829,16 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="JCB_ACajaContObj">
               <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(Query.resultToArray(&quot;SELECT ca_cod FROM Cajas ORDER BY ca_cod;&quot;, &quot;ca_cod&quot;))" type="code"/>
                 </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JCB_ACajaContObjActionPerformed"/>
               </Events>
               <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="} catch(SQLException e){&#xa;    System.out.println(&quot;&quot;+e.getMessage());&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="try{"/>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
               <Constraints>
@@ -904,19 +901,16 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="JCB_ATipoObj">
               <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(Query.resultToArray(&quot;SELECT DISTINCT o_es FROM objetos;&quot;, &quot;o_es&quot;))" type="code"/>
                 </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JCB_ATipoObjActionPerformed"/>
               </Events>
               <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="}catch(SQLException e){&#xa;    System.out.println(&quot;&quot;+e.getMessage());&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="try{"/>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
               <Constraints>
