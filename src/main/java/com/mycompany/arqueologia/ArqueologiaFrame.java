@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class ArqueologiaFrame extends javax.swing.JFrame {
     
     // Mensajes de error
-    private static final String ERROR_MSG_INSERT = "Error al intentar dar de alta a esta persona.";
+    private static final String ERROR_MSG_INSERT = "Error al intentar dar de alta.";
     private static final String ERROR_MSG_INSERT_INPUT = "No se admiten campos vacíos.";
     
     public ResultSet result;
@@ -581,7 +581,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        JPan_AltaObjeto.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
+        JPan_AltaObjeto.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
         JPan_AltaObjeto.add(jSpin_ADNIInvObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 170, -1));
 
         jLabel13.setText("DNI del Investigador");
@@ -967,7 +967,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_JCB_ATipoObjActionPerformed
 
     private void jBtn_SubmitAltaObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_SubmitAltaObjActionPerformed
-        // TODO add your handling code here:
+        if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_jBtn_SubmitAltaObjActionPerformed
 
     private void JBtn_AltaObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaObjetoMouseClicked
