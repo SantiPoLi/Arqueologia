@@ -1,6 +1,8 @@
 
 package com.mycompany.arqueologia;
 
+import java.awt.List;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -449,6 +452,31 @@ public abstract class Query{
         }
     }
 
+    public static String[] enumCuadriculas() throws SQLException{
+        /*query = conn.createStatement();
+        result = query.executeQuery("SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;");
+        Array arr = result.getArray("cu_cod");      
+        String[] strings = (String[]) arr.getArray();
+        JOptionPane.showMessageDialog(null,"Desastre", "Desastre", JOptionPane.INFORMATION_MESSAGE);
+        for(String valor:strings){
+            System.out.println(valor);
+        }
+        return strings;*/
+        query = conn.createStatement();
+        result = query.executeQuery("SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;");
+
+        ArrayList<String> valores = new ArrayList<>();
+
+        while (result.next()) {
+            String valor = result.getString("cu_cod");
+            valores.add(valor);
+        }
+
+        String[] arreglo = valores.toArray(new String[0]);
+
+        return arreglo;
+
+    }
 
     public static ResultSet updateListaResultados(int tabla) throws SQLException {
         // realiza la consulta "SELECT * FROM ejemplo_personas" a la base de datos
@@ -481,6 +509,12 @@ public abstract class Query{
         }
         return result;
     }
+   
+    /*public static String[] resultToArrayString(ResultSet rs) throws SQLException{
+        List<String> lista = new ArrayList<>();
+        
+        lista.add(rs.g))
+    }*/
     
     public static DefaultTableModel resultToTable(ResultSet rs) throws SQLException {
         // Esta es una función auxiliar que les permite convertir los resultados de las
