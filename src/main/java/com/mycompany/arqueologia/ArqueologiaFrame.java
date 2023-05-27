@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class ArqueologiaFrame extends javax.swing.JFrame {
     
     // Mensajes de error
-    private static final String ERROR_MSG_INSERT = "Error al intentar dar de alta a esta persona.";
+    private static final String ERROR_MSG_INSERT = "Error al intentar dar de alta.";
     private static final String ERROR_MSG_INSERT_INPUT = "No se admiten campos vacíos.";
     
     public ResultSet result;
@@ -78,14 +78,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaObj = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         JTF_ACodObj = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         JTF_ANombObj = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
@@ -99,7 +92,23 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JSpin_AEspesor = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         jSpin_ACant = new javax.swing.JSpinner();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDate_AFechaReg = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTArea_ADesc = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        JTF_AOrig = new javax.swing.JTextField();
+        JCB_ACuadAsocObj = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        JCB_ACajaContObj = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jSpin_ADNIInvObj = new javax.swing.JSpinner();
+        jLabel13 = new javax.swing.JLabel();
+        JCB_ATipoObj = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jBtn_SubmitAltaObj = new javax.swing.JButton();
         JPan_AltaPersona = new javax.swing.JPanel();
         JPan_AltaSitio = new javax.swing.JPanel();
         JPan_AltaCuadricula = new javax.swing.JPanel();
@@ -276,6 +285,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_AltaObjeto.setBackground(new java.awt.Color(27, 64, 142));
         JBtn_AltaObjeto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JBtn_AltaObjeto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AltaObjetoMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 JBtn_AltaObjetoMouseEntered(evt);
             }
@@ -436,165 +448,20 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         });
         JPan_AltaObjeto.add(JTF_ACodObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 0));
-
-        jPanel2.setBackground(new java.awt.Color(153, 153, 0));
-
-        jPanel6.setBackground(new java.awt.Color(153, 153, 0));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        JPan_AltaObjeto.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 210, 30));
-
         jPanel5.setBackground(new java.awt.Color(153, 153, 0));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         JPan_AltaObjeto.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, 30));
-
-        jPanel8.setBackground(new java.awt.Color(153, 153, 0));
-
-        jPanel9.setBackground(new java.awt.Color(153, 153, 0));
-
-        jPanel10.setBackground(new java.awt.Color(153, 153, 0));
-
-        jPanel11.setBackground(new java.awt.Color(153, 153, 0));
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        JPan_AltaObjeto.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 210, 30));
 
         jLabel2.setText("Nombre ");
         JPan_AltaObjeto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, -1));
@@ -612,11 +479,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         JPan_AltaObjeto.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 220, -1));
@@ -639,14 +506,110 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_AltaObjeto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 170, -1));
         JPan_AltaObjeto.add(jSpin_ALargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 180, -1));
 
-        jLabel6.setText("Espesor");
-        JPan_AltaObjeto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 170, -1));
+        jLabel6.setText("Descripción");
+        JPan_AltaObjeto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 170, -1));
         JPan_AltaObjeto.add(JSpin_AEspesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 170, -1));
 
-        jLabel7.setText("Cantidad");
-        JPan_AltaObjeto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 170, -1));
+        jLabel7.setText("Cuadrícula Asociada");
+        JPan_AltaObjeto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 180, -1));
         JPan_AltaObjeto.add(jSpin_ACant, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
-        JPan_AltaObjeto.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 180, -1));
+        JPan_AltaObjeto.add(jDate_AFechaReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 180, -1));
+
+        jLabel8.setText("Cantidad");
+        JPan_AltaObjeto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 170, -1));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        JTArea_ADesc.setColumns(20);
+        JTArea_ADesc.setRows(5);
+        jScrollPane1.setViewportView(JTArea_ADesc);
+
+        JPan_AltaObjeto.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 170, -1));
+
+        jLabel9.setText("Espesor");
+        JPan_AltaObjeto.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 170, -1));
+
+        jLabel10.setText("Origen");
+        JPan_AltaObjeto.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 170, -1));
+
+        JTF_AOrig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_AOrigActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(JTF_AOrig, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 170, -1));
+
+        try{
+            JCB_ACuadAsocObj.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;","cu_cod")));
+        }catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
+        JCB_ACuadAsocObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_ACuadAsocObjActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(JCB_ACuadAsocObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 180, 20));
+
+        jLabel11.setText("Fecha del Registro");
+        JPan_AltaObjeto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 180, -1));
+
+        try{
+            JCB_ACajaContObj.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT ca_cod FROM Cajas ORDER BY ca_cod;", "ca_cod")));
+        } catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
+        JCB_ACajaContObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_ACajaContObjActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(JCB_ACajaContObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 180, 20));
+
+        jLabel12.setText("Caja que lo contiene");
+        JPan_AltaObjeto.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 180, -1));
+
+        jPanel6.setBackground(new java.awt.Color(153, 153, 0));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        JPan_AltaObjeto.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        JPan_AltaObjeto.add(jSpin_ADNIInvObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 170, -1));
+
+        jLabel13.setText("DNI del Investigador");
+        JPan_AltaObjeto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 170, -1));
+
+        try{
+            JCB_ATipoObj.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT DISTINCT o_es FROM objetos;", "o_es")));
+        }catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
+        JCB_ATipoObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_ATipoObjActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(JCB_ATipoObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 170, 20));
+
+        jLabel14.setText("Tipo del Objeto");
+        JPan_AltaObjeto.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 170, -1));
+
+        jBtn_SubmitAltaObj.setText("Enviar");
+        jBtn_SubmitAltaObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_SubmitAltaObjActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(jBtn_SubmitAltaObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 170, -1));
 
         JPan_Contenedor.add(JPan_AltaObjeto, "card7");
 
@@ -654,7 +617,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_AltaPersona.setLayout(JPan_AltaPersonaLayout);
         JPan_AltaPersonaLayout.setHorizontalGroup(
             JPan_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         JPan_AltaPersonaLayout.setVerticalGroup(
             JPan_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -667,7 +630,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_AltaSitio.setLayout(JPan_AltaSitioLayout);
         JPan_AltaSitioLayout.setHorizontalGroup(
             JPan_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         JPan_AltaSitioLayout.setVerticalGroup(
             JPan_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -680,7 +643,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_AltaCuadricula.setLayout(JPan_AltaCuadriculaLayout);
         JPan_AltaCuadriculaLayout.setHorizontalGroup(
             JPan_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         JPan_AltaCuadriculaLayout.setVerticalGroup(
             JPan_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -693,7 +656,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_AltaCaja.setLayout(JPan_AltaCajaLayout);
         JPan_AltaCajaLayout.setHorizontalGroup(
             JPan_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         JPan_AltaCajaLayout.setVerticalGroup(
             JPan_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -991,6 +954,36 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTF_ATipExtObjActionPerformed
 
+    private void JTF_AOrigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_AOrigActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_AOrigActionPerformed
+
+    private void JCB_ACuadAsocObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_ACuadAsocObjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCB_ACuadAsocObjActionPerformed
+
+    private void JCB_ACajaContObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_ACajaContObjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCB_ACajaContObjActionPerformed
+
+    private void JCB_ATipoObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_ATipoObjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCB_ATipoObjActionPerformed
+
+    private void jBtn_SubmitAltaObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_SubmitAltaObjActionPerformed
+        if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_jBtn_SubmitAltaObjActionPerformed
+
+    private void JBtn_AltaObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaObjetoMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AltaObjeto);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AltaObjetoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1042,6 +1035,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JBtn_BuscarConsulta;
     private javax.swing.JPanel JBtn_Consultas;
     private javax.swing.JPanel JBtn_Listas;
+    private javax.swing.JComboBox<String> JCB_ACajaContObj;
+    private javax.swing.JComboBox<String> JCB_ACuadAsocObj;
+    private javax.swing.JComboBox<String> JCB_ATipoObj;
     private javax.swing.JComboBox<String> JCB_Consultas;
     private javax.swing.JLabel JLb_AltaCaja;
     private javax.swing.JLabel JLb_AltaCuadricula;
@@ -1073,8 +1069,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane JSP_PersonasGeneral;
     private javax.swing.JScrollPane JSP_SitiosGeneral;
     private javax.swing.JSpinner JSpin_AEspesor;
+    private javax.swing.JTextArea JTArea_ADesc;
     private javax.swing.JTextField JTF_ACodObj;
     private javax.swing.JTextField JTF_ANombObj;
+    private javax.swing.JTextField JTF_AOrig;
     private javax.swing.JTextField JTF_ATipExtObj;
     private javax.swing.JTable JTable_CajasGeneral;
     private javax.swing.JTable JTable_CuadriculasGeneral;
@@ -1083,25 +1081,29 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTable JTable_SitiosGeneral;
     private javax.swing.JTabbedPane JTbpan_General;
     private javax.swing.JLabel Jlb_LogoBlanco;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton jBtn_SubmitAltaObj;
+    private com.toedter.calendar.JDateChooser jDate_AFechaReg;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpin_AAlto;
     private javax.swing.JSpinner jSpin_ACant;
+    private javax.swing.JSpinner jSpin_ADNIInvObj;
     private javax.swing.JSpinner jSpin_ALargo;
     // End of variables declaration//GEN-END:variables
 }

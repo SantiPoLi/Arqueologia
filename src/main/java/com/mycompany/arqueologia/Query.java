@@ -1,6 +1,8 @@
 
 package com.mycompany.arqueologia;
 
+import java.awt.List;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -9,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -450,6 +453,24 @@ public abstract class Query{
         }
     }
 
+    public static String[] resultToArray(String consulta,String tabla) throws SQLException{
+        query = conn.createStatement();
+        //"SELECT cu_cod FROM Cuadriculas ORDER BY cu_cod;"
+        result = query.executeQuery(consulta);
+
+        ArrayList<String> valores = new ArrayList<>();
+
+        while (result.next()) {
+            //"cu_cod"
+            String valor = result.getString(tabla);
+            valores.add(valor);
+        }
+
+        String[] arreglo = valores.toArray(new String[0]);
+
+        return arreglo;
+
+    }
 
     public static ResultSet updateListaResultados(int tabla) throws SQLException {
         // realiza la consulta "SELECT * FROM ejemplo_personas" a la base de datos
@@ -482,6 +503,12 @@ public abstract class Query{
         }
         return result;
     }
+   
+    /*public static String[] resultToArrayString(ResultSet rs) throws SQLException{
+        List<String> lista = new ArrayList<>();
+        
+        lista.add(rs.g))
+    }*/
     
     public static DefaultTableModel resultToTable(ResultSet rs) throws SQLException {
         // Esta es una función auxiliar que les permite convertir los resultados de las
