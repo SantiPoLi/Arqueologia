@@ -22,11 +22,23 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private static final String ERROR_MSG_INSERT = "Error al intentar dar de alta a esta persona.";
     private static final String ERROR_MSG_INSERT_INPUT = "No se admiten campos vacíos.";
     
+    public ResultSet result;
+    
     public ArqueologiaFrame() throws SQLException {
         Query.initQuery();
         initComponents();
         //label_error.setVisible(false);
         //Query.initQuery();
+        result = Query.updateListaResultados(0);
+        JTable_ObjetosGeneral.setModel(Query.resultToTable(result));
+        result = Query.updateListaResultados(1);
+        JTable_PersonasGeneral.setModel(Query.resultToTable(result));
+        result = Query.updateListaResultados(2);
+        JTable_SitiosGeneral.setModel(Query.resultToTable(result));
+        result = Query.updateListaResultados(3);
+        JTable_CuadriculasGeneral.setModel(Query.resultToTable(result));
+        result = Query.updateListaResultados(4);
+        JTable_CajasGeneral.setModel(Query.resultToTable(result));
     }
 
     /**

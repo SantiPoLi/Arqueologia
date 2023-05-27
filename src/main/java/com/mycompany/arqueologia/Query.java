@@ -444,7 +444,9 @@ public abstract class Query{
         
         // Inicializamos/Actualizamos la lista de personas del formulario
         // para que muestre las personas que ya están cargadas en el sistema
-        //updateListaResultados();
+        for (int i=0;i<5;i++){
+            updateListaResultados(i);
+        }
     }
 
 
@@ -455,15 +457,29 @@ public abstract class Query{
         // del programa (jTablaPersonas).
         query = conn.createStatement();
         switch(tabla){
-            case 0:{ //cajas
-               result = query.executeQuery("SELECT * FROM cajas ORDER BY ca_fecha; "); 
+            case 0:{//Objetos
+                result = query.executeQuery("SELECT * FROM objetos;");
+                break;
             }
             case 1:{//personas
                result = query.executeQuery("SELECT p_apellido,p_nombre,p_dni,p_email,p_telefono FROM personas  ORDER BY p_apellido; "); 
+               break;
             }
+            case 2:{//sitios
+                result = query.executeQuery("SELECT * FROM sitios ORDER BY s_localidad;");
+                break;
+            }
+            case 3:{//Cuadriculas
+                result = query.executeQuery("SELECT cu_cod,s_cod,s_localidad FROM cuadriculas,sitios WHERE s_cod_dividido=s_cod;");
+                break;
+            }
+            case 4:{ //cajas
+               result = query.executeQuery("SELECT * FROM cajas ORDER BY ca_fecha; ");
+               break;
+            }
+            
         }
         return result;
-        //JTable_CajasGeneral.setModel(resultToTable(result));
     }
     
     public static DefaultTableModel resultToTable(ResultSet rs) throws SQLException {
