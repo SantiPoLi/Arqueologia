@@ -2,6 +2,7 @@
 package com.mycompany.arqueologia;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -507,4 +508,20 @@ public abstract class Query{
 
         return new DefaultTableModel(data, columnNames);
     }
+    
+    // Consulta numero 5: 
+    // Mostrar el código y nombre de los objetos que se hallaron entre dos fechas ingresadas por el usuario.
+
+    public static ResultSet codigoYNombreDeObjetoEntreFechas (Date fecha1, Date fecha2) throws SQLException {
+        
+        String consulta = "SELECT o_cod, o_nombre FROM objetos WHERE o_fecharegistro BETWEEN ? AND ?";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setDate(1, fecha1);
+        p_query.setDate(2,fecha2);
+        
+        return p_query.executeQuery();
+        
+    }
+    
 }

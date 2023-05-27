@@ -120,6 +120,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JCB_Consultas = new javax.swing.JComboBox<>();
         JBtn_BuscarConsulta = new javax.swing.JPanel();
         JLb_BuscarConsulta = new javax.swing.JLabel();
+        JPan_ObjetosEntreDosFechas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -830,6 +831,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_Consultas, "card5");
 
+        JPan_ObjetosEntreDosFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_Contenedor.add(JPan_ObjetosEntreDosFechas, "card11");
+
         getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
         pack();
@@ -1062,6 +1066,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_Listas;
     private javax.swing.JPanel JPan_MenuPrincipal;
+    private javax.swing.JPanel JPan_ObjetosEntreDosFechas;
     private javax.swing.JScrollPane JSP_CajasGeneral;
     private javax.swing.JScrollPane JSP_CuadriculasGeneral;
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
