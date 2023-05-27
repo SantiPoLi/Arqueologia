@@ -61,6 +61,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaCuadricula = new javax.swing.JLabel();
         JBtn_AltaCaja = new javax.swing.JPanel();
         JLb_AltaCaja = new javax.swing.JLabel();
+        JPan_AltaObjeto = new javax.swing.JPanel();
+        JPan_AltaPersona = new javax.swing.JPanel();
+        JPan_AltaSitio = new javax.swing.JPanel();
+        JPan_AltaCuadricula = new javax.swing.JPanel();
+        JPan_AltaCaja = new javax.swing.JPanel();
         JPan_Listas = new javax.swing.JPanel();
         JTbpan_General = new javax.swing.JTabbedPane();
         JSP_ObjetosGeneral = new javax.swing.JScrollPane();
@@ -94,6 +99,18 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Header.setPreferredSize(new java.awt.Dimension(640, 100));
 
         Jlb_LogoBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoBlancoRedimensionado.png"))); // NOI18N
+        Jlb_LogoBlanco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Jlb_LogoBlanco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Jlb_LogoBlancoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Jlb_LogoBlancoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Jlb_LogoBlancoMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPan_HeaderLayout = new javax.swing.GroupLayout(JPan_Header);
         JPan_Header.setLayout(JPan_HeaderLayout);
@@ -236,7 +253,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JLb_AltaObjeto.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         JLb_AltaObjeto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaObjeto.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaObjeto.setText("ALTA OBJETO");
         JLb_AltaObjeto.setFocusable(false);
 
         javax.swing.GroupLayout JBtn_AltaObjetoLayout = new javax.swing.GroupLayout(JBtn_AltaObjeto);
@@ -265,7 +282,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JLb_AltaPersona.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         JLb_AltaPersona.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaPersona.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaPersona.setText("ALTA PERSONA");
         JLb_AltaPersona.setFocusable(false);
 
         javax.swing.GroupLayout JBtn_AltaPersonaLayout = new javax.swing.GroupLayout(JBtn_AltaPersona);
@@ -294,7 +311,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JLb_AltaSitio.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         JLb_AltaSitio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaSitio.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaSitio.setText("ALTA SITIO");
         JLb_AltaSitio.setFocusable(false);
 
         javax.swing.GroupLayout JBtn_AltaSitioLayout = new javax.swing.GroupLayout(JBtn_AltaSitio);
@@ -323,7 +340,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JLb_AltaCuadricula.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         JLb_AltaCuadricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaCuadricula.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaCuadricula.setText("ALTA CUADRICULA");
         JLb_AltaCuadricula.setFocusable(false);
 
         javax.swing.GroupLayout JBtn_AltaCuadriculaLayout = new javax.swing.GroupLayout(JBtn_AltaCuadricula);
@@ -352,7 +369,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JLb_AltaCaja.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         JLb_AltaCaja.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaCaja.setText("LISTAS PARA BAJAS Y EDICIONES");
+        JLb_AltaCaja.setText("ALTA CAJA");
         JLb_AltaCaja.setFocusable(false);
 
         javax.swing.GroupLayout JBtn_AltaCajaLayout = new javax.swing.GroupLayout(JBtn_AltaCaja);
@@ -369,6 +386,71 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Altas.add(JBtn_AltaCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 270, 50));
 
         JPan_Contenedor.add(JPan_Altas, "card3");
+
+        javax.swing.GroupLayout JPan_AltaObjetoLayout = new javax.swing.GroupLayout(JPan_AltaObjeto);
+        JPan_AltaObjeto.setLayout(JPan_AltaObjetoLayout);
+        JPan_AltaObjetoLayout.setHorizontalGroup(
+            JPan_AltaObjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        JPan_AltaObjetoLayout.setVerticalGroup(
+            JPan_AltaObjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        JPan_Contenedor.add(JPan_AltaObjeto, "card7");
+
+        javax.swing.GroupLayout JPan_AltaPersonaLayout = new javax.swing.GroupLayout(JPan_AltaPersona);
+        JPan_AltaPersona.setLayout(JPan_AltaPersonaLayout);
+        JPan_AltaPersonaLayout.setHorizontalGroup(
+            JPan_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        JPan_AltaPersonaLayout.setVerticalGroup(
+            JPan_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        JPan_Contenedor.add(JPan_AltaPersona, "card8");
+
+        javax.swing.GroupLayout JPan_AltaSitioLayout = new javax.swing.GroupLayout(JPan_AltaSitio);
+        JPan_AltaSitio.setLayout(JPan_AltaSitioLayout);
+        JPan_AltaSitioLayout.setHorizontalGroup(
+            JPan_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        JPan_AltaSitioLayout.setVerticalGroup(
+            JPan_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        JPan_Contenedor.add(JPan_AltaSitio, "card9");
+
+        javax.swing.GroupLayout JPan_AltaCuadriculaLayout = new javax.swing.GroupLayout(JPan_AltaCuadricula);
+        JPan_AltaCuadricula.setLayout(JPan_AltaCuadriculaLayout);
+        JPan_AltaCuadriculaLayout.setHorizontalGroup(
+            JPan_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        JPan_AltaCuadriculaLayout.setVerticalGroup(
+            JPan_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        JPan_Contenedor.add(JPan_AltaCuadricula, "card10");
+
+        javax.swing.GroupLayout JPan_AltaCajaLayout = new javax.swing.GroupLayout(JPan_AltaCaja);
+        JPan_AltaCaja.setLayout(JPan_AltaCajaLayout);
+        JPan_AltaCajaLayout.setHorizontalGroup(
+            JPan_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        JPan_AltaCajaLayout.setVerticalGroup(
+            JPan_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        JPan_Contenedor.add(JPan_AltaCaja, "card11");
 
         JPan_Listas.setBackground(new java.awt.Color(255, 255, 255));
         JPan_Listas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -671,6 +753,21 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JBtn_BuscarConsultaMouseClicked
 
+    private void Jlb_LogoBlancoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jlb_LogoBlancoMouseEntered
+        Jlb_LogoBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoColorRedimensionado.png")));
+    }//GEN-LAST:event_Jlb_LogoBlancoMouseEntered
+
+    private void Jlb_LogoBlancoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jlb_LogoBlancoMouseExited
+        Jlb_LogoBlanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoBlancoRedimensionado.png")));
+    }//GEN-LAST:event_Jlb_LogoBlancoMouseExited
+
+    private void Jlb_LogoBlancoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jlb_LogoBlancoMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_MenuPrincipal);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_Jlb_LogoBlancoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -740,6 +837,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_BuscarConsulta;
     private javax.swing.JLabel JLb_ImagenIzquierda;
     private javax.swing.JLabel JLb_MarcaDeAgua;
+    private javax.swing.JPanel JPan_AltaCaja;
+    private javax.swing.JPanel JPan_AltaCuadricula;
+    private javax.swing.JPanel JPan_AltaObjeto;
+    private javax.swing.JPanel JPan_AltaPersona;
+    private javax.swing.JPanel JPan_AltaSitio;
     private javax.swing.JPanel JPan_Altas;
     private javax.swing.JPanel JPan_Consultas;
     private javax.swing.JPanel JPan_Contenedor;
