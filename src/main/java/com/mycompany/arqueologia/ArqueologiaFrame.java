@@ -14,6 +14,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ArqueologiaFrame extends javax.swing.JFrame {
@@ -478,6 +479,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTable_ObjetosGeneral.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         JSP_ObjetosGeneral.setViewportView(JTable_ObjetosGeneral);
 
         JTbpan_General.addTab("Objetos", JSP_ObjetosGeneral);
@@ -831,9 +833,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JBtn_BuscarConsulta;
     private javax.swing.JPanel JBtn_Consultas;
     private javax.swing.JPanel JBtn_Listas;
-    private javax.swing.JPanel JBtn_Listas5;
-    private javax.swing.JPanel JBtn_Listas6;
-    private javax.swing.JPanel JBtn_Listas7;
     private javax.swing.JComboBox<String> JCB_Consultas;
     private javax.swing.JLabel JLb_AltaCaja;
     private javax.swing.JLabel JLb_AltaCuadricula;
@@ -843,9 +842,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_BtnAltas;
     private javax.swing.JLabel JLb_BtnConsultas;
     private javax.swing.JLabel JLb_BtnListas;
-    private javax.swing.JLabel JLb_BtnListas5;
-    private javax.swing.JLabel JLb_BtnListas6;
-    private javax.swing.JLabel JLb_BtnListas7;
     private javax.swing.JLabel JLb_BuscarConsulta;
     private javax.swing.JLabel JLb_ImagenIzquierda;
     private javax.swing.JLabel JLb_MarcaDeAgua;
