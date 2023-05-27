@@ -75,6 +75,22 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_AltaCaja = new javax.swing.JPanel();
         JLb_AltaCaja = new javax.swing.JLabel();
         JPan_AltaObjeto = new javax.swing.JPanel();
+        JLb_AltaObj = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        JTF_ACodObj = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        JTF_ANombObj = new javax.swing.JTextField();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        JTF_ATipExtObj = new javax.swing.JTextField();
         JPan_AltaPersona = new javax.swing.JPanel();
         JPan_AltaSitio = new javax.swing.JPanel();
         JPan_AltaCuadricula = new javax.swing.JPanel();
@@ -95,12 +111,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JCB_Consultas = new javax.swing.JComboBox<>();
         JBtn_BuscarConsulta = new javax.swing.JPanel();
         JLb_BuscarConsulta = new javax.swing.JLabel();
-        JPan_MostrarPersonasYCajas = new javax.swing.JPanel();
-        JTbpan_PersonasYCajas = new javax.swing.JTabbedPane();
-        JSP_Cajas = new javax.swing.JScrollPane();
-        JTable_Cajas = new javax.swing.JTable();
-        JSP_Personas = new javax.swing.JScrollPane();
-        JTable_Personas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -400,16 +410,216 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_Altas, "card3");
 
-        javax.swing.GroupLayout JPan_AltaObjetoLayout = new javax.swing.GroupLayout(JPan_AltaObjeto);
-        JPan_AltaObjeto.setLayout(JPan_AltaObjetoLayout);
-        JPan_AltaObjetoLayout.setHorizontalGroup(
-            JPan_AltaObjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        JPan_AltaObjeto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_AltaObj.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj.setText("Alta de Objetos");
+        JPan_AltaObjeto.add(JLb_AltaObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 151, 32));
+
+        jLabel1.setText("Código del Objeto");
+        JPan_AltaObjeto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+
+        JTF_ACodObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ACodObjActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(JTF_ACodObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 0));
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 0));
+
+        jPanel6.setBackground(new java.awt.Color(153, 153, 0));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
         );
-        JPan_AltaObjetoLayout.setVerticalGroup(
-            JPan_AltaObjetoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        JPan_AltaObjeto.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 210, 30));
+
+        jPanel5.setBackground(new java.awt.Color(153, 153, 0));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        JPan_AltaObjeto.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, 30));
+
+        jPanel8.setBackground(new java.awt.Color(153, 153, 0));
+
+        jPanel9.setBackground(new java.awt.Color(153, 153, 0));
+
+        jPanel10.setBackground(new java.awt.Color(153, 153, 0));
+
+        jPanel11.setBackground(new java.awt.Color(153, 153, 0));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel8Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        JPan_AltaObjeto.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 210, 30));
+
+        jLabel2.setText("Nombre del Objeto");
+        JPan_AltaObjeto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, -1));
+
+        JTF_ANombObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ANombObjActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(JTF_ANombObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 180, -1));
+
+        jPanel12.setBackground(new java.awt.Color(255, 153, 153));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        JPan_AltaObjeto.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 220, -1));
+
+        jLabel3.setText("Tipo de Extracción");
+        JPan_AltaObjeto.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 170, -1));
+
+        JTF_ATipExtObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ATipExtObjActionPerformed(evt);
+            }
+        });
+        JPan_AltaObjeto.add(JTF_ATipExtObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 170, -1));
 
         JPan_Contenedor.add(JPan_AltaObjeto, "card7");
 
@@ -552,7 +762,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Consultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JCB_Consultas.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        JCB_Consultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar personas y cajas", "Obtener objetos dentro de una caja", "Mostrar objetos encontrados en un período de tiempo", "Mostrar cantidad de objetos encontrados por su tipo", "Resumen de cantidades cargadas en el sistema", "Mostrar cantidad de hallazgos de cada arqueólogo", "Listar código y lugar de las cajas vacías", "Obtener el máximo, mínimo y promedio del peso de los objetos", "Obtener el peso de cada caja" }));
+        JCB_Consultas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una consulta...", "Obtener objetos dentro de una caja", "Mostrar objetos encontrados en un período de tiempo", "Mostrar cantidad de objetos encontrados por su tipo", "Resumen de cantidades cargadas en el sistema", "Mostrar cantidad de hallazgos de cada arqueólogo", "Listar código y lugar de las cajas vacías", "Obtener el máximo, mínimo y promedio del peso de los objetos", "Obtener el peso de cada caja" }));
         JCB_Consultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCB_ConsultasActionPerformed(evt);
@@ -593,43 +803,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Consultas.add(JBtn_BuscarConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 270, 50));
 
         JPan_Contenedor.add(JPan_Consultas, "card5");
-
-        JPan_MostrarPersonasYCajas.setBackground(new java.awt.Color(255, 255, 255));
-        JPan_MostrarPersonasYCajas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        JTable_Cajas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        JSP_Cajas.setViewportView(JTable_Cajas);
-
-        JTbpan_PersonasYCajas.addTab("Cajas", JSP_Cajas);
-
-        JTable_Personas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        JSP_Personas.setViewportView(JTable_Personas);
-
-        JTbpan_PersonasYCajas.addTab("Personas", JSP_Personas);
-
-        JPan_MostrarPersonasYCajas.add(JTbpan_PersonasYCajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 580, 350));
-
-        JPan_Contenedor.add(JPan_MostrarPersonasYCajas, "card6");
 
         getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
@@ -738,12 +911,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         itemSeleccionado = (String) JCB_Consultas.getSelectedItem();
         
         switch (itemSeleccionado){
-            case ("Mostrar personas y cajas"):
-                JPan_Contenedor.removeAll();
-                JPan_Contenedor.add(JPan_MostrarPersonasYCajas);
-                JPan_Contenedor.repaint();
-                JPan_Contenedor.revalidate();
-                break;
             case ("Obtener objetos dentro de una caja"):
                 break;
             case ("Mostrar objetos encontrados en un período de tiempo"):
@@ -781,6 +948,18 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Contenedor.repaint();
         JPan_Contenedor.revalidate();
     }//GEN-LAST:event_Jlb_LogoBlancoMouseClicked
+
+    private void JTF_ACodObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ACodObjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ACodObjActionPerformed
+
+    private void JTF_ANombObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ANombObjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ANombObjActionPerformed
+
+    private void JTF_ATipExtObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ATipExtObjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ATipExtObjActionPerformed
 
     /**
      * @param args the command line arguments
@@ -836,6 +1015,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCB_Consultas;
     private javax.swing.JLabel JLb_AltaCaja;
     private javax.swing.JLabel JLb_AltaCuadricula;
+    private javax.swing.JLabel JLb_AltaObj;
     private javax.swing.JLabel JLb_AltaObjeto;
     private javax.swing.JLabel JLb_AltaPersona;
     private javax.swing.JLabel JLb_AltaSitio;
@@ -856,23 +1036,32 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_Listas;
     private javax.swing.JPanel JPan_MenuPrincipal;
-    private javax.swing.JPanel JPan_MostrarPersonasYCajas;
-    private javax.swing.JScrollPane JSP_Cajas;
     private javax.swing.JScrollPane JSP_CajasGeneral;
     private javax.swing.JScrollPane JSP_CuadriculasGeneral;
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
-    private javax.swing.JScrollPane JSP_Personas;
     private javax.swing.JScrollPane JSP_PersonasGeneral;
     private javax.swing.JScrollPane JSP_SitiosGeneral;
-    private javax.swing.JTable JTable_Cajas;
+    private javax.swing.JTextField JTF_ACodObj;
+    private javax.swing.JTextField JTF_ANombObj;
+    private javax.swing.JTextField JTF_ATipExtObj;
     private javax.swing.JTable JTable_CajasGeneral;
     private javax.swing.JTable JTable_CuadriculasGeneral;
     private javax.swing.JTable JTable_ObjetosGeneral;
-    private javax.swing.JTable JTable_Personas;
     private javax.swing.JTable JTable_PersonasGeneral;
     private javax.swing.JTable JTable_SitiosGeneral;
     private javax.swing.JTabbedPane JTbpan_General;
-    private javax.swing.JTabbedPane JTbpan_PersonasYCajas;
     private javax.swing.JLabel Jlb_LogoBlanco;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 }
