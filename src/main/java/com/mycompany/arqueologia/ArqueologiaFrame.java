@@ -91,6 +91,15 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         JTF_ATipExtObj = new javax.swing.JTextField();
+        jSpin_AAlto = new javax.swing.JSpinner();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSpin_ALargo = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
+        JSpin_AEspesor = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        jSpin_ACant = new javax.swing.JSpinner();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         JPan_AltaPersona = new javax.swing.JPanel();
         JPan_AltaSitio = new javax.swing.JPanel();
         JPan_AltaCuadricula = new javax.swing.JPanel();
@@ -416,8 +425,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaObj.setText("Alta de Objetos");
         JPan_AltaObjeto.add(JLb_AltaObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 151, 32));
 
-        jLabel1.setText("Código del Objeto");
-        JPan_AltaObjeto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+        jLabel1.setText("Alto");
+        JPan_AltaObjeto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 170, -1));
 
         JTF_ACodObj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -586,7 +595,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_AltaObjeto.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 210, 30));
 
-        jLabel2.setText("Nombre del Objeto");
+        jLabel2.setText("Nombre ");
         JPan_AltaObjeto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, -1));
 
         JTF_ANombObj.addActionListener(new java.awt.event.ActionListener() {
@@ -620,6 +629,23 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             }
         });
         JPan_AltaObjeto.add(JTF_ATipExtObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 170, -1));
+        JPan_AltaObjeto.add(jSpin_AAlto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
+
+        jLabel4.setText("Código ");
+        JPan_AltaObjeto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+
+        jLabel5.setText("Largo");
+        JPan_AltaObjeto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 170, -1));
+        JPan_AltaObjeto.add(jSpin_ALargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 180, -1));
+
+        jLabel6.setText("Espesor");
+        JPan_AltaObjeto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 170, -1));
+        JPan_AltaObjeto.add(JSpin_AEspesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 170, -1));
+
+        jLabel7.setText("Cantidad");
+        JPan_AltaObjeto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 170, -1));
+        JPan_AltaObjeto.add(jSpin_ACant, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
+        JPan_AltaObjeto.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 180, -1));
 
         JPan_Contenedor.add(JPan_AltaObjeto, "card7");
 
@@ -1041,6 +1067,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
     private javax.swing.JScrollPane JSP_PersonasGeneral;
     private javax.swing.JScrollPane JSP_SitiosGeneral;
+    private javax.swing.JSpinner JSpin_AEspesor;
     private javax.swing.JTextField JTF_ACodObj;
     private javax.swing.JTextField JTF_ANombObj;
     private javax.swing.JTextField JTF_ATipExtObj;
@@ -1051,9 +1078,14 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTable JTable_SitiosGeneral;
     private javax.swing.JTabbedPane JTbpan_General;
     private javax.swing.JLabel Jlb_LogoBlanco;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1063,5 +1095,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JSpinner jSpin_AAlto;
+    private javax.swing.JSpinner jSpin_ACant;
+    private javax.swing.JSpinner jSpin_ALargo;
     // End of variables declaration//GEN-END:variables
 }
