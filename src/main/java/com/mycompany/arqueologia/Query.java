@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -541,13 +543,80 @@ public abstract class Query{
 
     public static ResultSet codigoYNombreDeObjetoEntreFechas (Date fecha1, Date fecha2) throws SQLException {
         
-        String consulta = "SELECT o_cod, o_nombre FROM objetos WHERE o_fecharegistro BETWEEN ? AND ?";
+        String consulta = "SELECT o_cod, o_nombre FROM objetos WHERE o_fecharegistro BETWEEN ? AND ?;";
         
         p_query = conn.prepareStatement(consulta);
         p_query.setDate(1, fecha1);
         p_query.setDate(2,fecha2);
         
         return p_query.executeQuery();
+        
+    }
+    
+    
+    // Consulta numero 3:
+    
+    public void eliminarCaja(String codigo) {
+        
+        // Como este es un ejemplo, no hemos realizado controles, pero en la versión final
+        // sería bueno que el programa controle por la existencia del elemento, antes de ser
+        // eliminado, y que le pregunte al usuario y realmente desea eliminarlo o, en el caso de
+        // no existir el valor, que le indique que ese valor no existe.
+        try {
+            
+            // creamos una consulta DELETE parametrizada por el valor que identificador del valor queremos eliminar
+            // en este caso, el DNI,(indicado nuevamente con ?)
+            p_query = conn.prepareStatement("DELETE FROM cajas WHERE dni = ?");
+            // luego asignamos el valor dado por el usuario a ese parámetro (?), dando primero su posición y luego su valor
+            // como se hizo anteriormente en el INSERT
+            p_query.setString(1, codigo);
+             // ejecutamos la consulta con el valor asignado
+            p_query.executeUpdate();
+            
+            // finalmente actualizamos nuestra tabla mostrando la lista de personas en el formulario principal
+
+        } catch (Exception ex) {
+            Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    // Consulta numero 4:
+    // Obtener el detalle de los objetos que hay en una caja con código ingresado por el usuario.
+    
+    public ResultSet objetosEnUnaCaja(String codigo) throws SQLException{
+        
+        String consulta = "SELECT ca_cod, o_cod, o_nombre, o_tipoextraccion, o_alto, o_largo, o_espesor, \n" +
+        "o_peso, o_cantidad, o_fecharegistro, o_descripcion FROM  objetos, cajas \n" +
+        "WHERE ca_cod = ca_cod_contiene AND ca_cod = ?;";
+        
+        p_query = conn.prepareStatement(consulta);
+        //Fijarse si funciona en el caso de poner parameter index = 1 o 0
+        p_query.setString(1, codigo);
+        
+        return p_query.executeQuery();
+    }
+    
+    //
+    
+    public int cantidadDeObjetosLiticos() throws SQLException{
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(o_es) FROM objetos WHERE o_es = 'L'");
+        
+        return result.getInt(0);
+        
+    }
+    
+    public int cantidadDeObjetosCeramicos() throws SQLException{
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(o_es) FROM objetos WHERE o_es = 'C'");
+        
+        return result.getInt(0);
         
     }
     
