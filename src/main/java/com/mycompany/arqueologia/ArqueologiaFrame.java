@@ -106,7 +106,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JCB_ACajaContObj = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         JCB_ATipoObj = new javax.swing.JComboBox<>();
-        jBtn_SubmitAltaObj = new javax.swing.JButton();
         JBtn_CargarObjeto = new javax.swing.JPanel();
         JLb_CargarObjeto = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -478,18 +477,26 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Alto");
         JPan_AltaObjeto.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 170, -1));
+
+        jSpin_AAlto.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         JPan_AltaObjeto.add(jSpin_AAlto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 170, -1));
 
         jLabel5.setText("Largo");
         JPan_AltaObjeto.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 170, -1));
+
+        jSpin_ALargo.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         JPan_AltaObjeto.add(jSpin_ALargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 180, -1));
 
         jLabel9.setText("Espesor");
         JPan_AltaObjeto.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 170, -1));
+
+        JSpin_AEspesor.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         JPan_AltaObjeto.add(JSpin_AEspesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 170, -1));
 
         jLabel8.setText("Cantidad");
         JPan_AltaObjeto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 170, -1));
+
+        jSpin_ACant.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         JPan_AltaObjeto.add(jSpin_ACant, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
 
         jLabel11.setText("Fecha del Registro");
@@ -566,14 +573,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         });
         JPan_AltaObjeto.add(JCB_ATipoObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 170, 20));
 
-        jBtn_SubmitAltaObj.setText("Enviar");
-        jBtn_SubmitAltaObj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn_SubmitAltaObjActionPerformed(evt);
-            }
-        });
-        JPan_AltaObjeto.add(jBtn_SubmitAltaObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 170, -1));
-
         JBtn_CargarObjeto.setBackground(new java.awt.Color(27, 64, 142));
         JBtn_CargarObjeto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JBtn_CargarObjeto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -593,6 +592,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_CargarObjeto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_CargarObjeto.setText("CARGAR OBJETO");
         JLb_CargarObjeto.setFocusable(false);
+        JLb_CargarObjeto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLb_CargarObjetoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JBtn_CargarObjetoLayout = new javax.swing.GroupLayout(JBtn_CargarObjeto);
         JBtn_CargarObjeto.setLayout(JBtn_CargarObjetoLayout);
@@ -991,13 +995,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JCB_ATipoObjActionPerformed
 
-    private void jBtn_SubmitAltaObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_SubmitAltaObjActionPerformed
-        if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-    }//GEN-LAST:event_jBtn_SubmitAltaObjActionPerformed
-
     private void JBtn_AltaObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaObjetoMouseClicked
         JPan_Contenedor.removeAll();
         JPan_Contenedor.add(JPan_AltaObjeto);
@@ -1006,10 +1003,18 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtn_AltaObjetoMouseClicked
 
     private void JBtn_CargarObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseClicked
-        if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")){
+        if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")||JTArea_ADesc.getText().trim().equals("")||JTF_AOrig.getText().trim().equals("")||jDate_AFechaReg.getDate()!=null){
             JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
             return;
-        }
+        } 
+        /*else {
+            if((float)jSpin_AAlto.getValue()<=0||(float)jSpin_ALargo.getValue()<=0||(float)JSpin_AEspesor.getValue()<=0||(int)jSpin_ACant.getValue()<=0||(int)jSpin_ADNIInvObj.getValue()<=0){
+                JOptionPane.showMessageDialog(null,"Los valores no pueden ser negativos ni cero", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }*/
+        
+        
     }//GEN-LAST:event_JBtn_CargarObjetoMouseClicked
 
     private void JBtn_CargarObjetoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseEntered
@@ -1019,6 +1024,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private void JBtn_CargarObjetoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseExited
         JBtn_CargarObjeto.setBackground(new Color(27,64,142));
     }//GEN-LAST:event_JBtn_CargarObjetoMouseExited
+
+    private void JLb_CargarObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLb_CargarObjetoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JLb_CargarObjetoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1120,7 +1129,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane JTbpan_General;
     private javax.swing.JLabel Jlb_LogoBlanco;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jBtn_SubmitAltaObj;
     private com.toedter.calendar.JDateChooser jDate_AFechaReg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
