@@ -556,7 +556,7 @@ public abstract class Query{
     
     // Consulta numero 3:
     
-    public void eliminarCaja(String codigo) {
+    public static void eliminarCaja(String codigo) {
         
         // Como este es un ejemplo, no hemos realizado controles, pero en la versión final
         // sería bueno que el programa controle por la existencia del elemento, antes de ser
@@ -585,11 +585,9 @@ public abstract class Query{
     // Consulta numero 4:
     // Obtener el detalle de los objetos que hay en una caja con código ingresado por el usuario.
     
-    public ResultSet objetosEnUnaCaja(String codigo) throws SQLException{
+    public static ResultSet objetosEnUnaCaja(String codigo) throws SQLException{
         
-        String consulta = "SELECT ca_cod, o_cod, o_nombre, o_tipoextraccion, o_alto, o_largo, o_espesor, \n" +
-        "o_peso, o_cantidad, o_fecharegistro, o_descripcion FROM  objetos, cajas \n" +
-        "WHERE ca_cod = ca_cod_contiene AND ca_cod = ?;";
+        String consulta = "SELECT o_cod, o_nombre, o_tipoextraccion, o_alto, o_largo, o_espesor, o_peso, o_cantidad, o_fecharegistro, o_descripcion FROM  objetos, cajas WHERE ca_cod = ca_cod_contiene AND ca_cod = ?;";
         
         p_query = conn.prepareStatement(consulta);
         //Fijarse si funciona en el caso de poner parameter index = 1 o 0
@@ -600,7 +598,7 @@ public abstract class Query{
     
     //
     
-    public int cantidadDeObjetosLiticos() throws SQLException{
+    public static int cantidadDeObjetosLiticos() throws SQLException{
         
         query = conn.createStatement();
         
@@ -610,7 +608,7 @@ public abstract class Query{
         
     }
     
-    public int cantidadDeObjetosCeramicos() throws SQLException{
+    public static int cantidadDeObjetosCeramicos() throws SQLException{
         
         query = conn.createStatement();
         

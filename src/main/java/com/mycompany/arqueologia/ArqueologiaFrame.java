@@ -40,6 +40,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JTable_CuadriculasGeneral.setModel(Query.resultToTable(result));
         result = Query.updateListaResultados(4);
         JTable_CajasGeneral.setModel(Query.resultToTable(result));
+        
+        
     }
 
     /**
@@ -158,7 +160,12 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JCB_Consultas = new javax.swing.JComboBox<>();
         JBtn_BuscarConsulta = new javax.swing.JPanel();
         JLb_BuscarConsulta = new javax.swing.JLabel();
-        JPan_ObjetosEntreDosFechas = new javax.swing.JPanel();
+        JPan_CObjetosEntreDosFechas = new javax.swing.JPanel();
+        JPan_CDetCaja = new javax.swing.JPanel();
+        JLb_AltaObj5 = new javax.swing.JLabel();
+        JCB_CObjEnCaja = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable_DetObjCaja = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -940,8 +947,33 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_Consultas, "card5");
 
-        JPan_ObjetosEntreDosFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JPan_Contenedor.add(JPan_ObjetosEntreDosFechas, "card11");
+        JPan_CObjetosEntreDosFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_Contenedor.add(JPan_CObjetosEntreDosFechas, "card11");
+
+        JPan_CDetCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_AltaObj5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj5.setText("Obtener el detalle de los objetos que hay en una caja");
+        JPan_CDetCaja.add(JLb_AltaObj5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 610, 32));
+
+        try{
+            JCB_CObjEnCaja.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT ca_cod FROM Cajas ORDER BY ca_cod;", "ca_cod")));
+        } catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
+        JCB_CObjEnCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_CObjEnCajaActionPerformed(evt);
+            }
+        });
+        JPan_CDetCaja.add(JCB_CObjEnCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 180, 20));
+
+        jTable_DetObjCaja.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane2.setViewportView(jTable_DetObjCaja);
+
+        JPan_CDetCaja.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 460, 300));
+
+        JPan_Contenedor.add(JPan_CDetCaja, "card12");
 
         getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
@@ -1051,6 +1083,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         
         switch (itemSeleccionado){
             case ("Obtener objetos dentro de una caja"):
+                JPan_Contenedor.removeAll();
+                JPan_Contenedor.add(JPan_CDetCaja);
+                JPan_Contenedor.repaint();
+                JPan_Contenedor.revalidate();
                 break;
             case ("Mostrar objetos encontrados en un período de tiempo"):
                 break;
@@ -1144,7 +1180,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             }
         }
         
-        
+       
     }//GEN-LAST:event_JBtn_CargarObjetoMouseClicked
 
     private void JBtn_CargarObjetoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseEntered
@@ -1190,6 +1226,17 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private void JTF_ALugarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ALugarCajaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTF_ALugarCajaActionPerformed
+
+    private void JCB_CObjEnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_CObjEnCajaActionPerformed
+        try {
+            String cod = (String) JCB_CObjEnCaja.getSelectedItem();
+            ResultSet rs;
+            rs = Query.objetosEnUnaCaja(cod);
+            jTable_DetObjCaja.setModel(Query.resultToTable(rs));
+        } catch (SQLException ex) {
+            Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JCB_CObjEnCajaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1247,6 +1294,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCB_ACuadAsocObj;
     private javax.swing.JComboBox<String> JCB_ASitPertenecCuad;
     private javax.swing.JComboBox<String> JCB_ATipoObj;
+    private javax.swing.JComboBox<String> JCB_CObjEnCaja;
     private javax.swing.JComboBox<String> JCB_Consultas;
     private javax.swing.JLabel JLb_AltaCaja;
     private javax.swing.JLabel JLb_AltaCuadricula;
@@ -1255,6 +1303,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_AltaObj2;
     private javax.swing.JLabel JLb_AltaObj3;
     private javax.swing.JLabel JLb_AltaObj4;
+    private javax.swing.JLabel JLb_AltaObj5;
     private javax.swing.JLabel JLb_AltaObjeto;
     private javax.swing.JLabel JLb_AltaPersona;
     private javax.swing.JLabel JLb_AltaSitio;
@@ -1271,12 +1320,13 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPan_AltaPersona;
     private javax.swing.JPanel JPan_AltaSitio;
     private javax.swing.JPanel JPan_Altas;
+    private javax.swing.JPanel JPan_CDetCaja;
+    private javax.swing.JPanel JPan_CObjetosEntreDosFechas;
     private javax.swing.JPanel JPan_Consultas;
     private javax.swing.JPanel JPan_Contenedor;
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_Listas;
     private javax.swing.JPanel JPan_MenuPrincipal;
-    private javax.swing.JPanel JPan_ObjetosEntreDosFechas;
     private javax.swing.JScrollPane JSP_CajasGeneral;
     private javax.swing.JScrollPane JSP_CuadriculasGeneral;
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
@@ -1337,9 +1387,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpin_AAlto;
     private javax.swing.JSpinner jSpin_ACant;
     private javax.swing.JSpinner jSpin_ADNIInvObj;
     private javax.swing.JSpinner jSpin_ALargo;
+    private javax.swing.JTable jTable_DetObjCaja;
     // End of variables declaration//GEN-END:variables
 }
