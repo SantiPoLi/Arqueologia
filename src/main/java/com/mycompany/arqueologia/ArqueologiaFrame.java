@@ -71,6 +71,12 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_Consultas = new javax.swing.JPanel();
         JLb_BtnConsultas = new javax.swing.JLabel();
         JLb_MarcaDeAgua = new javax.swing.JLabel();
+        jPan_CCantObjCaja = new javax.swing.JPanel();
+        JLb_CantCeramicos = new javax.swing.JLabel();
+        JLb_AltaObj7 = new javax.swing.JLabel();
+        JLb_AltaObj8 = new javax.swing.JLabel();
+        JLb_AltaObj9 = new javax.swing.JLabel();
+        JLb_CantLiticos = new javax.swing.JLabel();
         JPan_Altas = new javax.swing.JPanel();
         JBtn_AltaObjeto = new javax.swing.JPanel();
         JLb_AltaObjeto = new javax.swing.JLabel();
@@ -322,6 +328,35 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_MenuPrincipal.add(JLb_MarcaDeAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, 20));
 
         JPan_Contenedor.add(JPan_MenuPrincipal, "card8");
+
+        jPan_CCantObjCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_CantCeramicos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_CantCeramicos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CantCeramicos.setText("0");
+        jPan_CCantObjCaja.add(JLb_CantCeramicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 310, 32));
+
+        JLb_AltaObj7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj7.setText("Mostrar cantidad de objetos");
+        jPan_CCantObjCaja.add(JLb_AltaObj7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 600, 32));
+
+        JLb_AltaObj8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj8.setText("Líticos");
+        jPan_CCantObjCaja.add(JLb_AltaObj8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 310, 32));
+
+        JLb_AltaObj9.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj9.setText("Cerámicos");
+        jPan_CCantObjCaja.add(JLb_AltaObj9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 32));
+
+        JLb_CantLiticos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_CantLiticos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CantLiticos.setText("0");
+        jPan_CCantObjCaja.add(JLb_CantLiticos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 310, 32));
+
+        JPan_Contenedor.add(jPan_CCantObjCaja, "card13");
 
         JPan_Altas.setBackground(new java.awt.Color(255, 255, 255));
         JPan_Altas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1079,7 +1114,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 JCB_CObjEnCajaActionPerformed(evt);
             }
         });
-        JPan_CDetCaja.add(JCB_CObjEnCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 180, 20));
+        JPan_CDetCaja.add(JCB_CObjEnCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 240, 20));
 
         jTable_DetObjCaja = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int col){
@@ -1094,7 +1129,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jTable_DetObjCaja.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane2.setViewportView(jTable_DetObjCaja);
 
-        JPan_CDetCaja.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 460, 300));
+        JPan_CDetCaja.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 580, 290));
 
         JPan_Contenedor.add(JPan_CDetCaja, "card12");
 
@@ -1201,33 +1236,46 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_JCB_ConsultasActionPerformed
 
     private void JBtn_BuscarConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_BuscarConsultaMouseClicked
-        String itemSeleccionado = new String();
-        itemSeleccionado = (String) JCB_Consultas.getSelectedItem();
-        
-        switch (itemSeleccionado){
-            case ("Obtener objetos dentro de una caja"):
-                JPan_Contenedor.removeAll();
-                JPan_Contenedor.add(JPan_CDetCaja);
-                JPan_Contenedor.repaint();
-                JPan_Contenedor.revalidate();
-                break;
-            case ("Mostrar objetos encontrados en un período de tiempo"):
-                break;
-            case ("Mostrar cantidad de objetos encontrados por su tipo"):
-                break;
-            case ("Resumen de cantidades cargadas en el sistema"):
-                break;
-            case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
-                break;
-            case ("Listar código y lugar de las cajas vacías"):
-                break;
-            case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
-                break;
-            case ("Obtener el peso de cada caja"):
-                break;
-            default:
-                JOptionPane.showMessageDialog(null,"Debe seleccionar una consulta", "Error, ninguna consulta seleccionada", JOptionPane.INFORMATION_MESSAGE);
-                break;
+        try {
+            String itemSeleccionado = new String();
+            itemSeleccionado = (String) JCB_Consultas.getSelectedItem();
+            
+            switch (itemSeleccionado){
+                case ("Obtener objetos dentro de una caja"):
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_CDetCaja);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    break;
+                case ("Mostrar objetos encontrados en un período de tiempo"):
+                    break;
+                case ("Mostrar cantidad de objetos encontrados por su tipo"):
+                    System.out.println("lit "+Query.cantidadDeObjetosLiticos()+" cer "+Query.cantidadDeObjetosCeramicos());
+                    String cantLit = ""+Query.cantidadDeObjetosLiticos();
+                    String cantCer = ""+Query.cantidadDeObjetosCeramicos();
+                    JLb_CantLiticos.setText(cantLit);
+                    JLb_CantCeramicos.setText(cantCer);
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(jPan_CCantObjCaja);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    break;
+                case ("Resumen de cantidades cargadas en el sistema"):
+                    break;
+                case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
+                    break;
+                case ("Listar código y lugar de las cajas vacías"):
+                    break;
+                case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
+                    break;
+                case ("Obtener el peso de cada caja"):
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar una consulta", "Error, ninguna consulta seleccionada", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_JBtn_BuscarConsultaMouseClicked
@@ -1438,6 +1486,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_AltaObj3;
     private javax.swing.JLabel JLb_AltaObj4;
     private javax.swing.JLabel JLb_AltaObj5;
+    private javax.swing.JLabel JLb_AltaObj7;
+    private javax.swing.JLabel JLb_AltaObj8;
+    private javax.swing.JLabel JLb_AltaObj9;
     private javax.swing.JLabel JLb_AltaObjeto;
     private javax.swing.JLabel JLb_AltaPersona;
     private javax.swing.JLabel JLb_AltaSitio;
@@ -1445,6 +1496,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_BtnConsultas;
     private javax.swing.JLabel JLb_BtnListas;
     private javax.swing.JLabel JLb_BuscarConsulta;
+    private javax.swing.JLabel JLb_CantCeramicos;
+    private javax.swing.JLabel JLb_CantLiticos;
     private javax.swing.JLabel JLb_CargarObjeto;
     private javax.swing.JLabel JLb_ImagenIzquierda;
     private javax.swing.JLabel JLb_MarcaDeAgua;
@@ -1519,6 +1572,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPan_CCantObjCaja;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
