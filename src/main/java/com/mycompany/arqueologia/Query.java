@@ -724,7 +724,7 @@ public abstract class Query{
     // Listar código y lugar de las cajas que esté vacías.
     
     public static ResultSet cajasVacias() throws SQLException {
-        
+       
         String consulta = 
                   "SELECT ca_cod, ca_lugar "
                 + "FROM cajas"
@@ -765,6 +765,22 @@ public abstract class Query{
         }        
         
         return resultados;
+    }
+    
+    public static ResultSet pesoDeCadaCaja() throws SQLException {
+        
+        String consulta = 
+                "SELECT SUM(o_peso) AS Peso, ca_cod_contiene AS Caja\n" +
+                "FROM objetos\n" +
+                "GROUP BY (ca_cod_contiene)\n" +
+                "ORDER BY Peso;";
+        
+        query = conn.createStatement();
+        
+        query.executeQuery(consulta);
+        
+        return result;
+        
     }
     
 }
