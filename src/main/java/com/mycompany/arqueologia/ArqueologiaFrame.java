@@ -178,6 +178,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JCB_CObjEnCaja = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_DetObjCaja = new javax.swing.JTable();
+        JPan_PesoDeCajas = new javax.swing.JPanel();
+        JSP_PesoDeCajas = new javax.swing.JScrollPane();
+        JTable_PesoDeCajas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1133,6 +1136,25 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_CDetCaja, "card12");
 
+        JPan_PesoDeCajas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JTable_PesoDeCajas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_PesoDeCajas.setViewportView(JTable_PesoDeCajas);
+
+        JPan_PesoDeCajas.add(JSP_PesoDeCajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 390, 350));
+
+        JPan_Contenedor.add(JPan_PesoDeCajas, "card14");
+
         getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
         pack();
@@ -1269,6 +1291,15 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
                     break;
                 case ("Obtener el peso de cada caja"):
+                    
+                    result = Query.pesoDeCadaCaja();
+                    JTable_PesoDeCajas.setModel(Query.resultToTable(result));
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_PesoDeCajas);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    
+                    //pesoDeCadaCaja() 
                     break;
                 default:
                     JOptionPane.showMessageDialog(null,"Debe seleccionar una consulta", "Error, ninguna consulta seleccionada", JOptionPane.INFORMATION_MESSAGE);
@@ -1514,10 +1545,12 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_Listas;
     private javax.swing.JPanel JPan_MenuPrincipal;
+    private javax.swing.JPanel JPan_PesoDeCajas;
     private javax.swing.JScrollPane JSP_CajasGeneral;
     private javax.swing.JScrollPane JSP_CuadriculasGeneral;
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
     private javax.swing.JScrollPane JSP_PersonasGeneral;
+    private javax.swing.JScrollPane JSP_PesoDeCajas;
     private javax.swing.JScrollPane JSP_SitiosGeneral;
     private javax.swing.JSpinner JSpin_ADNIPer;
     private javax.swing.JSpinner JSpin_AEspesor;
@@ -1539,6 +1572,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTable JTable_CuadriculasGeneral;
     private javax.swing.JTable JTable_ObjetosGeneral;
     private javax.swing.JTable JTable_PersonasGeneral;
+    private javax.swing.JTable JTable_PesoDeCajas;
     private javax.swing.JTable JTable_SitiosGeneral;
     private javax.swing.JTabbedPane JTbpan_General;
     private javax.swing.JLabel Jlb_LogoBlanco;

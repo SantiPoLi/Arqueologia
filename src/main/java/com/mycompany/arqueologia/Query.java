@@ -770,10 +770,7 @@ public abstract class Query{
     public static ResultSet pesoDeCadaCaja() throws SQLException {
         
         String consulta = 
-                "SELECT SUM(o_peso) AS Peso, ca_cod_contiene AS Caja\n" +
-                "FROM objetos\n" +
-                "GROUP BY (ca_cod_contiene)\n" +
-                "ORDER BY Peso;";
+                "SELECT SUM(o_peso) AS Peso, ca_cod_contiene AS Caja FROM objetos GROUP BY (ca_cod_contiene) ORDER BY Peso;";
         
         query = conn.createStatement();
         
