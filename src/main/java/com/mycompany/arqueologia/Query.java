@@ -12,6 +12,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -560,14 +561,16 @@ public abstract class Query{
         p_query.setString(1, cod);
         ResultSet rs = p_query.executeQuery();
         
-        boolean var = rs.getInt(1) == 0;
-        
-        return var;
+        return rs.getInt(1) == 0;
     }
     
     public static void insertarObjeto (String cod, String nombre, String extraccion, float alto, float largo, float espesor, float peso, int cant, Date registro, String desc, String origen, String codAsociado, String codContiene, int dni, String especialidad) throws SQLException {
         
         //String a = ""+especialidad;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(registro);
+        
+        java.sql.Date fechaSql = new java.sql.Date(registro.getTime());
         
         String consulta = "INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         
@@ -580,7 +583,7 @@ public abstract class Query{
         p_query.setFloat(6, espesor);
         p_query.setFloat(7, peso);
         p_query.setInt(8, cant);
-        p_query.setDate(9, (java.sql.Date) registro);
+        p_query.setDate(9, fechaSql);
         p_query.setString(10, desc);
         p_query.setString(11, origen);
         p_query.setString(12, codAsociado);
@@ -588,7 +591,7 @@ public abstract class Query{
         p_query.setInt(14, dni);
         p_query.setString(15,especialidad);
         
-        p_query.executeQuery();
+        p_query.executeUpdate();
     }
     
     // Consulta numero 3:
