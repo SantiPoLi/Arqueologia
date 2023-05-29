@@ -2,6 +2,7 @@
 package com.mycompany.arqueologia;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.event.MouseInputAdapter;
 import javax.swing.table.DefaultTableModel;
 
 public class ArqueologiaFrame extends javax.swing.JFrame {
@@ -825,6 +827,16 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Listas.setBackground(new java.awt.Color(255, 255, 255));
         JPan_Listas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JTable_ObjetosGeneral = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int col){
+                for(int i=0;i<JTable_ObjetosGeneral.getRowCount();i++){
+                    if(row==1){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
         JTable_ObjetosGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -841,6 +853,16 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JTbpan_General.addTab("Objetos", JSP_ObjetosGeneral);
 
+        JTable_PersonasGeneral = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int col){
+                for(int i=0;i<JTable_PersonasGeneral.getRowCount();i++){
+                    if(row==1){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
         JTable_PersonasGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -852,10 +874,34 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTable_PersonasGeneral.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) { // Verifica si es un doble clic
+                    int row = JTable_PersonasGeneral.getSelectedRow();
+                    int column = JTable_PersonasGeneral.getSelectedColumn();
+
+                    // Deshabilita la edición de la celda seleccionada
+                    JTable_PersonasGeneral.getCellEditor(row, column).stopCellEditing();
+                    JTable_PersonasGeneral.setRowSelectionInterval(row, row);
+                    JTable_PersonasGeneral.setColumnSelectionInterval(column, column);
+                }
+            }
+        });
         JSP_PersonasGeneral.setViewportView(JTable_PersonasGeneral);
 
         JTbpan_General.addTab("Personas", JSP_PersonasGeneral);
 
+        JTable_SitiosGeneral = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int col){
+                for(int i=0;i<JTable_SitiosGeneral.getRowCount();i++){
+                    if(row==1){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
         JTable_SitiosGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -867,10 +913,34 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTable_SitiosGeneral.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) { // Verifica si es un doble clic
+                    int row = JTable_SitiosGeneral.getSelectedRow();
+                    int column = JTable_SitiosGeneral.getSelectedColumn();
+
+                    // Deshabilita la edición de la celda seleccionada
+                    JTable_SitiosGeneral.getCellEditor(row, column).stopCellEditing();
+                    JTable_SitiosGeneral.setRowSelectionInterval(row, row);
+                    JTable_SitiosGeneral.setColumnSelectionInterval(column, column);
+                }
+            }
+        });
         JSP_SitiosGeneral.setViewportView(JTable_SitiosGeneral);
 
         JTbpan_General.addTab("Sitios", JSP_SitiosGeneral);
 
+        JTable_CuadriculasGeneral = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int col){
+                for(int i=0;i<JTable_CuadriculasGeneral.getRowCount();i++){
+                    if(row==1){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
         JTable_CuadriculasGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -882,10 +952,34 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTable_CuadriculasGeneral.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) { // Verifica si es un doble clic
+                    int row = JTable_CuadriculasGeneral.getSelectedRow();
+                    int column = JTable_CuadriculasGeneral.getSelectedColumn();
+
+                    // Deshabilita la edición de la celda seleccionada
+                    JTable_CuadriculasGeneral.getCellEditor(row, column).stopCellEditing();
+                    JTable_CuadriculasGeneral.setRowSelectionInterval(row, row);
+                    JTable_CuadriculasGeneral.setColumnSelectionInterval(column, column);
+                }
+            }
+        });
         JSP_CuadriculasGeneral.setViewportView(JTable_CuadriculasGeneral);
 
         JTbpan_General.addTab("Cuadriculas", JSP_CuadriculasGeneral);
 
+        JTable_CajasGeneral = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int col){
+                for(int i=0;i<JTable_CajasGeneral.getRowCount();i++){
+                    if(row==1){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
         JTable_CajasGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -897,6 +991,20 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTable_CajasGeneral.addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) { // Verifica si es un doble clic
+                    int row = JTable_CajasGeneral.getSelectedRow();
+                    int column = JTable_CajasGeneral.getSelectedColumn();
+
+                    // Deshabilita la edición de la celda seleccionada
+                    JTable_CajasGeneral.getCellEditor(row, column).stopCellEditing();
+                    JTable_CajasGeneral.setRowSelectionInterval(row, row);
+                    JTable_CajasGeneral.setColumnSelectionInterval(column, column);
+                }
+            }
+        });
         JSP_CajasGeneral.setViewportView(JTable_CajasGeneral);
 
         JTbpan_General.addTab("Cajas", JSP_CajasGeneral);
@@ -973,6 +1081,16 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         });
         JPan_CDetCaja.add(JCB_CObjEnCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 180, 20));
 
+        jTable_DetObjCaja = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int col){
+                for(int i=0;i<jTable_DetObjCaja.getRowCount();i++){
+                    if(row==1){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
         jTable_DetObjCaja.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane2.setViewportView(jTable_DetObjCaja);
 
