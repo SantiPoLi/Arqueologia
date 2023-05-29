@@ -732,4 +732,27 @@ public abstract class Query{
         return result;
     }
     
+    public static float[] datosObjetos() throws SQLException {
+        
+        float[] resultados = new float[3];
+        
+        String pesoMinimo = 0, pesoPromedio = 0, pesoMaximo = 0;
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantPersonas FROM personas");
+        
+        resultados [0] = result.getFloat(pesoMinimo);
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantCuad FROM cuadriculas");
+        
+        resultados [1] = result.getFloat(pesoPromedio);
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantObj FROM objetos");
+        
+        resultados [2] = result.getFloat(pesoMaximo);
+        
+        return resultados;
+    }
+    
 }
