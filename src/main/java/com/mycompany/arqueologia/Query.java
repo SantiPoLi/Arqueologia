@@ -724,7 +724,7 @@ public abstract class Query{
     // Listar código y lugar de las cajas que esté vacías.
     
     public static ResultSet cajasVacias() throws SQLException {
-        
+       
         String consulta = 
                   "SELECT ca_cod, ca_lugar "
                 + "FROM cajas"
@@ -738,6 +738,46 @@ public abstract class Query{
         result = query.executeQuery(consulta);
         
         return result;
+    }
+    
+    public static float[] datosObjetos() throws SQLException {
+        
+        float[] resultados = new float[3];
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT MIN(o_peso) AS pesoMinimo FROM objetos");
+        
+        if(result.next()){
+            resultados [0] = result.getFloat("pesoMinimo");
+        }
+        
+        result = query.executeQuery("SELECT AVG(o_peso) AS cantCuad FROM cuadriculas");
+        
+        if(result.next()) {
+            resultados [1] = result.getFloat("pesoPromedio");
+        }
+        
+        result = query.executeQuery("SELECT MAX(o_peso) AS cantObj FROM objetos");
+        
+        if(result.next()){
+            resultados [2] = result.getFloat("pesoMaximo");
+        }        
+        
+        return resultados;
+    }
+    
+    public static ResultSet pesoDeCadaCaja() throws SQLException {
+        
+        String consulta = 
+                "SELECT SUM(o_peso) AS Peso, ca_cod_contiene AS Caja FROM objetos GROUP BY (ca_cod_contiene) ORDER BY Peso;";
+        
+        query = conn.createStatement();
+        
+        query.executeQuery(consulta);
+        
+        return result;
+        
     }
     
 }
