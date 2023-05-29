@@ -80,6 +80,19 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaCuadricula = new javax.swing.JLabel();
         JBtn_AltaCaja = new javax.swing.JPanel();
         JLb_AltaCaja = new javax.swing.JLabel();
+        JPan_AltaPersona = new javax.swing.JPanel();
+        JLb_AltaObj1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        JTF_ANombPer = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        JSpin_ADNIPer = new javax.swing.JSpinner();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        JTF_AApePer = new javax.swing.JTextField();
+        JTF_AEmailPer = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        JSpin_ATelPer = new javax.swing.JSpinner();
+        jLabel19 = new javax.swing.JLabel();
         JPan_AltaObjeto = new javax.swing.JPanel();
         JLb_AltaObj = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -118,8 +131,25 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jSpin_APeso = new javax.swing.JSpinner();
         JPan_AltaPersona = new javax.swing.JPanel();
         JPan_AltaSitio = new javax.swing.JPanel();
+        JLb_AltaObj2 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        JTF_ACodSit = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        JTF_ALocSit = new javax.swing.JTextField();
         JPan_AltaCuadricula = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        JCB_ASitPertenecCuad = new javax.swing.JComboBox<>();
+        JTF_ACodCuadr = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        JLb_AltaObj3 = new javax.swing.JLabel();
         JPan_AltaCaja = new javax.swing.JPanel();
+        jDate_AFechaCaja = new com.toedter.calendar.JDateChooser();
+        jLabel24 = new javax.swing.JLabel();
+        JTF_ACodCaja = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        JLb_AltaObj4 = new javax.swing.JLabel();
+        JTF_ALugarCaja = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         JPan_Listas = new javax.swing.JPanel();
         JTbpan_General = new javax.swing.JTabbedPane();
         JSP_ObjetosGeneral = new javax.swing.JScrollPane();
@@ -136,7 +166,12 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JCB_Consultas = new javax.swing.JComboBox<>();
         JBtn_BuscarConsulta = new javax.swing.JPanel();
         JLb_BuscarConsulta = new javax.swing.JLabel();
-        JPan_ObjetosEntreDosFechas = new javax.swing.JPanel();
+        JPan_CObjetosEntreDosFechas = new javax.swing.JPanel();
+        JPan_CDetCaja = new javax.swing.JPanel();
+        JLb_AltaObj5 = new javax.swing.JLabel();
+        JCB_CObjEnCaja = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable_DetObjCaja = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -446,6 +481,71 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_Altas, "card3");
 
+        JPan_AltaPersona.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_AltaObj1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj1.setText("Alta de Personas");
+        JPan_AltaPersona.add(JLb_AltaObj1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 151, 32));
+
+        jLabel15.setText("Nombre");
+        JPan_AltaPersona.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+
+        JTF_ANombPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ANombPerActionPerformed(evt);
+            }
+        });
+        JPan_AltaPersona.add(JTF_ANombPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
+
+        jLabel16.setText("DNI");
+        JPan_AltaPersona.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 170, -1));
+
+        JSpin_ADNIPer.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        JPan_AltaPersona.add(JSpin_ADNIPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 170, -1));
+
+        jPanel7.setBackground(new java.awt.Color(153, 153, 0));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        JPan_AltaPersona.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
+
+        jLabel17.setText("Apellido ");
+        JPan_AltaPersona.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, -1));
+
+        JTF_AApePer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_AApePerActionPerformed(evt);
+            }
+        });
+        JPan_AltaPersona.add(JTF_AApePer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 180, -1));
+
+        JTF_AEmailPer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_AEmailPerActionPerformed(evt);
+            }
+        });
+        JPan_AltaPersona.add(JTF_AEmailPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 170, -1));
+
+        jLabel18.setText("Email");
+        JPan_AltaPersona.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 170, -1));
+
+        JSpin_ATelPer.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        JPan_AltaPersona.add(JSpin_ATelPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 180, -1));
+
+        jLabel19.setText("Teléfono");
+        JPan_AltaPersona.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, -1));
+
+        JPan_Contenedor.add(JPan_AltaPersona, "card8");
+
         JPan_AltaObjeto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JLb_AltaObj.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -637,55 +737,96 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_AltaObjeto, "card7");
 
-        javax.swing.GroupLayout JPan_AltaPersonaLayout = new javax.swing.GroupLayout(JPan_AltaPersona);
-        JPan_AltaPersona.setLayout(JPan_AltaPersonaLayout);
-        JPan_AltaPersonaLayout.setHorizontalGroup(
-            JPan_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        JPan_AltaPersonaLayout.setVerticalGroup(
-            JPan_AltaPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        JPan_AltaSitio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JPan_Contenedor.add(JPan_AltaPersona, "card8");
+        JLb_AltaObj2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj2.setText("Alta de Sitios");
+        JPan_AltaSitio.add(JLb_AltaObj2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 151, 32));
 
-        javax.swing.GroupLayout JPan_AltaSitioLayout = new javax.swing.GroupLayout(JPan_AltaSitio);
-        JPan_AltaSitio.setLayout(JPan_AltaSitioLayout);
-        JPan_AltaSitioLayout.setHorizontalGroup(
-            JPan_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        JPan_AltaSitioLayout.setVerticalGroup(
-            JPan_AltaSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jLabel20.setText("Código");
+        JPan_AltaSitio.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+
+        JTF_ACodSit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ACodSitActionPerformed(evt);
+            }
+        });
+        JPan_AltaSitio.add(JTF_ACodSit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
+
+        jLabel21.setText("Localidad ");
+        JPan_AltaSitio.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, -1));
+
+        JTF_ALocSit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ALocSitActionPerformed(evt);
+            }
+        });
+        JPan_AltaSitio.add(JTF_ALocSit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 180, -1));
 
         JPan_Contenedor.add(JPan_AltaSitio, "card9");
 
-        javax.swing.GroupLayout JPan_AltaCuadriculaLayout = new javax.swing.GroupLayout(JPan_AltaCuadricula);
-        JPan_AltaCuadricula.setLayout(JPan_AltaCuadriculaLayout);
-        JPan_AltaCuadriculaLayout.setHorizontalGroup(
-            JPan_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        JPan_AltaCuadriculaLayout.setVerticalGroup(
-            JPan_AltaCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        JPan_AltaCuadricula.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setText("Sitio al que pertenece");
+        JPan_AltaCuadricula.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 180, -1));
+
+        try{
+            JCB_ASitPertenecCuad.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT s_cod FROM sitios ORDER BY s_cod;","s_cod")));
+        }catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
+        JCB_ASitPertenecCuad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_ASitPertenecCuadActionPerformed(evt);
+            }
+        });
+        JPan_AltaCuadricula.add(JCB_ASitPertenecCuad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 180, 20));
+
+        JTF_ACodCuadr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ACodCuadrActionPerformed(evt);
+            }
+        });
+        JPan_AltaCuadricula.add(JTF_ACodCuadr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 170, -1));
+
+        jLabel23.setText("Código");
+        JPan_AltaCuadricula.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 170, -1));
+
+        JLb_AltaObj3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj3.setText("Alta de Cuadrículas");
+        JPan_AltaCuadricula.add(JLb_AltaObj3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 32));
 
         JPan_Contenedor.add(JPan_AltaCuadricula, "card10");
 
-        javax.swing.GroupLayout JPan_AltaCajaLayout = new javax.swing.GroupLayout(JPan_AltaCaja);
-        JPan_AltaCaja.setLayout(JPan_AltaCajaLayout);
-        JPan_AltaCajaLayout.setHorizontalGroup(
-            JPan_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        JPan_AltaCajaLayout.setVerticalGroup(
-            JPan_AltaCajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        JPan_AltaCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_AltaCaja.add(jDate_AFechaCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 180, -1));
+
+        jLabel24.setText("Fecha");
+        JPan_AltaCaja.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, -1));
+
+        JTF_ACodCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ACodCajaActionPerformed(evt);
+            }
+        });
+        JPan_AltaCaja.add(JTF_ACodCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 170, -1));
+
+        jLabel25.setText("Código ");
+        JPan_AltaCaja.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+
+        JLb_AltaObj4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj4.setText("Alta de Cajas");
+        JPan_AltaCaja.add(JLb_AltaObj4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 151, 32));
+
+        JTF_ALugarCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ALugarCajaActionPerformed(evt);
+            }
+        });
+        JPan_AltaCaja.add(JTF_ALugarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 170, -1));
+
+        jLabel26.setText("Lugar");
+        JPan_AltaCaja.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 170, -1));
 
         JPan_Contenedor.add(JPan_AltaCaja, "card11");
 
@@ -819,8 +960,33 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_Consultas, "card5");
 
-        JPan_ObjetosEntreDosFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        JPan_Contenedor.add(JPan_ObjetosEntreDosFechas, "card11");
+        JPan_CObjetosEntreDosFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_Contenedor.add(JPan_CObjetosEntreDosFechas, "card11");
+
+        JPan_CDetCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_AltaObj5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj5.setText("Obtener el detalle de los objetos que hay en una caja");
+        JPan_CDetCaja.add(JLb_AltaObj5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 610, 32));
+
+        try{
+            JCB_CObjEnCaja.setModel(new javax.swing.DefaultComboBoxModel<>(Query.resultToArray("SELECT ca_cod FROM Cajas ORDER BY ca_cod;", "ca_cod")));
+        } catch(SQLException e){
+            System.out.println(""+e.getMessage());
+        }
+        JCB_CObjEnCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB_CObjEnCajaActionPerformed(evt);
+            }
+        });
+        JPan_CDetCaja.add(JCB_CObjEnCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 180, 20));
+
+        jTable_DetObjCaja.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane2.setViewportView(jTable_DetObjCaja);
+
+        JPan_CDetCaja.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 460, 300));
+
+        JPan_Contenedor.add(JPan_CDetCaja, "card12");
 
         getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
@@ -1014,25 +1180,24 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private void JBtn_CargarObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseClicked
         /*
         if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")||JTArea_ADesc.getText().trim().equals("")||JTF_AOrig.getText().trim().equals("")){
-                JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            return; 
+        else {
+            if(((float)jSpin_AAlto.getValue())<=0||((float)jSpin_ALargo.getValue())<=0||((float)JSpin_AEspesor.getValue())<=0||((float)jSpin_APeso.getValue())<=0||((int)jSpin_ACant.getValue())<=0||((int)jSpin_ADNIInvObj.getValue())<=0){
+                JOptionPane.showMessageDialog(null,"Los valores no pueden ser negativos ni cero", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
                 return;
             } else {
-                if(((float)jSpin_AAlto.getValue())<=0||((float)jSpin_ALargo.getValue())<=0||((float)JSpin_AEspesor.getValue())<=0||((float)jSpin_APeso.getValue())<=0||((int)jSpin_ACant.getValue())<=0||((int)jSpin_ADNIInvObj.getValue())<=0){
-                    JOptionPane.showMessageDialog(null,"Los valores no pueden ser negativos ni cero", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
-                    return;
-            } else {
-                    try {
-                        if(Query.objetoExiste(JTF_ACodObj.getText().trim())){
-                            JOptionPane.showMessageDialog(null,"El objeto que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
-                            return;
-                        } else {
-                            Query.insertarObjeto(JTF_ACodObj.getText().trim(), JTF_ANombObj.getText().trim(), JTF_ATipExtObj.getText().trim(), (float)jSpin_AAlto.getValue(), (float)jSpin_ALargo.getValue(), (float)JSpin_AEspesor.getValue(), (float)jSpin_APeso.getValue(), (int)jSpin_ACant.getValue(), jDate_AFechaReg.getDate(), JTArea_ADesc.getText().trim(), JTF_AOrig.getText().trim(), JCB_ACuadAsocObj.getSelectedItem().toString() ,(int)jSpin_ADNIInvObj.getValue(), (int)JCB_ACajaContObj.getSelectedItem(), JCB_ATipoObj.getSelectedItem().toString());
-                        }   
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                try {
+                    if(Query.objetoExiste(JTF_ACodObj.getText().trim())){
+                        JOptionPane.showMessageDialog(null,"El objeto que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                        return;
+                    } else {
+                        Query.insertarObjeto(JTF_ACodObj.getText().trim(), JTF_ANombObj.getText().trim(), JTF_ATipExtObj.getText().trim(), (float)jSpin_AAlto.getValue(), (float)jSpin_ALargo.getValue(), (float)JSpin_AEspesor.getValue(), (float)jSpin_APeso.getValue(), (int)jSpin_ACant.getValue(), jDate_AFechaReg.getDate(), JTArea_ADesc.getText().trim(), JTF_AOrig.getText().trim(), JCB_ACuadAsocObj.getSelectedItem().toString() ,(int)jSpin_ADNIInvObj.getValue(), (int)JCB_ACajaContObj.getSelectedItem(), JCB_ATipoObj.getSelectedItem().toString());
+                    }   
+                } catch (SQLException ex) {
+                    Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }        
-        
         }
         */
     }//GEN-LAST:event_JBtn_CargarObjetoMouseClicked
@@ -1044,7 +1209,52 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private void JBtn_CargarObjetoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseExited
         JBtn_CargarObjeto.setBackground(new Color(27,64,142));
     }//GEN-LAST:event_JBtn_CargarObjetoMouseExited
+    private void JTF_ANombPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ANombPerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ANombPerActionPerformed
 
+    private void JTF_AApePerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_AApePerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_AApePerActionPerformed
+
+    private void JTF_AEmailPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_AEmailPerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_AEmailPerActionPerformed
+
+    private void JTF_ACodSitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ACodSitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ACodSitActionPerformed
+
+    private void JTF_ALocSitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ALocSitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ALocSitActionPerformed
+
+    private void JCB_ASitPertenecCuadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_ASitPertenecCuadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCB_ASitPertenecCuadActionPerformed
+
+    private void JTF_ACodCuadrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ACodCuadrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ACodCuadrActionPerformed
+
+    private void JTF_ACodCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ACodCajaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ACodCajaActionPerformed
+
+    private void JTF_ALugarCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ALugarCajaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ALugarCajaActionPerformed
+
+    private void JCB_CObjEnCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB_CObjEnCajaActionPerformed
+        try {
+            String cod = (String) JCB_CObjEnCaja.getSelectedItem();
+            ResultSet rs;
+            rs = Query.objetosEnUnaCaja(cod);
+            jTable_DetObjCaja.setModel(Query.resultToTable(rs));
+        } catch (SQLException ex) {
+            Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JCB_CObjEnCajaActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -1099,11 +1309,18 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JBtn_Listas;
     private javax.swing.JComboBox<String> JCB_ACajaContObj;
     private javax.swing.JComboBox<String> JCB_ACuadAsocObj;
+    private javax.swing.JComboBox<String> JCB_ASitPertenecCuad;
     private javax.swing.JComboBox<String> JCB_ATipoObj;
+    private javax.swing.JComboBox<String> JCB_CObjEnCaja;
     private javax.swing.JComboBox<String> JCB_Consultas;
     private javax.swing.JLabel JLb_AltaCaja;
     private javax.swing.JLabel JLb_AltaCuadricula;
     private javax.swing.JLabel JLb_AltaObj;
+    private javax.swing.JLabel JLb_AltaObj1;
+    private javax.swing.JLabel JLb_AltaObj2;
+    private javax.swing.JLabel JLb_AltaObj3;
+    private javax.swing.JLabel JLb_AltaObj4;
+    private javax.swing.JLabel JLb_AltaObj5;
     private javax.swing.JLabel JLb_AltaObjeto;
     private javax.swing.JLabel JLb_AltaPersona;
     private javax.swing.JLabel JLb_AltaSitio;
@@ -1120,21 +1337,32 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPan_AltaPersona;
     private javax.swing.JPanel JPan_AltaSitio;
     private javax.swing.JPanel JPan_Altas;
+    private javax.swing.JPanel JPan_CDetCaja;
+    private javax.swing.JPanel JPan_CObjetosEntreDosFechas;
     private javax.swing.JPanel JPan_Consultas;
     private javax.swing.JPanel JPan_Contenedor;
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_Listas;
     private javax.swing.JPanel JPan_MenuPrincipal;
-    private javax.swing.JPanel JPan_ObjetosEntreDosFechas;
     private javax.swing.JScrollPane JSP_CajasGeneral;
     private javax.swing.JScrollPane JSP_CuadriculasGeneral;
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
     private javax.swing.JScrollPane JSP_PersonasGeneral;
     private javax.swing.JScrollPane JSP_SitiosGeneral;
+    private javax.swing.JSpinner JSpin_ADNIPer;
     private javax.swing.JSpinner JSpin_AEspesor;
+    private javax.swing.JSpinner JSpin_ATelPer;
     private javax.swing.JTextArea JTArea_ADesc;
+    private javax.swing.JTextField JTF_AApePer;
+    private javax.swing.JTextField JTF_ACodCaja;
+    private javax.swing.JTextField JTF_ACodCuadr;
     private javax.swing.JTextField JTF_ACodObj;
+    private javax.swing.JTextField JTF_ACodSit;
+    private javax.swing.JTextField JTF_AEmailPer;
+    private javax.swing.JTextField JTF_ALocSit;
+    private javax.swing.JTextField JTF_ALugarCaja;
     private javax.swing.JTextField JTF_ANombObj;
+    private javax.swing.JTextField JTF_ANombPer;
     private javax.swing.JTextField JTF_AOrig;
     private javax.swing.JTextField JTF_ATipExtObj;
     private javax.swing.JTable JTable_CajasGeneral;
@@ -1145,6 +1373,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane JTbpan_General;
     private javax.swing.JLabel Jlb_LogoBlanco;
     private javax.swing.ButtonGroup buttonGroup1;
+    private com.toedter.calendar.JDateChooser jDate_AFechaCaja;
     private com.toedter.calendar.JDateChooser jDate_AFechaReg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1153,7 +1382,18 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1162,11 +1402,14 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpin_AAlto;
     private javax.swing.JSpinner jSpin_ACant;
     private javax.swing.JSpinner jSpin_ADNIInvObj;
     private javax.swing.JSpinner jSpin_ALargo;
     private javax.swing.JSpinner jSpin_APeso;
+    private javax.swing.JTable jTable_DetObjCaja;
     // End of variables declaration//GEN-END:variables
 }
