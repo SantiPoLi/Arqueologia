@@ -642,7 +642,7 @@ public abstract class Query{
         
         query = conn.createStatement();
         
-        result = query.executeQuery("SELECT COUNT(o_es) FROM objetos WHERE o_es = 'L'");
+        result = query.executeQuery("SELECT COUNT(*) FROM objetos WHERE o_es = 'L'");
         
         return result.getInt(0);
         
@@ -652,11 +652,84 @@ public abstract class Query{
         
         query = conn.createStatement();
         
-        result = query.executeQuery("SELECT COUNT(o_es) FROM objetos WHERE o_es = 'C'");
+        result = query.executeQuery("SELECT COUNT(*) FROM objetos WHERE o_es = 'C'");
         
         return result.getInt(0);
 
         
+    }
+    
+    // Consulta 7:
+    // Mostrar en una pestaña o ventan el resumen de la cantidad de personas, cantidad
+    // de cuadriculas, cantidad de objetos y cantidad de cajas, actualmente en el sistema.
+    
+    public static int[] mostrarResumenDeCantidades() throws SQLException {
+        
+        int[] resultados = new int[4];
+        
+        int cantPer = 0 , cantCuad = 0, cantObj = 0, cantCajas = 0;
+ 
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantPersonas FROM personas");
+        
+        resultados [0] = result.getInt(cantPer);
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantCuad FROM cuadriculas");
+        
+        resultados [1] = result.getInt(cantCuad);
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantObj FROM objetos");
+        
+        resultados [2] = result.getInt(cantObj);
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantCajas FROM cajas");
+        
+        resultados [3] = result.getInt(cantCajas);
+        
+        return resultados;
+    }
+    
+    
+    // Consulta 8:
+    // Para cada arqueologo, mostrar su nombre y apellido junto con la cantidad de objetos
+    // hallados por el. El listado debe mostrarse ordenado alfabeticamente por apellido de arqueologo.
+    
+    public static ResultSet objetosEncontradosPorArqueologos() throws SQLException {
+        
+        String consulta = 
+                  "SELECT p_nombre, p_apellido, COUNT(o_cod)"
+                + "FROM objetos, personas"
+                + "WHERE p_dni = p_dni_ingresa"
+                + "GROUP BY p_apellido, p_nombre"
+                + "ORDER BY p_apellido";
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery(consulta);
+        
+        return result;
+    }
+    
+    
+    // Consulta 9:
+    // Listar código y lugar de las cajas que esté vacías.
+    
+    public static ResultSet cajasVacias() throws SQLException {
+        
+        String consulta = 
+                  "SELECT ca_cod, ca_lugar "
+                + "FROM cajas"
+                + "EXCEPT"
+                + "SELECT DISTINCT ca_cod, ca_lugar"
+                + "FROM objetos, cajas"
+                + "WHERE ca_cod = ca_cod_contiene;";
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery(consulta);
+        
+        return result;
     }
     
 }
