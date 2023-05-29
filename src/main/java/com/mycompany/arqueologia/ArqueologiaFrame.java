@@ -1178,11 +1178,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtn_AltaObjetoMouseClicked
 
     private void JBtn_CargarObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseClicked
-        /*
+        
         if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")||JTArea_ADesc.getText().trim().equals("")||JTF_AOrig.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
             return; 
-        else {
+        }else {
             if(((float)jSpin_AAlto.getValue())<=0||((float)jSpin_ALargo.getValue())<=0||((float)JSpin_AEspesor.getValue())<=0||((float)jSpin_APeso.getValue())<=0||((int)jSpin_ACant.getValue())<=0||((int)jSpin_ADNIInvObj.getValue())<=0){
                 JOptionPane.showMessageDialog(null,"Los valores no pueden ser negativos ni cero", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
                 return;
@@ -1192,14 +1192,38 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null,"El objeto que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
                         return;
                     } else {
-                        Query.insertarObjeto(JTF_ACodObj.getText().trim(), JTF_ANombObj.getText().trim(), JTF_ATipExtObj.getText().trim(), (float)jSpin_AAlto.getValue(), (float)jSpin_ALargo.getValue(), (float)JSpin_AEspesor.getValue(), (float)jSpin_APeso.getValue(), (int)jSpin_ACant.getValue(), jDate_AFechaReg.getDate(), JTArea_ADesc.getText().trim(), JTF_AOrig.getText().trim(), JCB_ACuadAsocObj.getSelectedItem().toString() ,(int)jSpin_ADNIInvObj.getValue(), (int)JCB_ACajaContObj.getSelectedItem(), JCB_ATipoObj.getSelectedItem().toString());
+                        // probando uno por uno a ver cual falla
+                        JTF_ACodObj.getText().trim();
+                        JTF_ANombObj.getText().trim();
+                        JTF_ATipExtObj.getText().trim();
+                        float alto = (float) jSpin_AAlto.getValue();
+                        float largo = (float)jSpin_ALargo.getValue();
+                        float espesor =(float)JSpin_AEspesor.getValue();
+                        float peso = (float)jSpin_APeso.getValue();
+                        int cant =(int)jSpin_ACant.getValue();
+                        Date fechareg = jDate_AFechaReg.getDate();
+                        JTArea_ADesc.getText().trim();
+                        JTF_AOrig.getText().trim();
+                        String cuadAsoc = JCB_ACuadAsocObj.getSelectedItem().toString();
+                        int dni = (int)jSpin_ADNIInvObj.getValue();
+                        String caja  =  JCB_ACajaContObj.getSelectedItem().toString();
+                        String tipo = JCB_ATipoObj.getSelectedItem().toString();
+                   
+                        System.out.println(""+JTF_ACodObj.getText().trim()+JTF_ANombObj.getText().trim()+ JTF_ATipExtObj.getText().trim()+alto+largo+espesor+peso+cant+fechareg+JTArea_ADesc.getText().trim()+JTF_AOrig.getText().trim()+cuadAsoc+caja+dni+ tipo);
+                       
+                        Query.insertarObjeto(JTF_ACodObj.getText().trim(), JTF_ANombObj.getText().trim(), JTF_ATipExtObj.getText().trim(), alto, largo, espesor, peso, cant, fechareg, JTArea_ADesc.getText().trim(), JTF_AOrig.getText().trim(), cuadAsoc, caja,dni, tipo);
+                        System.out.println("jaja funciona");
+                        //Query.insertarObjeto(JTF_ACodObj.getText().trim(), JTF_ANombObj.getText().trim(), JTF_ATipExtObj.getText().trim(), (float)jSpin_AAlto.getValue(), (float)jSpin_ALargo.getValue(), (float)JSpin_AEspesor.getValue(), (float)jSpin_APeso.getValue(), (int)jSpin_ACant.getValue(), jDate_AFechaReg.getDate(), JTArea_ADesc.getText().trim(), JTF_AOrig.getText().trim(), JCB_ACuadAsocObj.getSelectedItem().toString() ,(int)jSpin_ADNIInvObj.getValue(), (int)JCB_ACajaContObj.getSelectedItem(), JCB_ATipoObj.getSelectedItem().toString());
+                    
+                        
+                        // no Query.insertarObjeto(JTF_ACodObj.getText().trim(), JTF_ANombObj.getText().trim(), JTF_ATipExtObj.getText().trim(), (float)jSpin_AAlto.getValue(), (float)jSpin_ALargo.getValue(), (float)JSpin_AEspesor.getValue(), (float)jSpin_APeso.getValue(), (int)jSpin_ACant.getValue(), jDate_AFechaReg.getDate(), JTArea_ADesc.getText().trim(), JTF_AOrig.getText().trim(), JCB_ACuadAsocObj.getSelectedItem().toString() ,(int)jSpin_ADNIInvObj.getValue(), JCB_ACajaContObj.getSelectedItem().toString(), JCB_ATipoObj.getSelectedItem().toString());
                     }   
                 } catch (SQLException ex) {
                     Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }        
         }
-        */
+        
     }//GEN-LAST:event_JBtn_CargarObjetoMouseClicked
 
     private void JBtn_CargarObjetoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseEntered

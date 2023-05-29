@@ -565,9 +565,9 @@ public abstract class Query{
         return var;
     }
     
-    public static void insertarObjeto (String cod, String nombre, String extraccion, float alto, float largo, float espesor, float peso, int cant, Date registro, String desc, String origen, String codAsociado, String codContiene, int dni, char especialidad) throws SQLException {
+    public static void insertarObjeto (String cod, String nombre, String extraccion, float alto, float largo, float espesor, float peso, int cant, Date registro, String desc, String origen, String codAsociado, String codContiene, int dni, String especialidad) throws SQLException {
         
-        String a = ""+especialidad;
+        //String a = ""+especialidad;
         
         String consulta = "INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         
@@ -586,7 +586,7 @@ public abstract class Query{
         p_query.setString(12, codAsociado);
         p_query.setString(13, codContiene);
         p_query.setInt(14, dni);
-        p_query.setString(15,a);
+        p_query.setString(15,especialidad);
         
         p_query.executeQuery();
     }
