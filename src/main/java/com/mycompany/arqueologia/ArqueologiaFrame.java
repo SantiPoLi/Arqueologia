@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -24,6 +26,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private static final String ERROR_MSG_INSERT_INPUT = "No se admiten campos vacíos.";
     
     public ResultSet result;
+    
+    public Calendar calendar = Calendar.getInstance();
+    public Date fechaActual = calendar.getTime();
     
     public ArqueologiaFrame() throws SQLException {
         Query.initQuery();
@@ -109,6 +114,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_CargarObjeto = new javax.swing.JPanel();
         JLb_CargarObjeto = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jSpin_APeso = new javax.swing.JSpinner();
         JPan_AltaPersona = new javax.swing.JPanel();
         JPan_AltaSitio = new javax.swing.JPanel();
         JPan_AltaCuadricula = new javax.swing.JPanel();
@@ -494,14 +501,15 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_AltaObjeto.add(JSpin_AEspesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 170, -1));
 
         jLabel8.setText("Cantidad");
-        JPan_AltaObjeto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 170, -1));
+        JPan_AltaObjeto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 170, -1));
 
         jSpin_ACant.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        JPan_AltaObjeto.add(jSpin_ACant, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
+        JPan_AltaObjeto.add(jSpin_ACant, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 170, -1));
 
         jLabel11.setText("Fecha del Registro");
         JPan_AltaObjeto.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 180, -1));
         JPan_AltaObjeto.add(jDate_AFechaReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 180, -1));
+        jDate_AFechaReg.setDate(fechaActual);
 
         jLabel6.setText("Descripción");
         JPan_AltaObjeto.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 170, -1));
@@ -592,11 +600,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_CargarObjeto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLb_CargarObjeto.setText("CARGAR OBJETO");
         JLb_CargarObjeto.setFocusable(false);
-        JLb_CargarObjeto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JLb_CargarObjetoMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout JBtn_CargarObjetoLayout = new javax.swing.GroupLayout(JBtn_CargarObjeto);
         JBtn_CargarObjeto.setLayout(JBtn_CargarObjetoLayout);
@@ -609,7 +612,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             .addComponent(JLb_CargarObjeto, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
         );
 
-        JPan_AltaObjeto.add(JBtn_CargarObjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 270, 50));
+        JPan_AltaObjeto.add(JBtn_CargarObjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 270, 50));
 
         jPanel6.setBackground(new java.awt.Color(153, 153, 0));
 
@@ -625,6 +628,12 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         );
 
         JPan_AltaObjeto.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+
+        jLabel15.setText("Peso");
+        JPan_AltaObjeto.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 170, -1));
+
+        jSpin_APeso.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        JPan_AltaObjeto.add(jSpin_APeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
 
         JPan_Contenedor.add(JPan_AltaObjeto, "card7");
 
@@ -1003,18 +1012,29 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_JBtn_AltaObjetoMouseClicked
 
     private void JBtn_CargarObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseClicked
-        if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")||JTArea_ADesc.getText().trim().equals("")||JTF_AOrig.getText().trim().equals("")||jDate_AFechaReg.getDate()!=null){
-            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        } 
-        /*else {
-            if((float)jSpin_AAlto.getValue()<=0||(float)jSpin_ALargo.getValue()<=0||(float)JSpin_AEspesor.getValue()<=0||(int)jSpin_ACant.getValue()<=0||(int)jSpin_ADNIInvObj.getValue()<=0){
-                JOptionPane.showMessageDialog(null,"Los valores no pueden ser negativos ni cero", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+        /*
+        if(JTF_ACodObj.getText().trim().equals("")||JTF_ANombObj.getText().trim().equals("")||JTF_ATipExtObj.getText().trim().equals("")||JTArea_ADesc.getText().trim().equals("")||JTF_AOrig.getText().trim().equals("")){
+                JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
                 return;
-            }
-        }*/
+            } else {
+                if(((float)jSpin_AAlto.getValue())<=0||((float)jSpin_ALargo.getValue())<=0||((float)JSpin_AEspesor.getValue())<=0||((float)jSpin_APeso.getValue())<=0||((int)jSpin_ACant.getValue())<=0||((int)jSpin_ADNIInvObj.getValue())<=0){
+                    JOptionPane.showMessageDialog(null,"Los valores no pueden ser negativos ni cero", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                    return;
+            } else {
+                    try {
+                        if(Query.objetoExiste(JTF_ACodObj.getText().trim())){
+                            JOptionPane.showMessageDialog(null,"El objeto que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                            return;
+                        } else {
+                            Query.insertarObjeto(JTF_ACodObj.getText().trim(), JTF_ANombObj.getText().trim(), JTF_ATipExtObj.getText().trim(), (float)jSpin_AAlto.getValue(), (float)jSpin_ALargo.getValue(), (float)JSpin_AEspesor.getValue(), (float)jSpin_APeso.getValue(), (int)jSpin_ACant.getValue(), jDate_AFechaReg.getDate(), JTArea_ADesc.getText().trim(), JTF_AOrig.getText().trim(), JCB_ACuadAsocObj.getSelectedItem().toString() ,(int)jSpin_ADNIInvObj.getValue(), (int)JCB_ACajaContObj.getSelectedItem(), JCB_ATipoObj.getSelectedItem().toString());
+                        }   
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }        
         
-        
+        }
+        */
     }//GEN-LAST:event_JBtn_CargarObjetoMouseClicked
 
     private void JBtn_CargarObjetoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseEntered
@@ -1024,10 +1044,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private void JBtn_CargarObjetoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarObjetoMouseExited
         JBtn_CargarObjeto.setBackground(new Color(27,64,142));
     }//GEN-LAST:event_JBtn_CargarObjetoMouseExited
-
-    private void JLb_CargarObjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLb_CargarObjetoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JLb_CargarObjetoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1136,6 +1152,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1150,5 +1167,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpin_ACant;
     private javax.swing.JSpinner jSpin_ADNIInvObj;
     private javax.swing.JSpinner jSpin_ALargo;
+    private javax.swing.JSpinner jSpin_APeso;
     // End of variables declaration//GEN-END:variables
 }

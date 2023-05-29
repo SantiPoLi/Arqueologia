@@ -4,7 +4,7 @@ package com.mycompany.arqueologia;
 import java.awt.List;
 import java.sql.Array;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -544,10 +544,49 @@ public abstract class Query{
         String consulta = "SELECT o_cod, o_nombre FROM objetos WHERE o_fecharegistro BETWEEN ? AND ?";
         
         p_query = conn.prepareStatement(consulta);
-        p_query.setDate(1, fecha1);
-        p_query.setDate(2,fecha2);
+        p_query.setDate(1, (java.sql.Date) fecha1);
+        p_query.setDate(2, (java.sql.Date) fecha2);
         
         return p_query.executeQuery();
+        
+    }
+    
+    public static boolean objetoExiste (String cod) throws SQLException {
+        String consulta = "SELECT COUNT(o_cod) FROM objetos WHERE o_cod = ?;";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setString(1, cod);
+        ResultSet rs = p_query.executeQuery();
+        
+        boolean var = rs.getInt(1) == 0;
+        
+        return var;
+    }
+    
+    public static void insertarObjeto (String cod, String nombre, String extraccion, float alto, float largo, float espesor, float peso, int cant, Date registro, String desc, String origen, String codAsociado, String codContiene, int dni, char especialidad) throws SQLException {
+        
+        String a = ""+especialidad;
+        
+        String consulta = "INSERT INTO Objetos (O_Cod, O_Nombre, O_Tipoextraccion, O_Alto, O_Largo, O_Espesor, O_Peso, O_Cantidad, O_Fecharegistro, O_Descripcion, O_Origen, CU_Cod_Asocia, CA_Cod_Contiene, P_Dni_Ingresa, O_Es) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setString(1, cod);
+        p_query.setString(2, nombre);
+        p_query.setString(3, extraccion);
+        p_query.setFloat(4, alto);
+        p_query.setFloat(5, largo);
+        p_query.setFloat(6, espesor);
+        p_query.setFloat(7, peso);
+        p_query.setInt(8, cant);
+        p_query.setDate(9, (java.sql.Date) registro);
+        p_query.setString(10, desc);
+        p_query.setString(11, origen);
+        p_query.setString(12, codAsociado);
+        p_query.setString(13, codContiene);
+        p_query.setInt(14, dni);
+        p_query.setString(15,a);
+        
+        p_query.executeQuery();
         
     }
     
