@@ -644,7 +644,11 @@ public abstract class Query{
         
         result = query.executeQuery("SELECT COUNT(*) FROM objetos WHERE o_es = 'L'");
         
-        return result.getInt(0);
+        if(result.next()){
+             return result.getInt(1);
+        }
+        return -1;
+       
         
     }
     
@@ -654,8 +658,12 @@ public abstract class Query{
         
         result = query.executeQuery("SELECT COUNT(*) FROM objetos WHERE o_es = 'C'");
         
-        return result.getInt(0);
+        //return result.getInt(1);
 
+        if(result.next()){
+             return result.getInt(1);
+        }
+        return -1;
         
     }
     
