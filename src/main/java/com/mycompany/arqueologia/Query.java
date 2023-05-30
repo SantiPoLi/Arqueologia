@@ -749,11 +749,7 @@ public abstract class Query{
     public static ResultSet objetosEncontradosPorArqueologos() throws SQLException {
         
         String consulta = 
-                  "SELECT p_nombre, p_apellido, COUNT(o_cod)"
-                + "FROM objetos, personas"
-                + "WHERE p_dni = p_dni_ingresa"
-                + "GROUP BY p_apellido, p_nombre"
-                + "ORDER BY p_apellido";
+                  "SELECT p_nombre, p_apellido, COUNT(o_cod) FROM objetos, personas WHERE p_dni = p_dni_ingresa GROUP BY p_apellido, p_nombre ORDER BY p_apellido";
         
         query = conn.createStatement();
         

@@ -201,8 +201,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaObj16 = new javax.swing.JLabel();
         JLb_PesoMaximoObjetos = new javax.swing.JLabel();
         JPan_ObjetosArqueologos = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JSP_ObjetosArqueologos = new javax.swing.JScrollPane();
+        JTable_ObjetosArqueologos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1357,7 +1357,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_ObjetosArqueologos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTable_ObjetosArqueologos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1368,9 +1368,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        JSP_ObjetosArqueologos.setViewportView(JTable_ObjetosArqueologos);
 
-        JPan_ObjetosArqueologos.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 360, 310));
+        JPan_ObjetosArqueologos.add(JSP_ObjetosArqueologos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 580, 370));
 
         JPan_Contenedor.add(JPan_ObjetosArqueologos, "card18");
 
@@ -1526,7 +1526,14 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                     break;
                 case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
                     
-                    
+                    // JPan_ObjetosArqueologos
+                    result = Query.objetosEncontradosPorArqueologos();
+                    JTable_ObjetosArqueologos.setModel(Query.resultToTable(result));
+                    // JPan_CajasVacias
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_ObjetosArqueologos);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
                     
                     break;
                 case ("Listar código y lugar de las cajas vacías"):
@@ -2019,6 +2026,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane JSP_CajasGeneral;
     private javax.swing.JScrollPane JSP_CajasVacias;
     private javax.swing.JScrollPane JSP_CuadriculasGeneral;
+    private javax.swing.JScrollPane JSP_ObjetosArqueologos;
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
     private javax.swing.JScrollPane JSP_PersonasGeneral;
     private javax.swing.JScrollPane JSP_PesoDeCajas;
@@ -2043,6 +2051,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTable JTable_CajasGeneral;
     private javax.swing.JTable JTable_CajasVacias;
     private javax.swing.JTable JTable_CuadriculasGeneral;
+    private javax.swing.JTable JTable_ObjetosArqueologos;
     private javax.swing.JTable JTable_ObjetosGeneral;
     private javax.swing.JTable JTable_PersonasGeneral;
     private javax.swing.JTable JTable_PesoDeCajas;
@@ -2086,12 +2095,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSpinner jSpin_AAlto;
     private javax.swing.JSpinner jSpin_ACant;
     private javax.swing.JSpinner jSpin_ALargo;
     private javax.swing.JSpinner jSpin_APeso;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable_DetObjCaja;
     // End of variables declaration//GEN-END:variables
 }
