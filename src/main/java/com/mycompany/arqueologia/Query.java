@@ -620,6 +620,23 @@ public abstract class Query{
         p_query.executeUpdate();
     }
     
+    public static void insertarCaja (String codigo, Date fecha , String lugar) throws SQLException {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        
+        java.sql.Date fechaSql = new java.sql.Date(fecha.getTime());
+        
+        String consulta = "INSERT INTO cajas (ca_cod, ca_fecha, ca_lugar) VALUES (?, ?, ?);";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setString(1, codigo);
+        p_query.setDate(2,fechaSql);
+        p_query.setString(3, lugar);
+        
+        p_query.executeUpdate();
+    }
+    
     // Consulta numero 3:
     
     public static void eliminarCaja(String codigo) {
@@ -670,7 +687,11 @@ public abstract class Query{
         
         result = query.executeQuery("SELECT COUNT(*) FROM objetos WHERE o_es = 'L'");
         
-        return result.getInt(0);
+        if(result.next()){
+             return result.getInt(1);
+        }
+        return -1;
+       
         
     }
     
@@ -680,8 +701,12 @@ public abstract class Query{
         
         result = query.executeQuery("SELECT COUNT(*) FROM objetos WHERE o_es = 'C'");
         
-        return result.getInt(0);
+        //return result.getInt(1);
 
+        if(result.next()){
+             return result.getInt(1);
+        }
+        return -1;
         
     }
     
@@ -742,7 +767,7 @@ public abstract class Query{
     // Listar código y lugar de las cajas que esté vacías.
     
     public static ResultSet cajasVacias() throws SQLException {
-        
+       
         String consulta = 
                   "SELECT ca_cod, ca_lugar "
                 + "FROM cajas"
@@ -756,6 +781,46 @@ public abstract class Query{
         result = query.executeQuery(consulta);
         
         return result;
+    }
+    
+    public static float[] datosObjetos() throws SQLException {
+        
+        float[] resultados = new float[3];
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT MIN(o_peso) AS pesoMinimo FROM objetos");
+        
+        if(result.next()){
+            resultados [0] = result.getFloat("pesoMinimo");
+        }
+        
+        result = query.executeQuery("SELECT AVG(o_peso) AS cantCuad FROM cuadriculas");
+        
+        if(result.next()) {
+            resultados [1] = result.getFloat("pesoPromedio");
+        }
+        
+        result = query.executeQuery("SELECT MAX(o_peso) AS cantObj FROM objetos");
+        
+        if(result.next()){
+            resultados [2] = result.getFloat("pesoMaximo");
+        }        
+        
+        return resultados;
+    }
+    
+    public static ResultSet pesoDeCadaCaja() throws SQLException {
+        
+        String consulta = 
+                "SELECT SUM(o_peso) AS Peso, ca_cod_contiene AS Caja FROM objetos GROUP BY (ca_cod_contiene) ORDER BY Peso;";
+        
+        query = conn.createStatement();
+        
+        query.executeQuery(consulta);
+        
+        return result;
+        
     }
     
 }
