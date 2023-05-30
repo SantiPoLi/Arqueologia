@@ -817,7 +817,7 @@ public abstract class Query{
         
         query = conn.createStatement();
         
-        query.executeQuery(consulta);
+        result = query.executeQuery(consulta);
         
         return result;
         
