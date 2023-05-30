@@ -719,6 +719,54 @@ public abstract class Query{
     // Mostrar en una pestaña o ventan el resumen de la cantidad de personas, cantidad
     // de cuadriculas, cantidad de objetos y cantidad de cajas, actualmente en el sistema.
     
+    public static int totalPersonas() throws SQLException{
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantPersonas FROM personas");
+        
+        if(result.next()){
+             return result.getInt("cantPersonas");
+        }
+        return -1;
+    }
+    
+    public static int totalCuadriculas() throws SQLException{
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantCuad FROM cuadriculas");
+        
+        if(result.next()){
+             return result.getInt("cantCuad");
+        }
+        return -1;
+    }
+    
+    public static int totalObjetos() throws SQLException{
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantObjetos FROM objetos");
+        
+        if(result.next()){
+             return result.getInt("cantObjetos");
+        }
+        return -1;
+    }
+    
+    public static int totalCajas() throws SQLException{
+        
+        query = conn.createStatement();
+        
+        result = query.executeQuery("SELECT COUNT(*) AS cantCajas FROM cajas");
+        
+        if(result.next()){
+             return result.getInt("cantCajas");
+        }
+        return -1;
+    }
+    
     public static int[] mostrarResumenDeCantidades() throws SQLException {
         
         int[] resultados = new int[4];
@@ -729,20 +777,27 @@ public abstract class Query{
         
         result = query.executeQuery("SELECT COUNT(*) AS cantPersonas FROM personas");
         
-        resultados [0] = result.getInt(cantPer);
+        if(result.next()){
+            resultados [0] = result.getInt(cantPer);
+        }
         
         result = query.executeQuery("SELECT COUNT(*) AS cantCuad FROM cuadriculas");
         
-        resultados [1] = result.getInt(cantCuad);
+        if(result.next()){
+            resultados [1] = result.getInt(cantCuad);
+        }
         
         result = query.executeQuery("SELECT COUNT(*) AS cantObj FROM objetos");
         
-        resultados [2] = result.getInt(cantObj);
+        if(result.next()){
+            resultados [2] = result.getInt(cantObj);
+        }
         
         result = query.executeQuery("SELECT COUNT(*) AS cantCajas FROM cajas");
         
+        if(result.next()){
         resultados [3] = result.getInt(cantCajas);
-        
+        }
         return resultados;
     }
     
@@ -754,11 +809,7 @@ public abstract class Query{
     public static ResultSet objetosEncontradosPorArqueologos() throws SQLException {
         
         String consulta = 
-                  "SELECT p_nombre, p_apellido, COUNT(o_cod)"
-                + "FROM objetos, personas"
-                + "WHERE p_dni = p_dni_ingresa"
-                + "GROUP BY p_apellido, p_nombre"
-                + "ORDER BY p_apellido";
+                  "SELECT p_nombre, p_apellido, COUNT(o_cod) FROM objetos, personas WHERE p_dni = p_dni_ingresa GROUP BY p_apellido, p_nombre ORDER BY p_apellido";
         
         query = conn.createStatement();
         
@@ -774,12 +825,7 @@ public abstract class Query{
     public static ResultSet cajasVacias() throws SQLException {
        
         String consulta = 
-                  "SELECT ca_cod, ca_lugar "
-                + "FROM cajas"
-                + "EXCEPT"
-                + "SELECT DISTINCT ca_cod, ca_lugar"
-                + "FROM objetos, cajas"
-                + "WHERE ca_cod = ca_cod_contiene;";
+            "SELECT ca_cod AS codigo_caja, ca_lugar AS lugar FROM cajas EXCEPT SELECT DISTINCT ca_cod, ca_lugar FROM objetos, cajas WHERE ca_cod = ca_cod_contiene;";
         
         query = conn.createStatement();
         
@@ -788,32 +834,39 @@ public abstract class Query{
         return result;
     }
     
-    public static float[] datosObjetos() throws SQLException {
-        
-        float[] resultados = new float[3];
+    public static float pesoMinimoObjetos() throws SQLException {
         
         query = conn.createStatement();
-        
         result = query.executeQuery("SELECT MIN(o_peso) AS pesoMinimo FROM objetos");
         
         if(result.next()){
-            resultados [0] = result.getFloat("pesoMinimo");
+             return result.getFloat(1);
         }
+        return -1;
+    }
+    
+    public static float pesoPromedioObjetos() throws SQLException {
         
-        result = query.executeQuery("SELECT AVG(o_peso) AS cantCuad FROM cuadriculas");
-        
-        if(result.next()) {
-            resultados [1] = result.getFloat("pesoPromedio");
-        }
-        
-        result = query.executeQuery("SELECT MAX(o_peso) AS cantObj FROM objetos");
+        query = conn.createStatement();
+        result = query.executeQuery("SELECT AVG(o_peso) AS pesoPromedio FROM objetos");
         
         if(result.next()){
-            resultados [2] = result.getFloat("pesoMaximo");
-        }        
-        
-        return resultados;
+             return result.getFloat(1);
+        }
+        return -1;
     }
+    
+    public static float pesoMaximoObjetos() throws SQLException {
+        
+        query = conn.createStatement();
+        result = query.executeQuery("SELECT MAX(o_peso) AS pesoMaximo FROM objetos");
+        
+        if(result.next()){
+             return result.getFloat(1);
+        }
+        return -1;
+    }
+    
     
     public static ResultSet pesoDeCadaCaja() throws SQLException {
         
