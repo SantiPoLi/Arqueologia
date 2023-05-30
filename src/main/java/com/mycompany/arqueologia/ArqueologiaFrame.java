@@ -180,7 +180,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaObj8 = new javax.swing.JLabel();
         JLb_AltaObj9 = new javax.swing.JLabel();
         JLb_CantLiticos = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         JPan_CDetCaja = new javax.swing.JPanel();
         JLb_AltaObj5 = new javax.swing.JLabel();
         JCB_CObjEnCaja = new javax.swing.JComboBox<>();
@@ -193,6 +192,17 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_CajasVacias = new javax.swing.JPanel();
         JSP_CajasVacias = new javax.swing.JScrollPane();
         JTable_CajasVacias = new javax.swing.JTable();
+        JPan_DatosObjetos = new javax.swing.JPanel();
+        JLb_AltaObj11 = new javax.swing.JLabel();
+        JLb_AltaObj12 = new javax.swing.JLabel();
+        JLb_PesoPromedioObjetos = new javax.swing.JLabel();
+        JLb_AltaObj14 = new javax.swing.JLabel();
+        JLb_PesoMinimoObjetos = new javax.swing.JLabel();
+        JLb_AltaObj16 = new javax.swing.JLabel();
+        JLb_PesoMaximoObjetos = new javax.swing.JLabel();
+        JPan_ObjetosArqueologos = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1230,19 +1240,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(jPan_CCantObjCaja, "card13");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
-
-        JPan_Contenedor.add(jPanel1, "card14");
-
         JPan_CDetCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JLb_AltaObj5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -1318,6 +1315,64 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_CajasVacias.add(JSP_CajasVacias, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 320, 320));
 
         JPan_Contenedor.add(JPan_CajasVacias, "card16");
+
+        JPan_DatosObjetos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_AltaObj11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj11.setText("Objetos");
+        JPan_DatosObjetos.add(JLb_AltaObj11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 360, 32));
+
+        JLb_AltaObj12.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj12.setText("Peso promedio");
+        JPan_DatosObjetos.add(JLb_AltaObj12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 160, 32));
+
+        JLb_PesoPromedioObjetos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_PesoPromedioObjetos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_PesoPromedioObjetos.setText("0");
+        JPan_DatosObjetos.add(JLb_PesoPromedioObjetos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 310, 32));
+
+        JLb_AltaObj14.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj14.setText("Peso mínimo");
+        JPan_DatosObjetos.add(JLb_AltaObj14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, 32));
+
+        JLb_PesoMinimoObjetos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_PesoMinimoObjetos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_PesoMinimoObjetos.setText("0");
+        JPan_DatosObjetos.add(JLb_PesoMinimoObjetos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 310, 32));
+
+        JLb_AltaObj16.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj16.setText("Peso máximo");
+        JPan_DatosObjetos.add(JLb_AltaObj16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 160, 32));
+
+        JLb_PesoMaximoObjetos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_PesoMaximoObjetos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_PesoMaximoObjetos.setText("0");
+        JPan_DatosObjetos.add(JLb_PesoMaximoObjetos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 310, 32));
+
+        JPan_Contenedor.add(JPan_DatosObjetos, "card14");
+
+        JPan_ObjetosArqueologos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable1);
+
+        JPan_ObjetosArqueologos.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 360, 310));
+
+        JPan_Contenedor.add(JPan_ObjetosArqueologos, "card18");
 
         getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
@@ -1470,6 +1525,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                     
                     break;
                 case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
+                    
+                    
+                    
                     break;
                 case ("Listar código y lugar de las cajas vacías"):
                     
@@ -1483,6 +1541,20 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                     
                     break;
                 case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
+                    
+                    // JPan_DatosObjetos
+
+                    String pesoMinimoObj = "" + Query.pesoMinimoObjetos();
+                    String pesoPromedioObj = "" + Query.pesoPromedioObjetos();
+                    String pesoMaximoObj = "" + Query.pesoMaximoObjetos();
+                    JLb_PesoMinimoObjetos.setText(pesoMinimoObj);
+                    JLb_PesoPromedioObjetos.setText(pesoPromedioObj);
+                    JLb_PesoMaximoObjetos.setText(pesoMaximoObj);
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_DatosObjetos);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    
                     break;
                 case ("Obtener el peso de cada caja"):
                     
@@ -1896,6 +1968,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_AltaObj;
     private javax.swing.JLabel JLb_AltaObj1;
     private javax.swing.JLabel JLb_AltaObj10;
+    private javax.swing.JLabel JLb_AltaObj11;
+    private javax.swing.JLabel JLb_AltaObj12;
+    private javax.swing.JLabel JLb_AltaObj14;
+    private javax.swing.JLabel JLb_AltaObj16;
     private javax.swing.JLabel JLb_AltaObj2;
     private javax.swing.JLabel JLb_AltaObj3;
     private javax.swing.JLabel JLb_AltaObj4;
@@ -1919,6 +1995,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_CargarSitio;
     private javax.swing.JLabel JLb_ImagenIzquierda;
     private javax.swing.JLabel JLb_MarcaDeAgua;
+    private javax.swing.JLabel JLb_PesoMaximoObjetos;
+    private javax.swing.JLabel JLb_PesoMinimoObjetos;
+    private javax.swing.JLabel JLb_PesoPromedioObjetos;
     private javax.swing.JPanel JPan_AltaCaja;
     private javax.swing.JPanel JPan_AltaCuadricula;
     private javax.swing.JPanel JPan_AltaObjeto;
@@ -1930,9 +2009,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPan_CajasVacias;
     private javax.swing.JPanel JPan_Consultas;
     private javax.swing.JPanel JPan_Contenedor;
+    private javax.swing.JPanel JPan_DatosObjetos;
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_Listas;
     private javax.swing.JPanel JPan_MenuPrincipal;
+    private javax.swing.JPanel JPan_ObjetosArqueologos;
     private javax.swing.JPanel JPan_PesoDeCajas;
     private javax.swing.JPanel JPan_ResumenCantidades;
     private javax.swing.JScrollPane JSP_CajasGeneral;
@@ -2001,15 +2082,16 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPan_CCantObjCaja;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSpinner jSpin_AAlto;
     private javax.swing.JSpinner jSpin_ACant;
     private javax.swing.JSpinner jSpin_ALargo;
     private javax.swing.JSpinner jSpin_APeso;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable_DetObjCaja;
     // End of variables declaration//GEN-END:variables
 }

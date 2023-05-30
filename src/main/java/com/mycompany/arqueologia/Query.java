@@ -778,32 +778,39 @@ public abstract class Query{
         return result;
     }
     
-    public static float[] datosObjetos() throws SQLException {
-        
-        float[] resultados = new float[3];
+    public static float pesoMinimoObjetos() throws SQLException {
         
         query = conn.createStatement();
-        
         result = query.executeQuery("SELECT MIN(o_peso) AS pesoMinimo FROM objetos");
         
         if(result.next()){
-            resultados [0] = result.getFloat("pesoMinimo");
+             return result.getFloat(1);
         }
+        return -1;
+    }
+    
+    public static float pesoPromedioObjetos() throws SQLException {
         
-        result = query.executeQuery("SELECT AVG(o_peso) AS cantCuad FROM cuadriculas");
-        
-        if(result.next()) {
-            resultados [1] = result.getFloat("pesoPromedio");
-        }
-        
-        result = query.executeQuery("SELECT MAX(o_peso) AS cantObj FROM objetos");
+        query = conn.createStatement();
+        result = query.executeQuery("SELECT AVG(o_peso) AS pesoPromedio FROM objetos");
         
         if(result.next()){
-            resultados [2] = result.getFloat("pesoMaximo");
-        }        
-        
-        return resultados;
+             return result.getFloat(1);
+        }
+        return -1;
     }
+    
+    public static float pesoMaximoObjetos() throws SQLException {
+        
+        query = conn.createStatement();
+        result = query.executeQuery("SELECT MAX(o_peso) AS pesoMaximo FROM objetos");
+        
+        if(result.next()){
+             return result.getFloat(1);
+        }
+        return -1;
+    }
+    
     
     public static ResultSet pesoDeCadaCaja() throws SQLException {
         
