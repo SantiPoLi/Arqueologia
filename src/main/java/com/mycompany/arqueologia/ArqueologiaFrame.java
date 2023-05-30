@@ -1315,7 +1315,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         ));
         JSP_CajasVacias.setViewportView(JTable_CajasVacias);
 
-        JPan_CajasVacias.add(JSP_CajasVacias, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        JPan_CajasVacias.add(JSP_CajasVacias, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 320, 320));
 
         JPan_Contenedor.add(JPan_CajasVacias, "card16");
 
@@ -1472,6 +1472,15 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
                     break;
                 case ("Listar código y lugar de las cajas vacías"):
+                    
+                    result = Query.cajasVacias();
+                    JTable_CajasVacias.setModel(Query.resultToTable(result));
+                    // JPan_CajasVacias
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_CajasVacias);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    
                     break;
                 case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
                     break;

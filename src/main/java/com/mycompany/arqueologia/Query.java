@@ -769,12 +769,7 @@ public abstract class Query{
     public static ResultSet cajasVacias() throws SQLException {
        
         String consulta = 
-                  "SELECT ca_cod, ca_lugar "
-                + "FROM cajas"
-                + "EXCEPT"
-                + "SELECT DISTINCT ca_cod, ca_lugar"
-                + "FROM objetos, cajas"
-                + "WHERE ca_cod = ca_cod_contiene;";
+            "SELECT ca_cod AS codigo_caja, ca_lugar AS lugar FROM cajas EXCEPT SELECT DISTINCT ca_cod, ca_lugar FROM objetos, cajas WHERE ca_cod = ca_cod_contiene;";
         
         query = conn.createStatement();
         
