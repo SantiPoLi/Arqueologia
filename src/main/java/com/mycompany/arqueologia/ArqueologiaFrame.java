@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.table.DefaultTableModel;
 
@@ -993,16 +994,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Listas.setBackground(new java.awt.Color(255, 255, 255));
         JPan_Listas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JTable_ObjetosGeneral = new javax.swing.JTable(){
-            public boolean isCellEditable(int row, int col){
-                for(int i=0;i<JTable_ObjetosGeneral.getRowCount();i++){
-                    if(row==1){
-                        return false;
-                    }
-                }
-                return true;
-            }
-        };
         JTable_ObjetosGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1013,6 +1004,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
+
         ));
         JTable_ObjetosGeneral.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         JSP_ObjetosGeneral.setViewportView(JTable_ObjetosGeneral);
@@ -1094,16 +1086,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JTbpan_General.addTab("Cuadriculas", JSP_CuadriculasGeneral);
 
-        JTable_CajasGeneral = new javax.swing.JTable(){
-            public boolean isCellEditable(int row, int col){
-                for(int i=0;i<JTable_CajasGeneral.getRowCount();i++){
-                    if(row==1){
-                        return false;
-                    }
-                }
-                return true;
-            }
-        };
         JTable_CajasGeneral.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1324,6 +1306,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void JBtn_ConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ConsultasMouseExited
         JBtn_Consultas.setBackground(new Color(27,64,142));
     }//GEN-LAST:event_JBtn_ConsultasMouseExited

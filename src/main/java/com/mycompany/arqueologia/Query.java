@@ -443,10 +443,15 @@ public abstract class Query{
             query.execute("INSERT INTO Personas (P_Dni, P_Nombre, P_Apellido, P_Email, P_Telefono) VALUES (25544555, 'Rodolphe', 'Rominov', 'rrominovm@sciencedaily.com', '7135986253');");
             query.execute("DELETE FROM Personas WHERE P_Nombre = 'Benji' AND P_Apellido = 'Colchett';");
             
-            JOptionPane.showMessageDialog(null,"Se han realizado las operaciones correctamente", "Primera Inicializacion", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Se han realizado las inserciones correctamente", "Primera Inicializacion", JOptionPane.INFORMATION_MESSAGE);
             
         }catch(SQLException e){
-            System.out.println("Error"+e.getMessage());
+            System.out.println(""+e);
+        }
+        try {
+            query.execute("DELETE FROM Personas WHERE P_Nombre = 'Benji' AND P_Apellido = 'Colchett';");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,"Ocurrió un error inesperado en la eliminación inicial", "Primera Inicializacion", JOptionPane.INFORMATION_MESSAGE);
         }
         
         // Inicializamos/Actualizamos la lista de personas del formulario
