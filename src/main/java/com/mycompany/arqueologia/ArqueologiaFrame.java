@@ -1410,35 +1410,59 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_JCB_ConsultasActionPerformed
 
     private void JBtn_BuscarConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_BuscarConsultaMouseClicked
-        String itemSeleccionado = new String();
-        itemSeleccionado = (String) JCB_Consultas.getSelectedItem();
-        
-        switch (itemSeleccionado){
-            case ("Obtener objetos dentro de una caja"):
-                JPan_Contenedor.removeAll();
-                JPan_Contenedor.add(JPan_CDetCaja);
-                JPan_Contenedor.repaint();
-                JPan_Contenedor.revalidate();
-                break;
-            case ("Eliminar caja"):
-                break;
-            case ("Mostrar objetos encontrados en un período de tiempo"):
-                break;
-            case ("Mostrar cantidad de objetos encontrados por su tipo"):
-                break;
-            case ("Resumen de cantidades cargadas en el sistema"):
-                break;
-            case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
-                break;
-            case ("Listar código y lugar de las cajas vacías"):
-                break;
-            case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
-                break;
-            case ("Obtener el peso de cada caja"):
-                break;
-            default:
-                JOptionPane.showMessageDialog(null,"Debe seleccionar una consulta", "Error, ninguna consulta seleccionada", JOptionPane.INFORMATION_MESSAGE);
-                break;
+        try {
+            String itemSeleccionado = new String();
+            itemSeleccionado = (String) JCB_Consultas.getSelectedItem();
+            
+            switch (itemSeleccionado){
+                case ("Obtener objetos dentro de una caja"):
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_CDetCaja);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    break;
+                case ("Mostrar objetos encontrados en un período de tiempo"):
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_CObjetosEntreDosFechas);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    break;
+                case ("Mostrar cantidad de objetos encontrados por su tipo"):
+                    System.out.println("lit "+Query.cantidadDeObjetosLiticos()+" cer "+Query.cantidadDeObjetosCeramicos());
+                    String cantLit = ""+Query.cantidadDeObjetosLiticos();
+                    String cantCer = ""+Query.cantidadDeObjetosCeramicos();
+                    JLb_CantLiticos.setText(cantLit);
+                    JLb_CantCeramicos.setText(cantCer);
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(jPan_CCantObjCaja);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    break;
+                case ("Resumen de cantidades cargadas en el sistema"):
+                    break;
+                case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
+                    break;
+                case ("Listar código y lugar de las cajas vacías"):
+                    break;
+                case ("Obtener el máximo, mínimo y promedio del peso de los objetos"):
+                    break;
+                case ("Obtener el peso de cada caja"):
+                    
+                    result = Query.pesoDeCadaCaja();
+                    JTable_PesoDeCajas.setModel(Query.resultToTable(result));
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_PesoDeCajas);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
+                    
+                    //pesoDeCadaCaja() 
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null,"Debe seleccionar una consulta", "Error, ninguna consulta seleccionada", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_JBtn_BuscarConsultaMouseClicked
