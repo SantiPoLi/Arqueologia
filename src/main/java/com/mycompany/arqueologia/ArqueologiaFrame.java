@@ -37,16 +37,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         initComponents();
         //label_error.setVisible(false);
         //Query.initQuery();
-        result = Query.updateListaResultados(0);
-        JTable_ObjetosGeneral.setModel(Query.resultToTable(result));
-        result = Query.updateListaResultados(1);
-        JTable_PersonasGeneral.setModel(Query.resultToTable(result));
-        result = Query.updateListaResultados(2);
-        JTable_SitiosGeneral.setModel(Query.resultToTable(result));
-        result = Query.updateListaResultados(3);
-        JTable_CuadriculasGeneral.setModel(Query.resultToTable(result));
-        result = Query.updateListaResultados(4);
-        JTable_CajasGeneral.setModel(Query.resultToTable(result));
+        
     }
 
     /**
@@ -71,12 +62,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_Consultas = new javax.swing.JPanel();
         JLb_BtnConsultas = new javax.swing.JLabel();
         JLb_MarcaDeAgua = new javax.swing.JLabel();
-        jPan_CCantObjCaja = new javax.swing.JPanel();
-        JLb_CantCeramicos = new javax.swing.JLabel();
-        JLb_AltaObj7 = new javax.swing.JLabel();
-        JLb_AltaObj8 = new javax.swing.JLabel();
-        JLb_AltaObj9 = new javax.swing.JLabel();
-        JLb_CantLiticos = new javax.swing.JLabel();
         JPan_Altas = new javax.swing.JPanel();
         JBtn_AltaObjeto = new javax.swing.JPanel();
         JLb_AltaObjeto = new javax.swing.JLabel();
@@ -136,18 +121,24 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         JSpin_ATelPer = new javax.swing.JSpinner();
         jLabel19 = new javax.swing.JLabel();
+        JBtn_CargarPersona = new javax.swing.JPanel();
+        JLb_CargarPersona = new javax.swing.JLabel();
         JPan_AltaSitio = new javax.swing.JPanel();
         JLb_AltaObj2 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         JTF_ACodSit = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         JTF_ALocSit = new javax.swing.JTextField();
+        JBtn_CargarSitio = new javax.swing.JPanel();
+        JLb_CargarSitio = new javax.swing.JLabel();
         JPan_AltaCuadricula = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         JCB_ASitPertenecCuad = new javax.swing.JComboBox<>();
         JTF_ACodCuadr = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         JLb_AltaObj3 = new javax.swing.JLabel();
+        JBtn_CargarCuadricula = new javax.swing.JPanel();
+        JLb_CargarCuadricula = new javax.swing.JLabel();
         JPan_AltaCaja = new javax.swing.JPanel();
         jDate_AFechaCaja = new com.toedter.calendar.JDateChooser();
         jLabel24 = new javax.swing.JLabel();
@@ -156,6 +147,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaObj4 = new javax.swing.JLabel();
         JTF_ALugarCaja = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
+        JBtn_CargarCajas = new javax.swing.JPanel();
+        JLb_CargarCajas = new javax.swing.JLabel();
         JPan_Listas = new javax.swing.JPanel();
         JTbpan_General = new javax.swing.JTabbedPane();
         JSP_ObjetosGeneral = new javax.swing.JScrollPane();
@@ -173,6 +166,21 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_BuscarConsulta = new javax.swing.JPanel();
         JLb_BuscarConsulta = new javax.swing.JLabel();
         JPan_CObjetosEntreDosFechas = new javax.swing.JPanel();
+        JLb_AltaObj10 = new javax.swing.JLabel();
+        JDC_FFinal = new com.toedter.calendar.JDateChooser();
+        JDC_FInicial = new com.toedter.calendar.JDateChooser();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        JTab_DosFechas = new javax.swing.JTable();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        JBtn_BuscarFechas = new javax.swing.JButton();
+        jPan_CCantObjCaja = new javax.swing.JPanel();
+        JLb_CantCeramicos = new javax.swing.JLabel();
+        JLb_AltaObj7 = new javax.swing.JLabel();
+        JLb_AltaObj8 = new javax.swing.JLabel();
+        JLb_AltaObj9 = new javax.swing.JLabel();
+        JLb_CantLiticos = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         JPan_CDetCaja = new javax.swing.JPanel();
         JLb_AltaObj5 = new javax.swing.JLabel();
         JCB_CObjEnCaja = new javax.swing.JComboBox<>();
@@ -336,35 +344,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         JPan_Contenedor.add(JPan_MenuPrincipal, "card8");
 
-        jPan_CCantObjCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        JLb_CantCeramicos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        JLb_CantCeramicos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_CantCeramicos.setText("0");
-        jPan_CCantObjCaja.add(JLb_CantCeramicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 310, 32));
-
-        JLb_AltaObj7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        JLb_AltaObj7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaObj7.setText("Mostrar cantidad de objetos");
-        jPan_CCantObjCaja.add(JLb_AltaObj7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 600, 32));
-
-        JLb_AltaObj8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        JLb_AltaObj8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaObj8.setText("Líticos");
-        jPan_CCantObjCaja.add(JLb_AltaObj8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 310, 32));
-
-        JLb_AltaObj9.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        JLb_AltaObj9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_AltaObj9.setText("Cerámicos");
-        jPan_CCantObjCaja.add(JLb_AltaObj9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 32));
-
-        JLb_CantLiticos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        JLb_CantLiticos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLb_CantLiticos.setText("0");
-        jPan_CCantObjCaja.add(JLb_CantLiticos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 310, 32));
-
-        JPan_Contenedor.add(jPan_CCantObjCaja, "card13");
-
         JPan_Altas.setBackground(new java.awt.Color(255, 255, 255));
         JPan_Altas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -405,6 +384,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_AltaPersona.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JBtn_AltaPersona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBtn_AltaPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AltaPersonaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 JBtn_AltaPersonaMouseEntered(evt);
             }
@@ -435,6 +417,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_AltaSitio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JBtn_AltaSitio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBtn_AltaSitio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AltaSitioMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 JBtn_AltaSitioMouseEntered(evt);
             }
@@ -465,6 +450,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_AltaCuadricula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JBtn_AltaCuadricula.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBtn_AltaCuadricula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AltaCuadriculaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 JBtn_AltaCuadriculaMouseEntered(evt);
             }
@@ -495,6 +483,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JBtn_AltaCaja.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         JBtn_AltaCaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JBtn_AltaCaja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_AltaCajaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 JBtn_AltaCajaMouseEntered(evt);
             }
@@ -771,6 +762,39 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         jLabel19.setText("Teléfono");
         JPan_AltaPersona.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, -1));
 
+        JBtn_CargarPersona.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_CargarPersona.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_CargarPersona.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBtn_CargarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_CargarPersonaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_CargarPersonaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_CargarPersonaMouseExited(evt);
+            }
+        });
+
+        JLb_CargarPersona.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_CargarPersona.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CargarPersona.setText("CARGAR PERSONA");
+        JLb_CargarPersona.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_CargarPersonaLayout = new javax.swing.GroupLayout(JBtn_CargarPersona);
+        JBtn_CargarPersona.setLayout(JBtn_CargarPersonaLayout);
+        JBtn_CargarPersonaLayout.setHorizontalGroup(
+            JBtn_CargarPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_CargarPersonaLayout.setVerticalGroup(
+            JBtn_CargarPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarPersona, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_AltaPersona.add(JBtn_CargarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 270, 50));
+
         JPan_Contenedor.add(JPan_AltaPersona, "card8");
 
         JPan_AltaSitio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -798,6 +822,39 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             }
         });
         JPan_AltaSitio.add(JTF_ALocSit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 180, -1));
+
+        JBtn_CargarSitio.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_CargarSitio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_CargarSitio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBtn_CargarSitio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_CargarSitioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_CargarSitioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_CargarSitioMouseExited(evt);
+            }
+        });
+
+        JLb_CargarSitio.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_CargarSitio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CargarSitio.setText("CARGAR SITIO");
+        JLb_CargarSitio.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_CargarSitioLayout = new javax.swing.GroupLayout(JBtn_CargarSitio);
+        JBtn_CargarSitio.setLayout(JBtn_CargarSitioLayout);
+        JBtn_CargarSitioLayout.setHorizontalGroup(
+            JBtn_CargarSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarSitio, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_CargarSitioLayout.setVerticalGroup(
+            JBtn_CargarSitioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarSitio, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_AltaSitio.add(JBtn_CargarSitio, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 270, 50));
 
         JPan_Contenedor.add(JPan_AltaSitio, "card9");
 
@@ -832,10 +889,44 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JLb_AltaObj3.setText("Alta de Cuadrículas");
         JPan_AltaCuadricula.add(JLb_AltaObj3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, 32));
 
+        JBtn_CargarCuadricula.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_CargarCuadricula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_CargarCuadricula.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBtn_CargarCuadricula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_CargarCuadriculaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_CargarCuadriculaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_CargarCuadriculaMouseExited(evt);
+            }
+        });
+
+        JLb_CargarCuadricula.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_CargarCuadricula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CargarCuadricula.setText("CARGAR CUADRICULA");
+        JLb_CargarCuadricula.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_CargarCuadriculaLayout = new javax.swing.GroupLayout(JBtn_CargarCuadricula);
+        JBtn_CargarCuadricula.setLayout(JBtn_CargarCuadriculaLayout);
+        JBtn_CargarCuadriculaLayout.setHorizontalGroup(
+            JBtn_CargarCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarCuadricula, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_CargarCuadriculaLayout.setVerticalGroup(
+            JBtn_CargarCuadriculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarCuadricula, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_AltaCuadricula.add(JBtn_CargarCuadricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 270, 50));
+
         JPan_Contenedor.add(JPan_AltaCuadricula, "card10");
 
         JPan_AltaCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         JPan_AltaCaja.add(jDate_AFechaCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 180, -1));
+        jDate_AFechaCaja.setDate(fechaActual);
 
         jLabel24.setText("Fecha");
         JPan_AltaCaja.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, -1));
@@ -863,6 +954,39 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
 
         jLabel26.setText("Lugar");
         JPan_AltaCaja.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 170, -1));
+
+        JBtn_CargarCajas.setBackground(new java.awt.Color(27, 64, 142));
+        JBtn_CargarCajas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBtn_CargarCajas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBtn_CargarCajas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBtn_CargarCajasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JBtn_CargarCajasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JBtn_CargarCajasMouseExited(evt);
+            }
+        });
+
+        JLb_CargarCajas.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        JLb_CargarCajas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CargarCajas.setText("CARGAR CAJAS");
+        JLb_CargarCajas.setFocusable(false);
+
+        javax.swing.GroupLayout JBtn_CargarCajasLayout = new javax.swing.GroupLayout(JBtn_CargarCajas);
+        JBtn_CargarCajas.setLayout(JBtn_CargarCajasLayout);
+        JBtn_CargarCajasLayout.setHorizontalGroup(
+            JBtn_CargarCajasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarCajas, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+        );
+        JBtn_CargarCajasLayout.setVerticalGroup(
+            JBtn_CargarCajasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JLb_CargarCajas, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+        );
+
+        JPan_AltaCaja.add(JBtn_CargarCajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 270, 50));
 
         JPan_Contenedor.add(JPan_AltaCaja, "card11");
 
@@ -916,20 +1040,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JTable_PersonasGeneral.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) { // Verifica si es un doble clic
-                    int row = JTable_PersonasGeneral.getSelectedRow();
-                    int column = JTable_PersonasGeneral.getSelectedColumn();
-
-                    // Deshabilita la edición de la celda seleccionada
-                    JTable_PersonasGeneral.getCellEditor(row, column).stopCellEditing();
-                    JTable_PersonasGeneral.setRowSelectionInterval(row, row);
-                    JTable_PersonasGeneral.setColumnSelectionInterval(column, column);
-                }
-            }
-        });
         JSP_PersonasGeneral.setViewportView(JTable_PersonasGeneral);
 
         JTbpan_General.addTab("Personas", JSP_PersonasGeneral);
@@ -955,20 +1065,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JTable_SitiosGeneral.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) { // Verifica si es un doble clic
-                    int row = JTable_SitiosGeneral.getSelectedRow();
-                    int column = JTable_SitiosGeneral.getSelectedColumn();
-
-                    // Deshabilita la edición de la celda seleccionada
-                    JTable_SitiosGeneral.getCellEditor(row, column).stopCellEditing();
-                    JTable_SitiosGeneral.setRowSelectionInterval(row, row);
-                    JTable_SitiosGeneral.setColumnSelectionInterval(column, column);
-                }
-            }
-        });
         JSP_SitiosGeneral.setViewportView(JTable_SitiosGeneral);
 
         JTbpan_General.addTab("Sitios", JSP_SitiosGeneral);
@@ -994,20 +1090,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JTable_CuadriculasGeneral.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) { // Verifica si es un doble clic
-                    int row = JTable_CuadriculasGeneral.getSelectedRow();
-                    int column = JTable_CuadriculasGeneral.getSelectedColumn();
-
-                    // Deshabilita la edición de la celda seleccionada
-                    JTable_CuadriculasGeneral.getCellEditor(row, column).stopCellEditing();
-                    JTable_CuadriculasGeneral.setRowSelectionInterval(row, row);
-                    JTable_CuadriculasGeneral.setColumnSelectionInterval(column, column);
-                }
-            }
-        });
         JSP_CuadriculasGeneral.setViewportView(JTable_CuadriculasGeneral);
 
         JTbpan_General.addTab("Cuadriculas", JSP_CuadriculasGeneral);
@@ -1033,20 +1115,6 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JTable_CajasGeneral.addMouseListener(new MouseInputAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) { // Verifica si es un doble clic
-                    int row = JTable_CajasGeneral.getSelectedRow();
-                    int column = JTable_CajasGeneral.getSelectedColumn();
-
-                    // Deshabilita la edición de la celda seleccionada
-                    JTable_CajasGeneral.getCellEditor(row, column).stopCellEditing();
-                    JTable_CajasGeneral.setRowSelectionInterval(row, row);
-                    JTable_CajasGeneral.setColumnSelectionInterval(column, column);
-                }
-            }
-        });
         JSP_CajasGeneral.setViewportView(JTable_CajasGeneral);
 
         JTbpan_General.addTab("Cajas", JSP_CajasGeneral);
@@ -1103,7 +1171,77 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Contenedor.add(JPan_Consultas, "card5");
 
         JPan_CObjetosEntreDosFechas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_AltaObj10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj10.setText("Mostrar el código y nombre de los objetos que se hallaron entre dos fechas");
+        JPan_CObjetosEntreDosFechas.add(JLb_AltaObj10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 620, 40));
+        JPan_CObjetosEntreDosFechas.add(JDC_FFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 190, 30));
+        JDC_FFinal.setDate(fechaActual);
+        JPan_CObjetosEntreDosFechas.add(JDC_FInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 190, 30));
+        JDC_FInicial.setDate(fechaActual);
+
+        jScrollPane3.setViewportView(JTab_DosFechas);
+
+        JPan_CObjetosEntreDosFechas.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 130, 540, 270));
+
+        jLabel28.setText("Hasta:");
+        JPan_CObjetosEntreDosFechas.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+
+        jLabel29.setText("Desde:");
+        JPan_CObjetosEntreDosFechas.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        JBtn_BuscarFechas.setText("Buscar");
+        JBtn_BuscarFechas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBtn_BuscarFechasActionPerformed(evt);
+            }
+        });
+        JPan_CObjetosEntreDosFechas.add(JBtn_BuscarFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 90, 30));
+
         JPan_Contenedor.add(JPan_CObjetosEntreDosFechas, "card11");
+
+        jPan_CCantObjCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_CantCeramicos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_CantCeramicos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CantCeramicos.setText("0");
+        jPan_CCantObjCaja.add(JLb_CantCeramicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 310, 32));
+
+        JLb_AltaObj7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj7.setText("Mostrar cantidad de objetos");
+        jPan_CCantObjCaja.add(JLb_AltaObj7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 600, 32));
+
+        JLb_AltaObj8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj8.setText("Líticos");
+        jPan_CCantObjCaja.add(JLb_AltaObj8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 310, 32));
+
+        JLb_AltaObj9.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj9.setText("Cerámicos");
+        jPan_CCantObjCaja.add(JLb_AltaObj9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 32));
+
+        JLb_CantLiticos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_CantLiticos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_CantLiticos.setText("0");
+        jPan_CCantObjCaja.add(JLb_CantLiticos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 310, 32));
+
+        JPan_Contenedor.add(jPan_CCantObjCaja, "card13");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+
+        JPan_Contenedor.add(jPanel1, "card14");
 
         JPan_CDetCaja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1262,6 +1400,20 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Contenedor.add(JPan_Listas);
         JPan_Contenedor.repaint();
         JPan_Contenedor.revalidate();
+        try {
+            result = Query.updateListaResultados(0);
+            JTable_ObjetosGeneral.setModel(Query.resultToTable(result));
+            result = Query.updateListaResultados(1);
+            JTable_PersonasGeneral.setModel(Query.resultToTable(result));
+            result = Query.updateListaResultados(2);
+            JTable_SitiosGeneral.setModel(Query.resultToTable(result));
+            result = Query.updateListaResultados(3);
+            JTable_CuadriculasGeneral.setModel(Query.resultToTable(result));
+            result = Query.updateListaResultados(4);
+            JTable_CajasGeneral.setModel(Query.resultToTable(result));
+        } catch (SQLException ex) {
+            Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JBtn_ListasMouseClicked
 
     private void JBtn_ConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_ConsultasMouseClicked
@@ -1296,6 +1448,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                     JPan_Contenedor.revalidate();
                     break;
                 case ("Mostrar objetos encontrados en un período de tiempo"):
+                    JPan_Contenedor.removeAll();
+                    JPan_Contenedor.add(JPan_CObjetosEntreDosFechas);
+                    JPan_Contenedor.repaint();
+                    JPan_Contenedor.revalidate();
                     break;
                 case ("Mostrar cantidad de objetos encontrados por su tipo"):
                     System.out.println("lit "+Query.cantidadDeObjetosLiticos()+" cer "+Query.cantidadDeObjetosCeramicos());
@@ -1421,6 +1577,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                 JTF_ATipExtObj.setText("");
                 JTArea_ADesc.setText("");
                 JTF_AOrig.setText("");
+                try {
+                    Query.updateListaResultados(0);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
               
         }
@@ -1479,6 +1640,182 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
             Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_JCB_CObjEnCajaActionPerformed
+
+    private void JBtn_BuscarFechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtn_BuscarFechasActionPerformed
+      
+        try {
+            java.sql.Date fechaInicial = new java.sql.Date(JDC_FInicial.getDate().getTime());
+            java.sql.Date fechaFinal = new java.sql.Date(JDC_FFinal.getDate().getTime());
+            
+            //JDC_FInicial y JDC_FFinal
+            result = Query.codigoYNombreDeObjetoEntreFechas(fechaInicial,fechaFinal);
+            JTab_DosFechas.setModel(Query.resultToTable(result));
+        } catch (SQLException ex) {
+            Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    
+    }//GEN-LAST:event_JBtn_BuscarFechasActionPerformed
+
+    private void JBtn_CargarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarPersonaMouseClicked
+        if(JTF_ANombPer.getText().trim().equals("")||JTF_AApePer.getText().trim().equals("")||JTF_AEmailPer.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            return; 
+        }else {
+            if((Integer.parseInt(JSpin_ADNIPer.getValue().toString()))<=0||(Integer.parseInt(JSpin_ATelPer.getValue().toString()))<=0){
+                JOptionPane.showMessageDialog(null,"Los valores no pueden ser negativos ni cero", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            } else {
+                try {
+                    //(String nombre, String apellido, int dni, String email , int telefono)
+                    Query.insertarPersona(JTF_ANombPer.getText().trim(), JTF_AApePer.getText().trim(), Integer.parseInt(JSpin_ADNIPer.getValue().toString()), JTF_AEmailPer.getText().trim(), Integer.parseInt(JSpin_ATelPer.getValue().toString()));
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null,"La persona que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+                JOptionPane.showMessageDialog(null, "La persona ha sido cargada correctamente","Persona cargada",JOptionPane.INFORMATION_MESSAGE);
+                JTF_ANombPer.setText("");
+                JTF_AApePer.setText("");
+                JTF_AEmailPer.setText("");
+                try {
+                    Query.updateListaResultados(0);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+              
+        }
+    }//GEN-LAST:event_JBtn_CargarPersonaMouseClicked
+
+    private void JBtn_CargarPersonaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarPersonaMouseEntered
+        JBtn_CargarPersona.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_JBtn_CargarPersonaMouseEntered
+
+    private void JBtn_CargarPersonaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarPersonaMouseExited
+        JBtn_CargarPersona.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_JBtn_CargarPersonaMouseExited
+
+    private void JBtn_CargarSitioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarSitioMouseClicked
+        if(JTF_ACodSit.getText().trim().equals("")||JTF_ALocSit.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            return; 
+        }else {
+            try {
+                //(String codSitio, String localidad)
+                Query.insertarSitio(JTF_ACodSit.getText().trim(), JTF_ALocSit.getText().trim());
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"El sitio que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(null, "El sitio ha sido cargado correctamente","Sitio cargado",JOptionPane.INFORMATION_MESSAGE);
+            JTF_ACodSit.setText("");
+            JTF_ALocSit.setText("");
+            try {
+                Query.updateListaResultados(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        }
+    }//GEN-LAST:event_JBtn_CargarSitioMouseClicked
+
+    private void JBtn_CargarSitioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarSitioMouseEntered
+        JBtn_CargarSitio.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_JBtn_CargarSitioMouseEntered
+
+    private void JBtn_CargarSitioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarSitioMouseExited
+        JBtn_CargarSitio.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_JBtn_CargarSitioMouseExited
+
+    private void JBtn_CargarCuadriculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarCuadriculaMouseClicked
+        if(JTF_ACodCuadr.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            return; 
+        }else {
+            try {
+                //(String codCuadricula, String codSitio)
+                Query.insertarCuadricula(JTF_ACodCuadr.getText().trim(), JCB_ASitPertenecCuad.getSelectedItem().toString());
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"La cuadricula que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(null, "La cuadricula ha sido cargada correctamente","Cuadricula cargada",JOptionPane.INFORMATION_MESSAGE);
+            JTF_ACodCuadr.setText("");
+            try {
+                Query.updateListaResultados(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        }
+    }//GEN-LAST:event_JBtn_CargarCuadriculaMouseClicked
+
+    private void JBtn_CargarCuadriculaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarCuadriculaMouseEntered
+        JBtn_CargarCuadricula.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_JBtn_CargarCuadriculaMouseEntered
+
+    private void JBtn_CargarCuadriculaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarCuadriculaMouseExited
+        JBtn_CargarCuadricula.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_JBtn_CargarCuadriculaMouseExited
+
+    private void JBtn_CargarCajasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarCajasMouseClicked
+        if(JTF_ACodCaja.getText().trim().equals("")|| JTF_ALugarCaja.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,ERROR_MSG_INSERT_INPUT, "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+            return; 
+        }else {
+            try {
+                //(String codCuadricula, String codSitio)
+                Query.insertarCaja(JTF_ACodCaja.getText().trim(),jDate_AFechaCaja.getDate() , JTF_ALugarCaja.getText().trim());
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"La caja que intenta cargar ya se encuentra en la base de datos", "No se puede dar de alta", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(null, "La caja ha sido cargada correctamente","Caja cargada",JOptionPane.INFORMATION_MESSAGE);
+            JTF_ACodCaja.setText("");
+            JTF_ALugarCaja.setText("");
+            try {
+                Query.updateListaResultados(0);
+            } catch (SQLException ex) {
+                Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        }
+    }//GEN-LAST:event_JBtn_CargarCajasMouseClicked
+
+    private void JBtn_CargarCajasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarCajasMouseEntered
+        JBtn_CargarCajas.setBackground(new Color(51,189,238));
+    }//GEN-LAST:event_JBtn_CargarCajasMouseEntered
+
+    private void JBtn_CargarCajasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_CargarCajasMouseExited
+        JBtn_CargarCajas.setBackground(new Color(27,64,142));
+    }//GEN-LAST:event_JBtn_CargarCajasMouseExited
+
+    private void JBtn_AltaPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaPersonaMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AltaPersona);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AltaPersonaMouseClicked
+
+    private void JBtn_AltaSitioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaSitioMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AltaSitio);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AltaSitioMouseClicked
+
+    private void JBtn_AltaCuadriculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaCuadriculaMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AltaCuadricula);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AltaCuadriculaMouseClicked
+
+    private void JBtn_AltaCajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBtn_AltaCajaMouseClicked
+        JPan_Contenedor.removeAll();
+        JPan_Contenedor.add(JPan_AltaCaja);
+        JPan_Contenedor.repaint();
+        JPan_Contenedor.revalidate();
+    }//GEN-LAST:event_JBtn_AltaCajaMouseClicked
     /**
      * @param args the command line arguments
      */
@@ -1528,7 +1865,12 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JBtn_AltaSitio;
     private javax.swing.JPanel JBtn_Altas;
     private javax.swing.JPanel JBtn_BuscarConsulta;
+    private javax.swing.JButton JBtn_BuscarFechas;
+    private javax.swing.JPanel JBtn_CargarCajas;
+    private javax.swing.JPanel JBtn_CargarCuadricula;
     private javax.swing.JPanel JBtn_CargarObjeto;
+    private javax.swing.JPanel JBtn_CargarPersona;
+    private javax.swing.JPanel JBtn_CargarSitio;
     private javax.swing.JPanel JBtn_Consultas;
     private javax.swing.JPanel JBtn_Listas;
     private javax.swing.JComboBox<String> JCB_ACajaContObj;
@@ -1538,10 +1880,13 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCB_ATipoObj;
     private javax.swing.JComboBox<String> JCB_CObjEnCaja;
     private javax.swing.JComboBox<String> JCB_Consultas;
+    private com.toedter.calendar.JDateChooser JDC_FFinal;
+    private com.toedter.calendar.JDateChooser JDC_FInicial;
     private javax.swing.JLabel JLb_AltaCaja;
     private javax.swing.JLabel JLb_AltaCuadricula;
     private javax.swing.JLabel JLb_AltaObj;
     private javax.swing.JLabel JLb_AltaObj1;
+    private javax.swing.JLabel JLb_AltaObj10;
     private javax.swing.JLabel JLb_AltaObj2;
     private javax.swing.JLabel JLb_AltaObj3;
     private javax.swing.JLabel JLb_AltaObj4;
@@ -1558,7 +1903,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel JLb_BuscarConsulta;
     private javax.swing.JLabel JLb_CantCeramicos;
     private javax.swing.JLabel JLb_CantLiticos;
+    private javax.swing.JLabel JLb_CargarCajas;
+    private javax.swing.JLabel JLb_CargarCuadricula;
     private javax.swing.JLabel JLb_CargarObjeto;
+    private javax.swing.JLabel JLb_CargarPersona;
+    private javax.swing.JLabel JLb_CargarSitio;
     private javax.swing.JLabel JLb_ImagenIzquierda;
     private javax.swing.JLabel JLb_MarcaDeAgua;
     private javax.swing.JPanel JPan_AltaCaja;
@@ -1600,6 +1949,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTextField JTF_ANombPer;
     private javax.swing.JTextField JTF_AOrig;
     private javax.swing.JTextField JTF_ATipExtObj;
+    private javax.swing.JTable JTab_DosFechas;
     private javax.swing.JTable JTable_CajasGeneral;
     private javax.swing.JTable JTable_CajasVacias;
     private javax.swing.JTable JTable_CuadriculasGeneral;
@@ -1632,6 +1982,8 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1640,9 +1992,11 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPan_CCantObjCaja;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpin_AAlto;
     private javax.swing.JSpinner jSpin_ACant;
     private javax.swing.JSpinner jSpin_ALargo;

@@ -554,16 +554,6 @@ public abstract class Query{
         
     }
     
-    public static boolean objetoExiste (String cod) throws SQLException {
-        String consulta = "SELECT COUNT(o_cod) FROM objetos WHERE o_cod = ?;";
-        
-        p_query = conn.prepareStatement(consulta);
-        p_query.setString(1, cod);
-        ResultSet rs = p_query.executeQuery();
-        
-        return rs.getInt(1) == 0;
-    }
-    
     public static void insertarObjeto (String cod, String nombre, String extraccion, float alto, float largo, float espesor, float peso, int cant, Date registro, String desc, String origen, String codAsociado, String codContiene, int dni, String especialidad) throws SQLException {
         
         //String a = ""+especialidad;
@@ -590,6 +580,59 @@ public abstract class Query{
         p_query.setString(13, codContiene);
         p_query.setInt(14, dni);
         p_query.setString(15,especialidad);
+        
+        p_query.executeUpdate();
+    }
+    
+    public static void insertarPersona (String nombre, String apellido, int dni, String email , int telefono) throws SQLException {
+
+        String consulta = "INSERT INTO Personas (P_Nombre, P_Apellido, P_Dni, P_Email, P_Telefono) VALUES (?, ?, ?, ?, ?);";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setString(1, nombre);
+        p_query.setString(2, apellido);
+        p_query.setFloat(3, dni);
+        p_query.setString(4, email);
+        p_query.setFloat(5, telefono);
+        
+        p_query.executeUpdate();
+    }
+    
+    public static void insertarSitio (String codSitio, String localidad) throws SQLException {
+
+        String consulta = "INSERT INTO Sitios (s_cod, s_localidad) VALUES (?, ?);";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setString(1, codSitio);
+        p_query.setString(2, localidad);
+        
+        p_query.executeUpdate();
+    }
+    
+    public static void insertarCuadricula (String codCuadricula, String codSitio) throws SQLException {
+
+        String consulta = "INSERT INTO Cuadriculas (cu_cod, s_cod_dividido) VALUES (?, ?);";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setString(1, codCuadricula);
+        p_query.setString(2, codSitio);
+        
+        p_query.executeUpdate();
+    }
+    
+    public static void insertarCaja (String codigo, Date fecha , String lugar) throws SQLException {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        
+        java.sql.Date fechaSql = new java.sql.Date(fecha.getTime());
+        
+        String consulta = "INSERT INTO cajas (ca_cod, ca_fecha, ca_lugar) VALUES (?, ?, ?);";
+        
+        p_query = conn.prepareStatement(consulta);
+        p_query.setString(1, codigo);
+        p_query.setDate(2,fechaSql);
+        p_query.setString(3, lugar);
         
         p_query.executeUpdate();
     }
