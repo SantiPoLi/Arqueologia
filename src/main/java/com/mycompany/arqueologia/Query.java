@@ -724,20 +724,27 @@ public abstract class Query{
         
         result = query.executeQuery("SELECT COUNT(*) AS cantPersonas FROM personas");
         
-        resultados [0] = result.getInt(cantPer);
+        if(result.next()){
+            resultados [0] = result.getInt(cantPer);
+        }
         
         result = query.executeQuery("SELECT COUNT(*) AS cantCuad FROM cuadriculas");
         
-        resultados [1] = result.getInt(cantCuad);
+        if(result.next()){
+            resultados [1] = result.getInt(cantCuad);
+        }
         
         result = query.executeQuery("SELECT COUNT(*) AS cantObj FROM objetos");
         
-        resultados [2] = result.getInt(cantObj);
+        if(result.next()){
+            resultados [2] = result.getInt(cantObj);
+        }
         
         result = query.executeQuery("SELECT COUNT(*) AS cantCajas FROM cajas");
         
+        if(result.next()){
         resultados [3] = result.getInt(cantCajas);
-        
+        }
         return resultados;
     }
     

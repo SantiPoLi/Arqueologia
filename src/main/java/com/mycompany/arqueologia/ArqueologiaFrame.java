@@ -190,6 +190,19 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JSP_PesoDeCajas = new javax.swing.JScrollPane();
         JTable_PesoDeCajas = new javax.swing.JTable();
         JPan_ResumenCantidades = new javax.swing.JPanel();
+        JLb_AltaObj11 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        JLab_ResCantCaja = new javax.swing.JLabel();
+        JLab_ResCantPer = new javax.swing.JLabel();
+        JLab_ResCantCuad = new javax.swing.JLabel();
+        JLab_ResCantObj = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         JPan_CajasVacias = new javax.swing.JPanel();
         JSP_CajasVacias = new javax.swing.JScrollPane();
         JTable_CajasVacias = new javax.swing.JTable();
@@ -1298,6 +1311,52 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_Contenedor.add(JPan_PesoDeCajas, "card14");
 
         JPan_ResumenCantidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLb_AltaObj11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JLb_AltaObj11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLb_AltaObj11.setText("Resumen de cantidades en el Sistema");
+        JPan_ResumenCantidades.add(JLb_AltaObj11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 620, 40));
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel31.setText("Cantidad de Personas: ");
+        JPan_ResumenCantidades.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel32.setText("Cantidad de Cuadrículas: ");
+        JPan_ResumenCantidades.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel33.setText("Cantidad de Objetos: ");
+        JPan_ResumenCantidades.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel34.setText("Cantidad de Cajas: ");
+        JPan_ResumenCantidades.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        JLab_ResCantCaja.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        JLab_ResCantCaja.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        JLab_ResCantCaja.setText("0");
+        JPan_ResumenCantidades.add(JLab_ResCantCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 130, -1));
+
+        JLab_ResCantPer.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        JLab_ResCantPer.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        JLab_ResCantPer.setText("0");
+        JPan_ResumenCantidades.add(JLab_ResCantPer, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 130, -1));
+
+        JLab_ResCantCuad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        JLab_ResCantCuad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        JLab_ResCantCuad.setText("0");
+        JPan_ResumenCantidades.add(JLab_ResCantCuad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 130, -1));
+
+        JLab_ResCantObj.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        JLab_ResCantObj.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        JLab_ResCantObj.setText("0");
+        JPan_ResumenCantidades.add(JLab_ResCantObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 130, -1));
+        JPan_ResumenCantidades.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 570, 10));
+        JPan_ResumenCantidades.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 570, 20));
+        JPan_ResumenCantidades.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 570, 20));
+        JPan_ResumenCantidades.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 570, 30));
+
         JPan_Contenedor.add(JPan_ResumenCantidades, "card15");
 
         JPan_CajasVacias.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1454,7 +1513,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                     JPan_Contenedor.revalidate();
                     break;
                 case ("Mostrar cantidad de objetos encontrados por su tipo"):
-                    System.out.println("lit "+Query.cantidadDeObjetosLiticos()+" cer "+Query.cantidadDeObjetosCeramicos());
+                    //System.out.println("lit "+Query.cantidadDeObjetosLiticos()+" cer "+Query.cantidadDeObjetosCeramicos());
                     String cantLit = ""+Query.cantidadDeObjetosLiticos();
                     String cantCer = ""+Query.cantidadDeObjetosCeramicos();
                     JLb_CantLiticos.setText(cantLit);
@@ -1465,9 +1524,26 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                     JPan_Contenedor.revalidate();
                     break;
                 case ("Resumen de cantidades cargadas en el sistema"):
+                    try {
+                        int cantidades[] = Query.mostrarResumenDeCantidades();
+                        String cantPer = ""+cantidades[0];
+                        JLab_ResCantPer.setText(cantPer);
+                        String cantCuad = ""+cantidades[1];
+                        JLab_ResCantCuad.setText(cantCuad);
+                        String cantObj = ""+cantidades[2];
+                        JLab_ResCantObj.setText(cantObj);
+                        String cantCaja = ""+cantidades[3];
+                        JLab_ResCantCaja.setText(cantCaja);
+                        JPan_Contenedor.removeAll();
+                        JPan_Contenedor.add(JPan_ResumenCantidades);
+                        JPan_Contenedor.repaint();
+                        JPan_Contenedor.revalidate();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ArqueologiaFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     
                     
-                    
+                    //
                     break;
                 case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
                     break;
@@ -1891,11 +1967,16 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCB_Consultas;
     private com.toedter.calendar.JDateChooser JDC_FFinal;
     private com.toedter.calendar.JDateChooser JDC_FInicial;
+    private javax.swing.JLabel JLab_ResCantCaja;
+    private javax.swing.JLabel JLab_ResCantCuad;
+    private javax.swing.JLabel JLab_ResCantObj;
+    private javax.swing.JLabel JLab_ResCantPer;
     private javax.swing.JLabel JLb_AltaCaja;
     private javax.swing.JLabel JLb_AltaCuadricula;
     private javax.swing.JLabel JLb_AltaObj;
     private javax.swing.JLabel JLb_AltaObj1;
     private javax.swing.JLabel JLb_AltaObj10;
+    private javax.swing.JLabel JLb_AltaObj11;
     private javax.swing.JLabel JLb_AltaObj2;
     private javax.swing.JLabel JLb_AltaObj3;
     private javax.swing.JLabel JLb_AltaObj4;
@@ -1994,6 +2075,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2006,6 +2091,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSpinner jSpin_AAlto;
     private javax.swing.JSpinner jSpin_ACant;
     private javax.swing.JSpinner jSpin_ALargo;
