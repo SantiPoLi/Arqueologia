@@ -181,6 +181,10 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         JPan_PesoDeCajas = new javax.swing.JPanel();
         JSP_PesoDeCajas = new javax.swing.JScrollPane();
         JTable_PesoDeCajas = new javax.swing.JTable();
+        JPan_ResumenCantidades = new javax.swing.JPanel();
+        JPan_CajasVacias = new javax.swing.JPanel();
+        JSP_CajasVacias = new javax.swing.JScrollPane();
+        JTable_CajasVacias = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1151,9 +1155,31 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
         ));
         JSP_PesoDeCajas.setViewportView(JTable_PesoDeCajas);
 
-        JPan_PesoDeCajas.add(JSP_PesoDeCajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 390, 350));
+        JPan_PesoDeCajas.add(JSP_PesoDeCajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 390, 350));
 
         JPan_Contenedor.add(JPan_PesoDeCajas, "card14");
+
+        JPan_ResumenCantidades.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPan_Contenedor.add(JPan_ResumenCantidades, "card15");
+
+        JPan_CajasVacias.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JTable_CajasVacias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JSP_CajasVacias.setViewportView(JTable_CajasVacias);
+
+        JPan_CajasVacias.add(JSP_CajasVacias, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+
+        JPan_Contenedor.add(JPan_CajasVacias, "card16");
 
         getContentPane().add(JPan_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 420));
 
@@ -1283,6 +1309,9 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
                     JPan_Contenedor.revalidate();
                     break;
                 case ("Resumen de cantidades cargadas en el sistema"):
+                    
+                    
+                    
                     break;
                 case ("Mostrar cantidad de hallazgos de cada arqueólogo"):
                     break;
@@ -1540,13 +1569,16 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JPanel JPan_Altas;
     private javax.swing.JPanel JPan_CDetCaja;
     private javax.swing.JPanel JPan_CObjetosEntreDosFechas;
+    private javax.swing.JPanel JPan_CajasVacias;
     private javax.swing.JPanel JPan_Consultas;
     private javax.swing.JPanel JPan_Contenedor;
     private javax.swing.JPanel JPan_Header;
     private javax.swing.JPanel JPan_Listas;
     private javax.swing.JPanel JPan_MenuPrincipal;
     private javax.swing.JPanel JPan_PesoDeCajas;
+    private javax.swing.JPanel JPan_ResumenCantidades;
     private javax.swing.JScrollPane JSP_CajasGeneral;
+    private javax.swing.JScrollPane JSP_CajasVacias;
     private javax.swing.JScrollPane JSP_CuadriculasGeneral;
     private javax.swing.JScrollPane JSP_ObjetosGeneral;
     private javax.swing.JScrollPane JSP_PersonasGeneral;
@@ -1569,6 +1601,7 @@ public class ArqueologiaFrame extends javax.swing.JFrame {
     private javax.swing.JTextField JTF_AOrig;
     private javax.swing.JTextField JTF_ATipExtObj;
     private javax.swing.JTable JTable_CajasGeneral;
+    private javax.swing.JTable JTable_CajasVacias;
     private javax.swing.JTable JTable_CuadriculasGeneral;
     private javax.swing.JTable JTable_ObjetosGeneral;
     private javax.swing.JTable JTable_PersonasGeneral;
